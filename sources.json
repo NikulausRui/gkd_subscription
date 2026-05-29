@@ -1,0 +1,32 @@
+[
+  {
+    "name": "aoguai",
+    "repo": "https://github.com/aoguai/subscription.git",
+    "branch": "custom",
+    "dist": "dist/aoguai_gkd.json5"
+  },
+  {
+    "name": "ganlinte",
+    "repo": "https://github.com/ganlinte/GKD-subscription.git",
+    "branch": "main",
+    "dist": "dist/ganlin_gkd.json5"
+  },
+  {
+    "name": "MengNianxiaoyao",
+    "repo": "https://github.com/MengNianxiaoyao/gkd-subscription.git",
+    "branch": "main",
+    "dist": "dist/gkd.json5"
+  },
+  {
+    "name": "jiuqianyuan",
+    "repo": "https://github.com/jiuqianyuan/GKD_subscription.git",
+    "branch": "main",
+    "dist": "dist/gkd.json5"
+  },
+  {
+    "name": "mrlctate",
+    "repo": "https://github.com/mrlctate/gkd-mrlc.git",
+    "branch": "main",
+    "dist": "dist/gkd.json5"
+  }
+]

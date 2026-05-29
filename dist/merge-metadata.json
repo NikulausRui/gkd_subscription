@@ -1,0 +1,390 @@
+{
+  "generatedAt": "2026-05-29T13:54:52.757Z",
+  "installedPackageCount": 563,
+  "selectedAppCount": 28,
+  "sources": [
+    {
+      "source": "aoguai",
+      "dist": ".cache\\gkd-repos\\aoguai-custom\\dist\\aoguai_gkd.json5",
+      "subscription": "奥怪的GKD订阅",
+      "version": 85,
+      "apps": 72,
+      "matched": 11,
+      "selected": 11
+    },
+    {
+      "source": "ganlinte",
+      "dist": ".cache\\gkd-repos\\ganlinte-main\\dist\\ganlin_gkd.json5",
+      "subscription": "甘霖的GKD订阅",
+      "version": 70,
+      "apps": 609,
+      "matched": 22,
+      "selected": 22
+    },
+    {
+      "source": "MengNianxiaoyao",
+      "dist": ".cache\\gkd-repos\\MengNianxiaoyao-main\\dist\\gkd.json5",
+      "subscription": "梦念逍遥のGKD订阅",
+      "version": 74,
+      "apps": 285,
+      "matched": 23,
+      "selected": 3
+    },
+    {
+      "source": "jiuqianyuan",
+      "dist": ".cache\\gkd-repos\\jiuqianyuan-main\\dist\\gkd.json5",
+      "subscription": "九千院的GKD订阅",
+      "version": 9,
+      "apps": 776,
+      "matched": 27,
+      "selected": 2
+    },
+    {
+      "source": "mrlctate",
+      "dist": ".cache\\gkd-repos\\mrlctate-main\\dist\\gkd.json5",
+      "subscription": "Mrlc的战神—天下无敌",
+      "version": 75,
+      "apps": 693,
+      "matched": 27,
+      "selected": 3
+    }
+  ],
+  "selectedSources": [
+    {
+      "id": "com.android.providers.downloads.ui",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 1,
+        "rules": 1,
+        "urls": 1,
+        "score": 1033
+      }
+    },
+    {
+      "id": "com.android.vending",
+      "source": "MengNianxiaoyao",
+      "subscription": "梦念逍遥のGKD订阅",
+      "timestamp": 1779201621,
+      "richness": {
+        "groups": 2,
+        "rules": 3,
+        "urls": 9,
+        "score": 2117
+      }
+    },
+    {
+      "id": "com.autonavi.minimap",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 5,
+        "rules": 6,
+        "urls": 9,
+        "score": 5207
+      }
+    },
+    {
+      "id": "com.dragon.read",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 11,
+        "rules": 24,
+        "urls": 57,
+        "score": 11891
+      }
+    },
+    {
+      "id": "com.eg.android.AlipayGphone",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 7,
+        "rules": 14,
+        "urls": 17,
+        "score": 7471
+      }
+    },
+    {
+      "id": "com.google.android.apps.photos",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 2,
+        "rules": 2,
+        "urls": 2,
+        "score": 2066
+      }
+    },
+    {
+      "id": "com.google.android.apps.youtube.music",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 1,
+        "rules": 1,
+        "urls": 1,
+        "score": 1033
+      }
+    },
+    {
+      "id": "com.google.android.documentsui",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 1,
+        "rules": 2,
+        "urls": 2,
+        "score": 1066
+      }
+    },
+    {
+      "id": "com.google.android.gm",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 1,
+        "rules": 5,
+        "urls": 7,
+        "score": 1171
+      }
+    },
+    {
+      "id": "com.google.android.gms",
+      "source": "MengNianxiaoyao",
+      "subscription": "梦念逍遥のGKD订阅",
+      "timestamp": 1779201621,
+      "richness": {
+        "groups": 1,
+        "rules": 2,
+        "urls": 4,
+        "score": 1072
+      }
+    },
+    {
+      "id": "com.google.android.packageinstaller",
+      "source": "MengNianxiaoyao",
+      "subscription": "梦念逍遥のGKD订阅",
+      "timestamp": 1779201621,
+      "richness": {
+        "groups": 2,
+        "rules": 5,
+        "urls": 10,
+        "score": 2180
+      }
+    },
+    {
+      "id": "com.google.android.youtube",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 4,
+        "rules": 5,
+        "urls": 8,
+        "score": 4174
+      }
+    },
+    {
+      "id": "com.gotokeep.keep",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 5,
+        "rules": 6,
+        "urls": 7,
+        "score": 5201
+      }
+    },
+    {
+      "id": "com.jingdong.app.mall",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 10,
+        "rules": 15,
+        "urls": 25,
+        "score": 10525
+      }
+    },
+    {
+      "id": "com.luna.music",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 2,
+        "rules": 4,
+        "urls": 10,
+        "score": 2150
+      }
+    },
+    {
+      "id": "com.netease.cloudmusic",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 11,
+        "rules": 23,
+        "urls": 36,
+        "score": 11798
+      }
+    },
+    {
+      "id": "com.qihoo.smart",
+      "source": "mrlctate",
+      "subscription": "Mrlc的战神—天下无敌",
+      "timestamp": 1778293981,
+      "richness": {
+        "groups": 1,
+        "rules": 1,
+        "urls": 2,
+        "score": 1036
+      }
+    },
+    {
+      "id": "com.sec.android.app.samsungapps",
+      "source": "mrlctate",
+      "subscription": "Mrlc的战神—天下无敌",
+      "timestamp": 1778293981,
+      "richness": {
+        "groups": 2,
+        "rules": 2,
+        "urls": 4,
+        "score": 2072
+      }
+    },
+    {
+      "id": "com.ss.android.article.news",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 8,
+        "rules": 16,
+        "urls": 28,
+        "score": 8564
+      }
+    },
+    {
+      "id": "com.ss.android.ugc.aweme",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 14,
+        "rules": 21,
+        "urls": 25,
+        "score": 14705
+      }
+    },
+    {
+      "id": "com.sup.android.superb",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 4,
+        "rules": 4,
+        "urls": 4,
+        "score": 4132
+      }
+    },
+    {
+      "id": "com.tencent.mm",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 21,
+        "rules": 39,
+        "urls": 69,
+        "score": 22377
+      }
+    },
+    {
+      "id": "com.tencent.weread",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 2,
+        "rules": 2,
+        "urls": 3,
+        "score": 2069
+      }
+    },
+    {
+      "id": "com.twitter.android",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 5,
+        "rules": 13,
+        "urls": 22,
+        "score": 5456
+      }
+    },
+    {
+      "id": "com.ximalaya.ting.android",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 13,
+        "rules": 20,
+        "urls": 29,
+        "score": 13687
+      }
+    },
+    {
+      "id": "com.xingin.xhs",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 3,
+        "rules": 6,
+        "urls": 10,
+        "score": 3210
+      }
+    },
+    {
+      "id": "com.yuque.mobile.android.app",
+      "source": "ganlinte",
+      "subscription": "甘霖的GKD订阅",
+      "timestamp": 1779671610,
+      "richness": {
+        "groups": 2,
+        "rules": 2,
+        "urls": 2,
+        "score": 2066
+      }
+    },
+    {
+      "id": "com.zhiliaoapp.musically",
+      "source": "mrlctate",
+      "subscription": "Mrlc的战神—天下无敌",
+      "timestamp": 1778293981,
+      "richness": {
+        "groups": 3,
+        "rules": 4,
+        "urls": 5,
+        "score": 3135
+      }
+    }
+  ]
+}

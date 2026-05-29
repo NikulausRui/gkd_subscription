@@ -1,0 +1,38 @@
+name: Merge GKD subscription
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 20 * * *'
+  push:
+    branches:
+      - '**'
+
+permissions:
+  contents: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Enable pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+
+      - name: Merge subscriptions
+        run: node scripts/merge-gkd.mjs --packages packages_all.txt --out dist --workdir .cache/gkd-repos
+
+      - name: Commit updated dist
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: update merged GKD subscription'
+          file_pattern: 'dist/*.json5 dist/merge-metadata.json'

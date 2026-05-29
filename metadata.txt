@@ -1,0 +1,5 @@
+﻿generated_at=2026-05-29 21:37:47 +08:00
+adb=C:\Users\gaear\Downloads\Compressed\adb-fastboot\adb.exe
+device=R
+packages_all_count=563
+packages_user_installed_count=88
