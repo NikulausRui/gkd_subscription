@@ -2,11 +2,15 @@ name: Merge GKD subscription
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '20 20 * * *'
   push:
     branches:
-      - '**'
+      - main
+    paths:
+      - 'packages_all.txt'
+      - 'sources.json'
+      - 'scripts/merge-gkd.mjs'
+  schedule:
+    - cron: '20 20 * * *'
 
 permissions:
   contents: write

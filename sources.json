@@ -1,5 +1,15 @@
 [
   {
+    "name": "AIsouler",
+    "repo": "https://github.com/AIsouler/GKD_subscription.git",
+    "branch": "main",
+    "dist": "dist/AIsouler_gkd.json5",
+    "globalGroupsBase": true,
+    "preferApps": [
+      "com.sec.android.app.samsungapps"
+    ]
+  },
+  {
     "name": "aoguai",
     "repo": "https://github.com/aoguai/subscription.git",
     "branch": "custom",

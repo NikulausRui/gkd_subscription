@@ -1,14 +1,15 @@
 {
   "id": 9527,
   "name": "GKD 手机应用精简合并订阅",
-  "version": 20260529,
+  "version": 20260530,
   "author": "local-merge",
   "checkUpdateUrl": "./merged-gkd.version.json5",
   "supportUri": "https://github.com/",
   "categories": [
     {
       "key": 0,
-      "name": "开屏广告"
+      "name": "开屏广告",
+      "enable": true
     },
     {
       "key": 1,
@@ -61,14 +62,700 @@
       "enable": false
     }
   ],
-  "globalGroups": [],
+  "globalGroups": [
+    {
+      "key": 0,
+      "name": "开屏广告-全局",
+      "desc": "关闭打开应用时的开屏广告",
+      "order": -10,
+      "fastQuery": true,
+      "matchTime": 10000,
+      "actionMaximum": 2,
+      "resetMatch": "app",
+      "forcedTime": 10000,
+      "actionCdKey": 0,
+      "actionMaximumKey": 0,
+      "priorityTime": 10000,
+      "disableIfAppGroupMatch": "开屏广告",
+      "rules": [
+        {
+          "key": 0,
+          "excludeMatches": "([text*=\"搜索\" || text=\"历史记录\" || text$=\"在搜\"][text.length>3 && text.length<7][visibleToUser=true]) || ([text=\"Submit\" || text*=\"阅读并同意\" || text=\"书签\" || text=\"NEXT\"][visibleToUser=true]) || ([text$=\"设置\" || text$=\"选好了\" || text^=\"下一步\" || text^=\"完成\" || text*=\"跳过片\"][text.length<10][visibleToUser=true]) || ([text^=\"选择\"][text*=\"偏好\" || text*=\"兴趣\" || text*=\"喜好\"][text.length<10][visibleToUser=true])",
+          "anyMatches": [
+            "[text*=\"跳过\"][text.length<10][width<500 && height<300][visibleToUser=true]",
+            "@[name$=\"View\" || name$=\"LinearLayout\"][clickable=true][childCount<2][width<300 && height<200] - [text=\"互动广告\"][visibleToUser=true]",
+            "[childCount=0][visibleToUser=true][width<500 && height<300][(text.length<10 && (text*=\"跳过\" || text*=\"跳 过\" || text*=\"跳過\" || text~=\"(?is).*skip.*\") && text!*=\"视频\" && text!*=\"片头\" && text!*=\"片尾\") || (vid~=\"(?is).*skip.*\" && vid!~=\"(?is).*video.*\" && vid!~=\"(?is).*head.*\" && vid!~=\"(?is).*tail.*\" && !(text=\"帮助\") && !(text=\"取消\") && !(text*=\"退出\")) || id$=\"tt_splash_skip_btn\" || (desc.length<10 && (desc*=\"跳过\" || desc*=\"跳過\" || desc~=\"(?is).*skip.*\"))]"
+          ],
+          "snapshotUrls": [
+            "https://i.gkd.li/i/21617612",
+            "https://i.gkd.li/i/23557410",
+            "https://i.gkd.li/i/13421452",
+            "https://i.gkd.li/i/24097095",
+            "https://i.gkd.li/i/24766641",
+            "https://i.gkd.li/i/24330969",
+            "https://i.gkd.li/i/24541384",
+            "https://i.gkd.li/i/24588777"
+          ],
+          "excludeSnapshotUrls": [
+            "https://i.gkd.li/i/15079224",
+            "https://i.gkd.li/i/17108010",
+            "https://i.gkd.li/i/18265000",
+            "https://i.gkd.li/i/19952277",
+            "https://i.gkd.li/i/20946730",
+            "https://i.gkd.li/i/20949002",
+            "https://i.gkd.li/i/21617520",
+            "https://i.gkd.li/i/22634992",
+            "https://i.gkd.li/i/23051921",
+            "https://i.gkd.li/i/23742770",
+            "https://i.gkd.li/i/23743049",
+            "https://i.gkd.li/i/23052289",
+            "https://i.gkd.li/i/23122415",
+            "https://i.gkd.li/i/23225609",
+            "https://i.gkd.li/i/23741801",
+            "https://i.gkd.li/i/23741779",
+            "https://i.gkd.li/i/25039297"
+          ]
+        },
+        {
+          "key": 1,
+          "anyMatches": [
+            "@View[text=null][clickable=true][childCount=0][visibleToUser=true][width<200&&height<200] +(1,2) TextView[index=parent.childCount.minus(1)][childCount=0] <n FrameLayout[childCount>2][text=null][desc=null] >(n+6) [text*=\"第三方应用\" || text*=\"扭动手机\" || text*=\"点击或上滑\" || text*=\"省钱好物\" || text*=\"扭一扭\"][visibleToUser=true]",
+            "FrameLayout > FrameLayout[childCount>2][text=null][desc=null] > @View[text=null][clickable=true][childCount=0][visibleToUser=true][width<200&&height<200] +(1,2) TextView[index=parent.childCount.minus(1)][childCount=0][visibleToUser=true]"
+          ],
+          "snapshotUrls": [
+            "https://i.gkd.li/i/19685971",
+            "https://i.gkd.li/i/19701216",
+            "https://i.gkd.li/i/20262130",
+            "https://i.gkd.li/i/20768349",
+            "https://i.gkd.li/i/20883248",
+            "https://i.gkd.li/i/23549504"
+          ]
+        }
+      ],
+      "apps": [
+        {
+          "id": "com.tencent.mm",
+          "enable": false
+        },
+        {
+          "id": "li.songe.gkd",
+          "enable": false
+        },
+        {
+          "id": "com.eg.android.AlipayGphone",
+          "enable": false
+        },
+        {
+          "id": "com.github.android",
+          "enable": false
+        },
+        {
+          "id": "org.telegram.messenger",
+          "enable": false
+        },
+        {
+          "id": "com.twitter.android",
+          "enable": false
+        },
+        {
+          "id": "moe.shizuku.privileged.api",
+          "enable": false
+        },
+        {
+          "id": "moe.nb4a",
+          "enable": false
+        },
+        {
+          "id": "com.v2ray.ang",
+          "enable": false
+        },
+        {
+          "id": "com.android.chrome",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.youtube",
+          "enable": false
+        },
+        {
+          "id": "com.microsoft.office.officehubrow",
+          "enable": false
+        },
+        {
+          "id": "com.microsoft.office.outlook",
+          "enable": false
+        },
+        {
+          "id": "deltazero.amarok",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.apps.maps",
+          "enable": false
+        },
+        {
+          "id": "com.zhiliaoapp.musically",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.memoryguardian",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.game.gamehome",
+          "enable": false
+        },
+        {
+          "id": "com.sec.android.app.sbrowser",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.documentsui",
+          "enable": false
+        },
+        {
+          "id": "com.android.settings",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.googlequicksearchbox",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.bixby.agent",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.gms",
+          "enable": false
+        },
+        {
+          "id": "com.android.vending",
+          "enable": false
+        },
+        {
+          "id": "com.android.traceur",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.app.cameraassistant",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.app.galaxyraw",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.appbooster",
+          "enable": false
+        },
+        {
+          "id": "com.android.samsung.utilityapp",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.goodlock",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.thermalguardian",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.calendar",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.app.notes",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.app.watchmanager",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.app.reminder",
+          "enable": false
+        },
+        {
+          "id": "com.sec.android.app.voicenote",
+          "enable": false
+        },
+        {
+          "id": "com.sec.android.app.clockpackage",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.contactkeys",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.safetycore",
+          "enable": false
+        }
+      ]
+    },
+    {
+      "key": 1,
+      "name": "更新提示-全局",
+      "desc": "关闭应用的更新弹窗",
+      "order": -9,
+      "fastQuery": true,
+      "matchTime": 10000,
+      "actionMaximum": 1,
+      "resetMatch": "app",
+      "disableIfAppGroupMatch": "更新提示",
+      "rules": [
+        {
+          "key": 0,
+          "excludeMatches": "([text*=\"全部\"][text*=\"更新\" || text*=\"忽略\"][text.length<7][visibleToUser=true]) || ([text^=\"继续\" || text^=\"仍然\" || text*=\"权限\"][text.length<6][visibleToUser=true]) || ([text*=\"来源\"][visibleToUser=true])",
+          "matches": [
+            "[text*=\"内测\" || text*=\"测试版\" || text*=\"新版\" || text*=\"更新\" || text*=\"升级\" || text*=\"体验\" || text*=\"內測\" || text*=\"測試版\" || text*=\"升級\" || text*=\"體驗\" || text*=\"Update\" || text*=\"Upgrade\" || text*=\"Experience\"][text!*=\"自动\" && text!*=\"自動\" && text!*=\"成功\" && text!*=\"失败\" && text!*=\"失敗\" && text!*=\"检查更新\" && text!*=\"检测更新\" && text!*=\"卸载\"][childCount=0][visibleToUser=true]",
+            "[text*=\"更新\" || text*=\"下载\" || text*=\"安装\" || text*=\"升级\" || text*=\"查看\" || text*=\"体验\" || text*=\"确定\" || text*=\"确认\" || text*=\"应用市场\"][text.length<6][childCount=0][visibleToUser=true]",
+            "([text*=\"不再提醒\" || text$=\"再说\" || text$=\"拒绝\" || text$=\"再想想\" || text*=\"再看看\" || text^=\"忽略\" || text^=\"暂不\" || text^=\"放弃\" || text^=\"取消\" || text$=\"不要\" || text$=\"再說\" || text$=\"暫不\" || text$=\"拒絕\" || text*=\"稍后\" || text^=\"关闭\" || text$=\"Later\" || text^=\"Ignore\" || text^=\"Not now\" || text^=\"Cancel\"][!(text*=\"取消\"&&text*=\"忽略\")][text.length<6][childCount=0][visibleToUser=true]) || ([vid=\"closeIv\" || vid=\"iv_close\" || vid=\"iv_cancel\" || vid=\"close\" || vid=\"Close\" || vid=\"img_close\" || vid=\"btn_close\" || vid=\"ivCancel\" || vid=\"tvCancel\" || vid=\"cancel\" || vid=\"Cancel\" || vid=\"ivClose\" || vid=\"imgClose\" || vid=\"iv_negative\" || vid=\"update_close_icon\"][childCount=0][visibleToUser=true])"
+          ],
+          "snapshotUrls": "https://i.gkd.li/i/24158267",
+          "excludeSnapshotUrls": [
+            "https://i.gkd.li/i/17710149",
+            "https://i.gkd.li/i/19605413",
+            "https://i.gkd.li/i/19918544",
+            "https://i.gkd.li/i/20033908",
+            "https://i.gkd.li/i/16487278",
+            "https://i.gkd.li/i/16487282",
+            "https://i.gkd.li/i/16550275",
+            "https://i.gkd.li/i/20053957"
+          ]
+        }
+      ],
+      "apps": [
+        {
+          "id": "com.tencent.mm",
+          "enable": false
+        },
+        {
+          "id": "li.songe.gkd",
+          "enable": false
+        },
+        {
+          "id": "com.eg.android.AlipayGphone",
+          "enable": false
+        },
+        {
+          "id": "com.github.android",
+          "enable": false
+        },
+        {
+          "id": "org.telegram.messenger",
+          "enable": false
+        },
+        {
+          "id": "com.twitter.android",
+          "enable": false
+        },
+        {
+          "id": "moe.shizuku.privileged.api",
+          "enable": false
+        },
+        {
+          "id": "moe.nb4a",
+          "enable": false
+        },
+        {
+          "id": "com.v2ray.ang",
+          "enable": false
+        },
+        {
+          "id": "com.android.chrome",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.youtube",
+          "enable": false
+        },
+        {
+          "id": "com.microsoft.office.officehubrow",
+          "enable": false
+        },
+        {
+          "id": "com.microsoft.office.outlook",
+          "enable": false
+        },
+        {
+          "id": "deltazero.amarok",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.apps.maps",
+          "enable": false
+        },
+        {
+          "id": "com.zhiliaoapp.musically",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.memoryguardian",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.game.gamehome",
+          "enable": false
+        },
+        {
+          "id": "com.sec.android.app.sbrowser",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.documentsui",
+          "enable": false
+        },
+        {
+          "id": "com.android.settings",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.googlequicksearchbox",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.bixby.agent",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.gms",
+          "enable": false
+        },
+        {
+          "id": "com.android.vending",
+          "enable": false
+        },
+        {
+          "id": "com.android.traceur",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.app.cameraassistant",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.app.galaxyraw",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.appbooster",
+          "enable": false
+        },
+        {
+          "id": "com.android.samsung.utilityapp",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.goodlock",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.thermalguardian",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.calendar",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.app.notes",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.app.watchmanager",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.app.reminder",
+          "enable": false
+        },
+        {
+          "id": "com.sec.android.app.voicenote",
+          "enable": false
+        },
+        {
+          "id": "com.sec.android.app.clockpackage",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.contactkeys",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.safetycore",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.packageinstaller",
+          "enable": false
+        },
+        {
+          "id": "com.jingdong.app.mall",
+          "enable": false
+        }
+      ]
+    },
+    {
+      "key": 2,
+      "name": "青少年模式-全局",
+      "desc": "关闭应用的青少年模式弹窗",
+      "order": -8,
+      "fastQuery": true,
+      "matchTime": 10000,
+      "actionMaximum": 1,
+      "resetMatch": "app",
+      "disableIfAppGroupMatch": "青少年模式",
+      "rules": [
+        {
+          "key": 0,
+          "matches": [
+            "[text*=\"青少年\" || text*=\"未成年\" || text*=\"儿童\"][text*=\"模式\" || text*=\"守护\"][text.length<15][childCount=0][visibleToUser=true]",
+            "[text*=\"知道了\" || text*=\"我已知晓\" || text*=\"已满\" || text*=\"不再提醒\"][text.length<8][childCount=0][visibleToUser=true]"
+          ]
+        }
+      ],
+      "apps": [
+        {
+          "id": "com.tencent.mm",
+          "enable": false
+        },
+        {
+          "id": "li.songe.gkd",
+          "enable": false
+        },
+        {
+          "id": "com.eg.android.AlipayGphone",
+          "enable": false
+        },
+        {
+          "id": "com.github.android",
+          "enable": false
+        },
+        {
+          "id": "org.telegram.messenger",
+          "enable": false
+        },
+        {
+          "id": "com.twitter.android",
+          "enable": false
+        },
+        {
+          "id": "moe.shizuku.privileged.api",
+          "enable": false
+        },
+        {
+          "id": "moe.nb4a",
+          "enable": false
+        },
+        {
+          "id": "com.v2ray.ang",
+          "enable": false
+        },
+        {
+          "id": "com.android.chrome",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.youtube",
+          "enable": false
+        },
+        {
+          "id": "com.microsoft.office.officehubrow",
+          "enable": false
+        },
+        {
+          "id": "com.microsoft.office.outlook",
+          "enable": false
+        },
+        {
+          "id": "deltazero.amarok",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.apps.maps",
+          "enable": false
+        },
+        {
+          "id": "com.zhiliaoapp.musically",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.memoryguardian",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.game.gamehome",
+          "enable": false
+        },
+        {
+          "id": "com.sec.android.app.sbrowser",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.documentsui",
+          "enable": false
+        },
+        {
+          "id": "com.android.settings",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.googlequicksearchbox",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.bixby.agent",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.gms",
+          "enable": false
+        },
+        {
+          "id": "com.android.vending",
+          "enable": false
+        },
+        {
+          "id": "com.android.traceur",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.app.cameraassistant",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.app.galaxyraw",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.appbooster",
+          "enable": false
+        },
+        {
+          "id": "com.android.samsung.utilityapp",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.goodlock",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.thermalguardian",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.calendar",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.app.notes",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.app.watchmanager",
+          "enable": false
+        },
+        {
+          "id": "com.samsung.android.app.reminder",
+          "enable": false
+        },
+        {
+          "id": "com.sec.android.app.voicenote",
+          "enable": false
+        },
+        {
+          "id": "com.sec.android.app.clockpackage",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.contactkeys",
+          "enable": false
+        },
+        {
+          "id": "com.google.android.safetycore",
+          "enable": false
+        },
+        {
+          "id": "com.netease.cloudmusic",
+          "enable": false
+        },
+        {
+          "id": "com.luna.music",
+          "enable": false
+        },
+        {
+          "id": "com.autonavi.minimap",
+          "enable": false
+        },
+        {
+          "id": "com.jingdong.app.mall",
+          "enable": false
+        },
+        {
+          "id": "com.xingin.xhs",
+          "enable": false
+        }
+      ]
+    }
+  ],
   "apps": [
+    {
+      "id": "android",
+      "name": "Android 系统",
+      "groups": [
+        {
+          "key": 1,
+          "name": "功能类-app无响应-关闭",
+          "desc": "点击关闭",
+          "rules": [
+            {
+              "fastQuery": true,
+              "matches": [
+                "[text$=\"没有响应\" || text*=\"无响应\"]",
+                "[vid=\"aerr_close\"][text=\"确定\" || text=\"关闭应用\"][clickable=true]"
+              ],
+              "snapshotUrls": [
+                "https://i.gkd.li/i/24468450",
+                "https://i.gkd.li/i/24992555"
+              ],
+              "exampleUrls": "https://e.gkd.li/c87754c4-6fe1-4567-97c3-c74c8db3d561"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "com.android.chrome",
+      "name": "Chrome",
+      "groups": [
+        {
+          "key": 1,
+          "name": "功能类-文件可能有害-点击[仍然下载]",
+          "desc": "警告⚠️：会跳过有害文件警告，请谨慎开启",
+          "rules": [
+            {
+              "fastQuery": true,
+              "activityIds": "org.chromium.chrome.browser.ChromeTabbedActivity",
+              "matches": [
+                "[text=\"文件可能有害\"][visibleToUser=true]",
+                "[text=\"仍然下载\"][visibleToUser=true]"
+              ],
+              "exampleUrls": "https://e.gkd.li/7fd28568-a614-4dea-8928-56a20c5780b6",
+              "snapshotUrls": "https://i.gkd.li/i/24863365"
+            }
+          ]
+        }
+      ]
+    },
     {
       "id": "com.android.providers.downloads.ui",
       "name": "下载管理",
       "groups": [
         {
-          "key": 0,
+          "key": 1,
           "name": "更新提示",
           "matchTime": 10000,
           "actionMaximum": 1,
@@ -81,11 +768,113 @@
       ]
     },
     {
+      "id": "com.android.systemui",
+      "name": "系统界面",
+      "groups": [
+        {
+          "key": 1,
+          "name": "功能类-自动允许网易云音乐共享整个屏幕",
+          "fastQuery": true,
+          "activityIds": ".mediaprojection.permission.MediaProjectionPermissionActivity",
+          "rules": [
+            {
+              "key": 1,
+              "matches": [
+                "[text=\"要与“网易云音乐”共享屏幕吗？\"]",
+                "[vid=\"screen_share_mode_spinner\"][clickable=true]"
+              ],
+              "snapshotUrls": "https://i.gkd.li/i/23451390"
+            },
+            {
+              "preKeys": [
+                1
+              ],
+              "key": 2,
+              "matches": "@[clickable=true] > [text=\"共享整个屏幕\"]",
+              "snapshotUrls": "https://i.gkd.li/i/23451403"
+            },
+            {
+              "preKeys": [
+                2
+              ],
+              "key": 3,
+              "matches": "Button[text=\"共享屏幕\"][clickable=true]",
+              "snapshotUrls": "https://i.gkd.li/i/23451416"
+            }
+          ]
+        },
+        {
+          "key": 2,
+          "name": "功能类-自动允许白描共享整个屏幕",
+          "fastQuery": true,
+          "activityIds": ".mediaprojection.permission.MediaProjectionPermissionActivity",
+          "rules": [
+            {
+              "key": 1,
+              "matches": [
+                "[text=\"要与“白描”共享屏幕吗？\"]",
+                "[vid=\"screen_share_mode_spinner\"][clickable=true]"
+              ],
+              "snapshotUrls": "https://i.gkd.li/i/23451390"
+            },
+            {
+              "preKeys": [
+                1
+              ],
+              "key": 2,
+              "matches": "@[clickable=true] > [text=\"共享整个屏幕\"]",
+              "snapshotUrls": "https://i.gkd.li/i/23451403"
+            },
+            {
+              "preKeys": [
+                2
+              ],
+              "key": 3,
+              "matches": "Button[text=\"共享屏幕\"][clickable=true]",
+              "snapshotUrls": "https://i.gkd.li/i/23451416"
+            }
+          ]
+        },
+        {
+          "key": 3,
+          "name": "功能类-自动允许QQ音乐共享整个屏幕",
+          "fastQuery": true,
+          "activityIds": ".mediaprojection.permission.MediaProjectionPermissionActivity",
+          "rules": [
+            {
+              "key": 1,
+              "matches": [
+                "[text=\"要与“QQ音乐”共享屏幕吗？\"]",
+                "[vid=\"screen_share_mode_spinner\"][clickable=true]"
+              ],
+              "snapshotUrls": "https://i.gkd.li/i/23451390"
+            },
+            {
+              "preKeys": [
+                1
+              ],
+              "key": 2,
+              "matches": "@[clickable=true] > [text=\"共享整个屏幕\"]",
+              "snapshotUrls": "https://i.gkd.li/i/23451403"
+            },
+            {
+              "preKeys": [
+                2
+              ],
+              "key": 3,
+              "matches": "Button[text=\"共享屏幕\"][clickable=true]",
+              "snapshotUrls": "https://i.gkd.li/i/23451416"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "com.android.vending",
       "name": "Google Play 商店",
       "groups": [
         {
-          "key": 0,
+          "key": 1,
           "name": "功能类-Play保护机制弹窗",
           "desc": "点击[不发送]/[拒绝]",
           "rules": [
@@ -101,7 +890,7 @@
           "enable": false
         },
         {
-          "key": 1,
+          "key": 2,
           "name": "全屏广告-弹窗广告",
           "desc": "点击[以后再说]/[不用了]",
           "fastQuery": true,
@@ -143,7 +932,7 @@
       "name": "高德地图",
       "groups": [
         {
-          "key": 0,
+          "key": 1,
           "name": "更新提示",
           "actionMaximum": 1,
           "resetMatch": "app",
@@ -166,7 +955,7 @@
         },
         {
           "enable": false,
-          "key": 1,
+          "key": 4,
           "name": "功能类-截屏分享",
           "desc": "关闭截屏时app弹出的分享弹窗",
           "activityIds": "com.autonavi.map.activity.NewMapActivity",
@@ -174,7 +963,7 @@
           "snapshotUrls": "https://i.gkd.li/import/13473388"
         },
         {
-          "key": 2,
+          "key": 10,
           "name": "局部广告-首页-地图页面上方消息提醒",
           "activityIds": "com.autonavi.map.activity.NewMapActivity",
           "rules": "RelativeLayout[desc=\"弹窗\"] > [id=\"com.autonavi.minimap:id/msgbox_popup_clear\"]",
@@ -183,7 +972,7 @@
         },
         {
           "enable": false,
-          "key": 3,
+          "key": 11,
           "name": "功能类-首页-签到卡片",
           "desc": "点击【x】",
           "actionMaximum": 1,
@@ -199,7 +988,7 @@
         },
         {
           "enable": false,
-          "key": 4,
+          "key": 12,
           "name": "全屏广告-加油页面-优惠券弹窗",
           "activityIds": "com.autonavi.map.activity.NewMapActivity",
           "rules": "@ImageView < [desc=\"关闭\"][clickable=true] - ViewGroup > ViewGroup > ViewGroup > View[text=\"立即领取\"]",
@@ -214,7 +1003,7 @@
       "name": "番茄免费小说",
       "groups": [
         {
-          "key": 0,
+          "key": 1,
           "name": "更新提示",
           "fastQuery": true,
           "resetMatch": "app",
@@ -229,7 +1018,7 @@
           "enable": false
         },
         {
-          "key": 1,
+          "key": 2,
           "name": "局部广告-首页-右侧红包浮窗",
           "fastQuery": true,
           "matchTime": 20000,
@@ -252,7 +1041,7 @@
           "enable": false
         },
         {
-          "key": 2,
+          "key": 3,
           "name": "评价提示",
           "fastQuery": true,
           "actionMaximum": 1,
@@ -269,7 +1058,7 @@
           "enable": false
         },
         {
-          "key": 3,
+          "key": 4,
           "name": "全屏广告-周末开红包",
           "desc": "点击 X",
           "fastQuery": true,
@@ -289,7 +1078,7 @@
           "enable": false
         },
         {
-          "key": 4,
+          "key": 5,
           "name": "全屏广告-书城-广告弹窗",
           "desc": "【X】",
           "fastQuery": true,
@@ -321,7 +1110,7 @@
           "enable": false
         },
         {
-          "key": 5,
+          "key": 6,
           "name": "通知提示-开启推送提醒",
           "desc": "自动点击【取消】",
           "fastQuery": true,
@@ -337,7 +1126,7 @@
           "enable": false
         },
         {
-          "key": 6,
+          "key": 7,
           "name": "评价提示-阅读",
           "fastQuery": true,
           "actionMaximum": 1,
@@ -351,7 +1140,7 @@
           "enable": false
         },
         {
-          "key": 7,
+          "key": 11,
           "name": "局部广告-阅读-卡片广告",
           "desc": "点击X",
           "fastQuery": true,
@@ -426,7 +1215,7 @@
           "enable": false
         },
         {
-          "key": 8,
+          "key": 12,
           "name": "全屏广告-阅读-视频广告",
           "desc": "点击【关闭】/【反馈-不感兴趣】",
           "fastQuery": true,
@@ -484,7 +1273,7 @@
           "enable": false
         },
         {
-          "key": 9,
+          "key": 13,
           "name": "全屏广告-阅读-翻页广告",
           "desc": "自动点击右下方空白处翻页，翻页模式【上下】无法使用",
           "fastQuery": true,
@@ -530,7 +1319,7 @@
           "enable": false
         },
         {
-          "key": 10,
+          "key": 14,
           "name": "局部广告-阅读-菜单右侧福利浮窗",
           "desc": "点击X",
           "fastQuery": true,
@@ -679,7 +1468,7 @@
           ]
         },
         {
-          "key": 5,
+          "key": 10,
           "name": "全屏广告-小程序-12306",
           "activityIds": "com.alipay.mobile.nebulax.xriver.activity.XRiverActivity",
           "rules": [
@@ -701,7 +1490,7 @@
           "enable": false
         },
         {
-          "key": 6,
+          "key": 11,
           "name": "全屏广告-借呗消费信贷协议",
           "desc": "点击X",
           "rules": [
@@ -756,7 +1545,7 @@
       "name": "YouTube Music",
       "groups": [
         {
-          "key": 0,
+          "key": 1,
           "name": "局部广告-播放界面广告",
           "activityIds": "com.google.android.apps.youtube.music.activities.MusicActivity",
           "rules": "[id=\"com.google.android.apps.youtube.music:id/skip_ad_text\"]",
@@ -771,7 +1560,7 @@
       "groups": [
         {
           "enable": false,
-          "key": 0,
+          "key": 10,
           "name": "功能类-授权第三方应用访问文件夹",
           "desc": "自动点击【使用此文件夹】->【允许】",
           "activityIds": "com.android.documentsui.picker.PickActivity",
@@ -797,7 +1586,7 @@
       "groups": [
         {
           "enable": false,
-          "key": 0,
+          "key": 2,
           "name": "局部广告-信息流广告",
           "rules": [
             {
@@ -854,7 +1643,7 @@
       "name": "Google Play 服务",
       "groups": [
         {
-          "key": 0,
+          "key": 1,
           "name": "功能类-谷歌填充密码自动授权",
           "desc": "勾选[不再显示]-点击[使用]",
           "fastQuery": true,
@@ -883,7 +1672,7 @@
       "name": "软件包安装程序",
       "groups": [
         {
-          "key": 0,
+          "key": 1,
           "name": "功能类-自动安装/更新软件",
           "fastQuery": true,
           "rules": [
@@ -932,7 +1721,7 @@
           "enable": false
         },
         {
-          "key": 1,
+          "key": 2,
           "name": "功能类-安全警告弹窗",
           "desc": "点击[设置]",
           "rules": [
@@ -1020,7 +1809,7 @@
       "name": "Keep",
       "groups": [
         {
-          "key": 0,
+          "key": 1,
           "name": "青少年模式",
           "actionMaximum": 1,
           "resetMatch": "app",
@@ -1030,7 +1819,7 @@
           "enable": false
         },
         {
-          "key": 1,
+          "key": 2,
           "name": "全屏广告-首页广告弹窗",
           "rules": [
             {
@@ -1046,7 +1835,7 @@
           "enable": false
         },
         {
-          "key": 2,
+          "key": 3,
           "name": "局部广告-首页信息流广告",
           "activityIds": "com.gotokeep.keep.refactor.business.main.activity.MainActivity",
           "rules": "[id=\"com.gotokeep.keep:id/textAdTag\"] + [id=\"com.gotokeep.keep:id/imgClose\"]",
@@ -1054,7 +1843,7 @@
           "enable": false
         },
         {
-          "key": 3,
+          "key": 4,
           "name": "全屏广告-运动购页面-广告弹窗",
           "rules": [
             {
@@ -1073,7 +1862,7 @@
           "enable": false
         },
         {
-          "key": 4,
+          "key": 5,
           "name": "全屏广告-请求开启通知权限弹窗",
           "actionMaximum": 1,
           "resetMatch": "app",
@@ -1090,7 +1879,7 @@
       "groups": [
         {
           "enable": false,
-          "key": 0,
+          "key": 1,
           "name": "全屏广告-购物车界面-砸金蛋",
           "activityIds": "com.jingdong.app.mall.MainFrameActivity",
           "rules": "[id=\"com.jd.lib.cart.feature:id/iv_egg_close\"]",
@@ -1098,7 +1887,7 @@
         },
         {
           "enable": false,
-          "key": 1,
+          "key": 2,
           "name": "局部广告-我的界面-悬浮广告",
           "activityIds": "com.jingdong.app.mall.MainFrameActivity",
           "rules": [
@@ -1121,7 +1910,7 @@
         },
         {
           "enable": false,
-          "key": 2,
+          "key": 3,
           "name": "局部广告-首页-右侧浮层广告",
           "activityIds": "com.jingdong.app.mall.MainFrameActivity",
           "rules": "RelativeLayout >n * > [desc^=\"关闭浮层\"]",
@@ -1134,7 +1923,7 @@
         },
         {
           "enable": false,
-          "key": 3,
+          "key": 4,
           "name": "全屏广告-通知提示-请求打开通知",
           "activityIds": [
             "com.jd.lib.message.messagecenter.view.activity.MessageCenterMainActivityNew",
@@ -1157,7 +1946,7 @@
           ]
         },
         {
-          "key": 4,
+          "key": 5,
           "name": "全屏广告-广告弹窗",
           "rules": [
             {
@@ -1197,7 +1986,7 @@
         },
         {
           "enable": false,
-          "key": 5,
+          "key": 6,
           "name": "局部广告-首页-底部横幅广告",
           "activityIds": "com.jingdong.app.mall.MainFrameActivity",
           "rules": "ImageView < FrameLayout - FrameLayout > ImageView[desc=\"关闭\"]",
@@ -1209,7 +1998,7 @@
         },
         {
           "enable": false,
-          "key": 6,
+          "key": 7,
           "name": "全屏广告-首页弹窗-打开通知",
           "desc": "自动点击正下方的【x】",
           "fastQuery": true,
@@ -1223,7 +2012,7 @@
         },
         {
           "enable": false,
-          "key": 7,
+          "key": 10,
           "name": "功能类-京东账号登录授权",
           "desc": "自动点击【确认登录】",
           "activityIds": "com.jingdong.app.mall.WebActivity",
@@ -1232,7 +2021,7 @@
         },
         {
           "enable": false,
-          "key": 8,
+          "key": 11,
           "name": "全屏广告-支付界面-产品推荐",
           "desc": "自动点击右上角【x】",
           "activityIds": "com.jd.lib.settlement.fillorder.activity.NewFillOrderActivity",
@@ -1241,7 +2030,7 @@
         },
         {
           "enable": false,
-          "key": 9,
+          "key": 12,
           "name": "全屏广告-购物车界面-支付成功广告弹窗",
           "desc": "自动点击正下方的【x】",
           "fastQuery": true,
@@ -1260,7 +2049,7 @@
       "name": "汽水音乐",
       "groups": [
         {
-          "key": 0,
+          "key": 2,
           "name": "全屏广告-VIP弹窗",
           "desc": "直接关闭所有底部半屏弹窗",
           "fastQuery": true,
@@ -1293,7 +2082,7 @@
         },
         {
           "enable": false,
-          "key": 1,
+          "key": 7,
           "name": "全屏广告-看广告视频拿VIP",
           "desc": "30s广告后点击【跳过】",
           "activityIds": [
@@ -1328,7 +2117,7 @@
       "groups": [
         {
           "enable": false,
-          "key": 0,
+          "key": 1,
           "name": "分段广告",
           "desc": "有二次确认弹窗",
           "fastQuery": true,
@@ -1399,7 +2188,7 @@
           ]
         },
         {
-          "key": 1,
+          "key": 2,
           "name": "局部广告-我的页面-中间滚动广告",
           "fastQuery": true,
           "activityIds": [
@@ -1412,7 +2201,7 @@
           "enable": false
         },
         {
-          "key": 2,
+          "key": 3,
           "name": "功能类-主页-免费听歌",
           "fastQuery": true,
           "activityIds": [
@@ -1427,7 +2216,7 @@
           "enable": false
         },
         {
-          "key": 3,
+          "key": 4,
           "name": "全屏广告-弹窗广告",
           "activityIds": "com.netease.cloudmusic.activity.MainActivity",
           "rules": [
@@ -1453,7 +2242,7 @@
         },
         {
           "enable": false,
-          "key": 4,
+          "key": 5,
           "name": "全屏广告-VIP 弹窗",
           "fastQuery": true,
           "matchTime": 10000,
@@ -1500,7 +2289,7 @@
           ]
         },
         {
-          "key": 5,
+          "key": 6,
           "name": "更新提示",
           "fastQuery": true,
           "rules": [
@@ -1522,7 +2311,7 @@
         },
         {
           "enable": false,
-          "key": 6,
+          "key": 7,
           "name": "局部广告-播放界面广告",
           "desc": "右上角VIP小悬浮、巨幅卡片式广告",
           "fastQuery": true,
@@ -1547,7 +2336,7 @@
           ]
         },
         {
-          "key": 7,
+          "key": 8,
           "name": "局部广告-发现-顶部视频广告",
           "desc": "自动点击跳过。",
           "fastQuery": true,
@@ -1561,7 +2350,7 @@
           "enable": false
         },
         {
-          "key": 8,
+          "key": 9,
           "name": "功能类-免费听弹窗",
           "actionMaximum": 1,
           "resetMatch": "app",
@@ -1572,7 +2361,7 @@
           "enable": false
         },
         {
-          "key": 9,
+          "key": 10,
           "name": "全屏广告-功能升级弹窗",
           "rules": [
             {
@@ -1593,7 +2382,7 @@
           "enable": false
         },
         {
-          "key": 10,
+          "key": 11,
           "fastQuery": true,
           "name": "全屏广告-播放页赞赏好音乐弹窗",
           "desc": "点击X",
@@ -1613,7 +2402,7 @@
       "name": "360智慧生活",
       "groups": [
         {
-          "key": 0,
+          "key": 1,
           "name": "局部广告-云录像会员广告",
           "desc": "点击关闭",
           "rules": [
@@ -1638,6 +2427,26 @@
       "groups": [
         {
           "key": 0,
+          "name": "开屏广告",
+          "fastQuery": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "action": "clickCenter",
+              "matches": "[vid=\"skip\"][visibleToUser=true]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/14810528",
+                "https://i.gkd.li/i/18329468"
+              ]
+            }
+          ],
+          "order": -10
+        },
+        {
+          "key": 1,
           "name": "其他-[您是否年满 18 岁？]弹窗",
           "desc": "点击[是]",
           "rules": [
@@ -1648,11 +2457,10 @@
               "exampleUrls": "https://m.gkd.li/57941037/cee78493-fbe1-46a0-8dcf-a8b1f1f61f19",
               "snapshotUrls": "https://i.gkd.li/i/14473690"
             }
-          ],
-          "enable": false
+          ]
         },
         {
-          "key": 1,
+          "key": 2,
           "name": "全屏广告-[大家还下载了]弹窗",
           "desc": "点击关闭",
           "rules": [
@@ -1663,8 +2471,7 @@
               "exampleUrls": "https://e.gkd.li/de1b9cc4-c47e-456a-b975-5eefaedb5e42",
               "snapshotUrls": "https://i.gkd.li/i/18209149"
             }
-          ],
-          "enable": false
+          ]
         }
       ]
     },
@@ -1673,7 +2480,7 @@
       "name": "今日头条",
       "groups": [
         {
-          "key": 0,
+          "key": 1,
           "name": "更新提示",
           "actionMaximum": 1,
           "resetMatch": "app",
@@ -1686,7 +2493,7 @@
           "enable": false
         },
         {
-          "key": 1,
+          "key": 2,
           "name": "局部广告-浮窗广告",
           "rules": [
             {
@@ -1708,7 +2515,7 @@
         },
         {
           "enable": false,
-          "key": 2,
+          "key": 10,
           "name": "全屏广告-请求通知权限弹窗",
           "activityIds": [
             "com.ss.android.article.news.activity.MainActivity"
@@ -1730,7 +2537,7 @@
         },
         {
           "enable": false,
-          "key": 3,
+          "key": 11,
           "name": "全屏广告-竖屏视频广告",
           "desc": "检测到广告时,点击右上角[更多]图标按钮,出现菜单,点击不感兴趣",
           "activityIds": "com.ss.android.ugc.detail.activity.TikTokActivity",
@@ -1787,7 +2594,7 @@
         },
         {
           "enable": false,
-          "key": 4,
+          "key": 12,
           "name": "局部广告-信息流广告",
           "desc": "点击右上角x按钮,点击不感兴趣",
           "rules": [
@@ -1831,7 +2638,7 @@
         },
         {
           "enable": false,
-          "key": 5,
+          "key": 13,
           "name": "局部广告-底部话题推荐弹窗",
           "activityIds": [
             "com.ss.android.article.news.activity.MainActivity"
@@ -1848,7 +2655,7 @@
         },
         {
           "enable": false,
-          "key": 6,
+          "key": 14,
           "name": "全屏广告-自动观看广告视频",
           "desc": "自动观看广告并等待30s后关闭",
           "fastQuery": true,
@@ -1870,7 +2677,7 @@
           ]
         },
         {
-          "key": 7,
+          "key": 15,
           "fastQuery": true,
           "name": "局部广告-局部广告-底部热榜弹窗",
           "desc": "点击X",
@@ -2003,7 +2810,7 @@
         },
         {
           "enable": false,
-          "key": 8,
+          "key": 10,
           "name": "权限提示-请求开启通知提示信息",
           "desc": "自动点击“暂不”",
           "actionMaximum": 1,
@@ -2025,7 +2832,7 @@
         },
         {
           "enable": false,
-          "key": 9,
+          "key": 11,
           "name": "功能类-自动勾选原图",
           "desc": "聊天发送图片时自动勾选原图",
           "fastQuery": true,
@@ -2038,7 +2845,7 @@
         },
         {
           "enable": false,
-          "key": 10,
+          "key": 12,
           "name": "全屏广告-休息提醒",
           "fastQuery": true,
           "rules": [
@@ -2056,7 +2863,7 @@
           ]
         },
         {
-          "key": 11,
+          "key": 13,
           "name": "功能类-添加快捷方式到桌面",
           "actionMaximum": 1,
           "resetMatch": "app",
@@ -2078,7 +2885,7 @@
           "enable": false
         },
         {
-          "key": 12,
+          "key": 14,
           "name": "全屏广告-视频播放中途插入的打招呼界面",
           "activityIds": "com.ss.android.ugc.aweme.main.MainActivity",
           "rules": "FrameLayout > @[desc=\"关闭\"] + ViewGroup > [text$=\"打个招呼\"]",
@@ -2086,7 +2893,7 @@
           "enable": false
         },
         {
-          "key": 13,
+          "key": 15,
           "name": "全屏广告-关闭商城推荐",
           "desc": "点击【不感兴趣】",
           "rules": "@[text=\"不感兴趣\"][clickable=true] + [text=\"去商城搜索更多\"]",
@@ -2100,7 +2907,7 @@
       "name": "皮皮虾",
       "groups": [
         {
-          "key": 0,
+          "key": 1,
           "name": "青少年模式",
           "actionMaximum": 1,
           "resetMatch": "app",
@@ -2110,7 +2917,7 @@
           "enable": false
         },
         {
-          "key": 1,
+          "key": 5,
           "name": "全屏广告-请求开启通知权限弹窗",
           "fastQuery": true,
           "actionMaximum": 1,
@@ -2120,7 +2927,7 @@
           "enable": false
         },
         {
-          "key": 2,
+          "key": 6,
           "name": "局部广告-右上角红包悬浮窗",
           "matchTime": 10000,
           "actionMaximum": 1,
@@ -2131,7 +2938,7 @@
           "enable": false
         },
         {
-          "key": 3,
+          "key": 7,
           "fastQuery": true,
           "name": "更新提示",
           "desc": "点击我再想想",
@@ -2206,7 +3013,7 @@
         },
         {
           "enable": false,
-          "key": 1,
+          "key": 12,
           "name": "分段广告-朋友圈广告[英文]",
           "desc": "点击广告卡片右上角[Sponsored],直接关闭/出现菜单点击[Close the ad],确认关闭",
           "activityIds": "com.tencent.mm.plugin.sns.ui.SnsTimeLineUI",
@@ -2235,7 +3042,7 @@
           ]
         },
         {
-          "key": 2,
+          "key": 20,
           "name": "分段广告-朋友圈广告[繁体]",
           "desc": "点击广告卡片右上角[廣告],出现菜单点击[關閉此廣告],确认关闭",
           "activityIds": "com.tencent.mm.plugin.sns.ui.SnsTimeLineUI",
@@ -2259,7 +3066,7 @@
         },
         {
           "enable": false,
-          "key": 3,
+          "key": 1,
           "name": "功能类-电脑微信快捷自动登录",
           "fastQuery": true,
           "matchTime": 10000,
@@ -2277,7 +3084,7 @@
         },
         {
           "enable": false,
-          "key": 4,
+          "key": 2,
           "name": "功能类-浏览器扫码微信登录自动授权",
           "desc": "自动允许使用头像昵称等",
           "fastQuery": true,
@@ -2293,7 +3100,7 @@
         },
         {
           "enable": false,
-          "key": 5,
+          "key": 3,
           "name": "功能类-第三方APP申请使用授权弹窗",
           "desc": "自动点击允许,但由于此界面可以额外新建昵称头像,默认不启用",
           "fastQuery": true,
@@ -2308,7 +3115,7 @@
         },
         {
           "enable": false,
-          "key": 6,
+          "key": 4,
           "name": "功能类-微信读书网页版扫码登录自动授权",
           "fastQuery": true,
           "matchTime": 10000,
@@ -2333,7 +3140,7 @@
         },
         {
           "enable": false,
-          "key": 7,
+          "key": 5,
           "name": "功能类-微信红包自动领取",
           "desc": "自动领取私聊红包,群聊红包",
           "exampleUrls": "https://github.com/gkd-kit/subscription/assets/38517192/32cfda78-b2e1-456c-8d85-bfb2bc4683aa",
@@ -2369,7 +3176,7 @@
         },
         {
           "enable": false,
-          "key": 8,
+          "key": 6,
           "name": "分段广告-订阅号文章广告",
           "desc": "⚠ 此规则有概率误触。自动点击关闭按钮，必须同时启用【订阅号文章广告反馈】规则",
           "activityIds": [
@@ -2403,7 +3210,7 @@
           ]
         },
         {
-          "key": 9,
+          "key": 7,
           "name": "功能类-自动选中发送原图",
           "desc": "(微信8.0.56有bug无法正确识别)图片和视频选择器-自动选中底部中间的发送原图",
           "fastQuery": true,
@@ -2427,7 +3234,7 @@
         },
         {
           "enable": false,
-          "key": 10,
+          "key": 8,
           "name": "分段广告-订阅号文章广告反馈",
           "desc": "⚠ 此规则有概率误触。自动点击反馈理由，配合【订阅号文章广告】规则使用",
           "activityIds": "com.tencent.mm.plugin.brandservice.ui.timeline.preload.ui.TmplWebView",
@@ -2461,7 +3268,7 @@
         },
         {
           "enable": false,
-          "key": 11,
+          "key": 9,
           "name": "功能类-自动查看原图",
           "desc": "自动点击底部左侧[查看原图（*M）]按钮",
           "fastQuery": true,
@@ -2470,7 +3277,7 @@
           "snapshotUrls": "https://i.gkd.li/import/13523031"
         },
         {
-          "key": 12,
+          "key": 10,
           "name": "全屏广告-微信小程序-开屏广告",
           "fastQuery": true,
           "matchTime": 10000,
@@ -2500,7 +3307,7 @@
         },
         {
           "enable": false,
-          "key": 13,
+          "key": 11,
           "name": "功能类-网页版文件传输助手扫码自动授权",
           "fastQuery": true,
           "matchTime": 10000,
@@ -2512,7 +3319,7 @@
         },
         {
           "enable": false,
-          "key": 14,
+          "key": 13,
           "name": "全屏广告-提瓦特助手小程序-弹窗广告",
           "activityIds": "com.tencent.mm.plugin.appbrand.ui.AppBrandUI",
           "rules": [
@@ -2536,7 +3343,7 @@
         },
         {
           "enable": false,
-          "key": 15,
+          "key": 14,
           "name": "分段广告-小程序-内部广告",
           "activityIds": [
             "com.tencent.mm.plugin.appbrand.ui.AppBrandUI"
@@ -2660,7 +3467,7 @@
         },
         {
           "name": "功能类-付款后自动点击完成/返回商家",
-          "key": 20,
+          "key": 22,
           "desc": "支付完成后自动点击完成或返回商家按钮",
           "enable": false,
           "fastQuery": true,
@@ -2695,7 +3502,7 @@
       "name": "微信读书",
       "groups": [
         {
-          "key": 0,
+          "key": 1,
           "name": "全屏广告-系统推送弹窗",
           "desc": "系统推送弹窗-点击取消",
           "fastQuery": true,
@@ -2718,7 +3525,7 @@
           "enable": false
         },
         {
-          "key": 1,
+          "key": 2,
           "name": "青少年模式",
           "fastQuery": true,
           "actionMaximum": 1,
@@ -2736,7 +3543,7 @@
       "name": "X(推特)",
       "groups": [
         {
-          "key": 0,
+          "key": 1,
           "name": "局部广告-信息流广告-主页",
           "desc": "点击右上角关闭,点击我不喜欢",
           "activityIds": "com.twitter.app.main.MainActivity",
@@ -2769,7 +3576,7 @@
           "enable": false
         },
         {
-          "key": 1,
+          "key": 2,
           "name": "局部广告-信息流广告-帖子详情页、搜索页",
           "desc": "点击右上角关闭,点击屏蔽用户,确认屏蔽.点击[我不喜欢]会返回主页,因此点击[屏蔽]",
           "fastQuery": true,
@@ -2836,7 +3643,7 @@
           "enable": false
         },
         {
-          "key": 2,
+          "key": 3,
           "name": "局部广告-信息流广告-用户资料页",
           "desc": "点击右上角关闭,点击我不喜欢",
           "fastQuery": true,
@@ -2877,7 +3684,7 @@
           "enable": false
         },
         {
-          "key": 3,
+          "key": 4,
           "name": "全屏广告-评价弹窗",
           "fastQuery": true,
           "matchTime": 10000,
@@ -2891,7 +3698,7 @@
           ]
         },
         {
-          "key": 4,
+          "key": 5,
           "fastQuery": true,
           "name": "全屏广告-通知提示-请求通知权限弹窗",
           "desc": "点击\"Not now\"",
@@ -3150,7 +3957,7 @@
       "name": "小红书",
       "groups": [
         {
-          "key": 0,
+          "key": 1,
           "name": "全屏广告-通知权限弹窗",
           "fastQuery": true,
           "actionMaximum": 1,
@@ -3179,7 +3986,7 @@
           "enable": false
         },
         {
-          "key": 1,
+          "key": 2,
           "name": "更新提示",
           "fastQuery": true,
           "actionMaximum": 1,
@@ -3201,7 +4008,7 @@
         },
         {
           "enable": false,
-          "key": 2,
+          "key": 3,
           "name": "局部广告-信息流广告",
           "desc": "长按【赞助】/【广告】标识的卡片-点【不感兴趣】",
           "fastQuery": true,
@@ -3264,7 +4071,7 @@
       "name": "TikTok",
       "groups": [
         {
-          "key": 0,
+          "key": 1,
           "name": "全屏广告-弹窗广告",
           "desc": "点击关闭",
           "fastQuery": true,
@@ -3285,7 +4092,7 @@
           "enable": false
         },
         {
-          "key": 1,
+          "key": 3,
           "name": "局部广告-悬浮广告",
           "desc": "点击关闭",
           "rules": [
@@ -3298,7 +4105,7 @@
           "enable": false
         },
         {
-          "key": 2,
+          "key": 4,
           "name": "全屏广告-好友推荐弹窗",
           "desc": "点击关闭",
           "rules": [
@@ -3310,6 +4117,66 @@
             }
           ],
           "enable": false
+        }
+      ]
+    },
+    {
+      "id": "org.telegram.messenger",
+      "name": "Telegram",
+      "groups": [
+        {
+          "key": 1,
+          "name": "权限提示-通知权限",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "rules": [
+            {
+              "action": "back",
+              "fastQuery": true,
+              "activityIds": "org.telegram.ui.LaunchActivity",
+              "matches": "[text=\"打开通知\"] + [text*=\"打开 Telegram 的通知\"]",
+              "snapshotUrls": "https://i.gkd.li/i/22850638"
+            }
+          ]
+        },
+        {
+          "key": 2,
+          "name": "其他-添加生日提示",
+          "desc": "点击关闭",
+          "rules": [
+            {
+              "fastQuery": true,
+              "activityIds": "org.telegram.ui.LaunchActivity",
+              "matches": "@ImageView[clickable=true] - * >2 [text^=\"添加您的生日\"]",
+              "snapshotUrls": "https://i.gkd.li/i/22971075"
+            }
+          ]
+        },
+        {
+          "key": 3,
+          "name": "局部广告-拍卖提示",
+          "rules": [
+            {
+              "fastQuery": true,
+              "activityIds": "org.telegram.ui.LaunchActivity",
+              "matches": "@ImageView[clickable=true][width<140 && height<140] - * >2 [text$=\"Auction is live!\"]",
+              "snapshotUrls": "https://i.gkd.li/i/23725025"
+            }
+          ]
+        },
+        {
+          "key": 4,
+          "name": "其他-首页公告栏",
+          "desc": "此规则覆盖生日提示、拍卖提示以及部分广告",
+          "rules": [
+            {
+              "activityIds": "org.telegram.ui.LaunchActivity",
+              "matches": "@ImageView[desc=null][clickable=true][width<140 && height<140][left>540] - LinearLayout[!(getChild(0).getChild(0).text=null)] < FrameLayout -2 FrameLayout >2 [text=\"Telegram\"]",
+              "snapshotUrls": "https://i.gkd.li/i/24560612",
+              "excludeSnapshotUrls": "https://i.gkd.li/i/25030822"
+            }
+          ]
         }
       ]
     }

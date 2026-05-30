@@ -1,8 +1,19 @@
 {
-  "generatedAt": "2026-05-29T13:54:52.757Z",
+  "generatedAt": "2026-05-30T13:33:07.779Z",
   "installedPackageCount": 563,
-  "selectedAppCount": 28,
+  "selectedAppCount": 32,
+  "globalGroupsSource": "AIsouler",
+  "globalGroupsCount": 3,
   "sources": [
+    {
+      "source": "AIsouler",
+      "dist": ".cache\\gkd-repos\\AIsouler-main\\dist\\AIsouler_gkd.json5",
+      "subscription": "AIsouler的GKD订阅-已停止维护",
+      "version": 406,
+      "apps": 886,
+      "matched": 32,
+      "selected": 32
+    },
     {
       "source": "aoguai",
       "dist": ".cache\\gkd-repos\\aoguai-custom\\dist\\aoguai_gkd.json5",
@@ -37,7 +48,7 @@
       "version": 9,
       "apps": 776,
       "matched": 27,
-      "selected": 2
+      "selected": 0
     },
     {
       "source": "mrlctate",
@@ -46,10 +57,36 @@
       "version": 75,
       "apps": 693,
       "matched": 27,
-      "selected": 3
+      "selected": 2
     }
   ],
   "selectedSources": [
+    {
+      "id": "android",
+      "source": "AIsouler",
+      "subscription": "AIsouler的GKD订阅-已停止维护",
+      "timestamp": 1770109578,
+      "richness": {
+        "groups": 1,
+        "rules": 1,
+        "urls": 3,
+        "score": 1039
+      },
+      "preferred": false
+    },
+    {
+      "id": "com.android.chrome",
+      "source": "AIsouler",
+      "subscription": "AIsouler的GKD订阅-已停止维护",
+      "timestamp": 1770109578,
+      "richness": {
+        "groups": 1,
+        "rules": 1,
+        "urls": 2,
+        "score": 1036
+      },
+      "preferred": false
+    },
     {
       "id": "com.android.providers.downloads.ui",
       "source": "ganlinte",
@@ -60,7 +97,21 @@
         "rules": 1,
         "urls": 1,
         "score": 1033
-      }
+      },
+      "preferred": false
+    },
+    {
+      "id": "com.android.systemui",
+      "source": "AIsouler",
+      "subscription": "AIsouler的GKD订阅-已停止维护",
+      "timestamp": 1770109578,
+      "richness": {
+        "groups": 3,
+        "rules": 9,
+        "urls": 9,
+        "score": 3297
+      },
+      "preferred": false
     },
     {
       "id": "com.android.vending",
@@ -72,7 +123,8 @@
         "rules": 3,
         "urls": 9,
         "score": 2117
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.autonavi.minimap",
@@ -84,7 +136,8 @@
         "rules": 6,
         "urls": 9,
         "score": 5207
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.dragon.read",
@@ -96,7 +149,8 @@
         "rules": 24,
         "urls": 57,
         "score": 11891
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.eg.android.AlipayGphone",
@@ -108,7 +162,8 @@
         "rules": 14,
         "urls": 17,
         "score": 7471
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.google.android.apps.photos",
@@ -120,7 +175,8 @@
         "rules": 2,
         "urls": 2,
         "score": 2066
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.google.android.apps.youtube.music",
@@ -132,7 +188,8 @@
         "rules": 1,
         "urls": 1,
         "score": 1033
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.google.android.documentsui",
@@ -144,7 +201,8 @@
         "rules": 2,
         "urls": 2,
         "score": 1066
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.google.android.gm",
@@ -156,7 +214,8 @@
         "rules": 5,
         "urls": 7,
         "score": 1171
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.google.android.gms",
@@ -168,7 +227,8 @@
         "rules": 2,
         "urls": 4,
         "score": 1072
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.google.android.packageinstaller",
@@ -180,7 +240,8 @@
         "rules": 5,
         "urls": 10,
         "score": 2180
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.google.android.youtube",
@@ -192,7 +253,8 @@
         "rules": 5,
         "urls": 8,
         "score": 4174
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.gotokeep.keep",
@@ -204,7 +266,8 @@
         "rules": 6,
         "urls": 7,
         "score": 5201
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.jingdong.app.mall",
@@ -216,7 +279,8 @@
         "rules": 15,
         "urls": 25,
         "score": 10525
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.luna.music",
@@ -228,7 +292,8 @@
         "rules": 4,
         "urls": 10,
         "score": 2150
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.netease.cloudmusic",
@@ -240,7 +305,8 @@
         "rules": 23,
         "urls": 36,
         "score": 11798
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.qihoo.smart",
@@ -252,19 +318,21 @@
         "rules": 1,
         "urls": 2,
         "score": 1036
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.sec.android.app.samsungapps",
-      "source": "mrlctate",
-      "subscription": "Mrlc的战神—天下无敌",
-      "timestamp": 1778293981,
+      "source": "AIsouler",
+      "subscription": "AIsouler的GKD订阅-已停止维护",
+      "timestamp": 1770109578,
       "richness": {
-        "groups": 2,
-        "rules": 2,
-        "urls": 4,
-        "score": 2072
-      }
+        "groups": 3,
+        "rules": 3,
+        "urls": 6,
+        "score": 3108
+      },
+      "preferred": true
     },
     {
       "id": "com.ss.android.article.news",
@@ -276,7 +344,8 @@
         "rules": 16,
         "urls": 28,
         "score": 8564
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.ss.android.ugc.aweme",
@@ -288,7 +357,8 @@
         "rules": 21,
         "urls": 25,
         "score": 14705
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.sup.android.superb",
@@ -300,7 +370,8 @@
         "rules": 4,
         "urls": 4,
         "score": 4132
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.tencent.mm",
@@ -312,7 +383,8 @@
         "rules": 39,
         "urls": 69,
         "score": 22377
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.tencent.weread",
@@ -324,7 +396,8 @@
         "rules": 2,
         "urls": 3,
         "score": 2069
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.twitter.android",
@@ -336,7 +409,8 @@
         "rules": 13,
         "urls": 22,
         "score": 5456
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.ximalaya.ting.android",
@@ -348,7 +422,8 @@
         "rules": 20,
         "urls": 29,
         "score": 13687
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.xingin.xhs",
@@ -360,7 +435,8 @@
         "rules": 6,
         "urls": 10,
         "score": 3210
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.yuque.mobile.android.app",
@@ -372,7 +448,8 @@
         "rules": 2,
         "urls": 2,
         "score": 2066
-      }
+      },
+      "preferred": false
     },
     {
       "id": "com.zhiliaoapp.musically",
@@ -384,7 +461,21 @@
         "rules": 4,
         "urls": 5,
         "score": 3135
-      }
+      },
+      "preferred": false
+    },
+    {
+      "id": "org.telegram.messenger",
+      "source": "AIsouler",
+      "subscription": "AIsouler的GKD订阅-已停止维护",
+      "timestamp": 1770109578,
+      "richness": {
+        "groups": 4,
+        "rules": 4,
+        "urls": 4,
+        "score": 4132
+      },
+      "preferred": false
     }
   ]
 }

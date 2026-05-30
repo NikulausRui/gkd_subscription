@@ -163,18 +163,25 @@ function findDist(source, repoDir) {
 }
 
 function normalizeApp(app) {
-  const normalized = structuredClone(app);
-  if (Array.isArray(normalized.groups)) {
-    normalized.groups = normalized.groups.map((group, index) => ({
+  return structuredClone(app);
+}
+
+function filterGlobalGroups(globalGroups, installed) {
+  if (!Array.isArray(globalGroups)) return [];
+  return structuredClone(globalGroups).map((group) => {
+    if (!Array.isArray(group.apps)) return group;
+    return {
       ...group,
-      key: index,
-    }));
-  }
-  return normalized;
+      apps: group.apps.filter((app) => app?.id && installed.has(app.id)),
+    };
+  });
 }
 
 function chooseApp(current, candidate) {
   if (!current) return candidate;
+  if (candidate.preferred !== current.preferred) {
+    return candidate.preferred ? candidate : current;
+  }
   if (candidate.timestamp !== current.timestamp) {
     return candidate.timestamp > current.timestamp ? candidate : current;
   }
@@ -188,6 +195,9 @@ const sources = JSON.parse(fs.readFileSync(sourcesPath, 'utf8'));
 const installed = readInstalledPackages(packagesPath);
 const selectedByPackage = new Map();
 const sourceStats = [];
+let baseCategories;
+let baseGlobalGroups;
+let globalGroupsSource;
 
 for (const source of sources) {
   const repoDir = path.join(workDir, safeName(source));
@@ -205,6 +215,11 @@ for (const source of sources) {
 
   const subscription = parseJson5Like(distPath);
   const apps = Array.isArray(subscription.apps) ? subscription.apps : [];
+  if (source.globalGroupsBase) {
+    baseCategories = structuredClone(subscription.categories ?? []);
+    baseGlobalGroups = filterGlobalGroups(subscription.globalGroups, installed);
+    globalGroupsSource = source.name;
+  }
   let matched = 0;
   let selected = 0;
 
@@ -222,6 +237,7 @@ for (const source of sources) {
       subscriptionVersion: subscriptionVersion(subscription),
       timestamp,
       richness,
+      preferred: Array.isArray(source.preferApps) && source.preferApps.includes(app.id),
     };
     const winner = chooseApp(selectedByPackage.get(app.id), candidate);
     if (winner === candidate) selected += 1;
@@ -239,7 +255,7 @@ for (const source of sources) {
   });
 }
 
-const categories = [
+const fallbackCategories = [
   { key: 0, name: '开屏广告' },
   { key: 1, name: '青少年模式', enable: false },
   { key: 2, name: '更新提示', enable: false },
@@ -252,6 +268,7 @@ const categories = [
   { key: 9, name: '功能类', enable: false },
   { key: 10, name: '其他', enable: false },
 ];
+const categories = baseCategories ?? fallbackCategories;
 
 const apps = [...selectedByPackage.entries()]
   .sort(([a], [b]) => a.localeCompare(b))
@@ -268,7 +285,7 @@ const merged = {
   checkUpdateUrl: './merged-gkd.version.json5',
   supportUri: 'https://github.com/',
   categories,
-  globalGroups: [],
+  globalGroups: baseGlobalGroups ?? [],
   apps,
 };
 
@@ -276,6 +293,8 @@ const metadata = {
   generatedAt: now.toISOString(),
   installedPackageCount: installed.size,
   selectedAppCount: apps.length,
+  globalGroupsSource: globalGroupsSource ?? null,
+  globalGroupsCount: merged.globalGroups.length,
   sources: sourceStats,
   selectedSources: [...selectedByPackage.entries()]
     .sort(([a], [b]) => a.localeCompare(b))
@@ -285,6 +304,7 @@ const metadata = {
       subscription: value.subscriptionName,
       timestamp: value.timestamp,
       richness: value.richness,
+      preferred: value.preferred,
     })),
 };
 
