@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-30T13:37:55.549Z",
+  "generatedAt": "2026-05-30T13:39:25.518Z",
   "installedPackageCount": 563,
   "selectedAppCount": 32,
   "globalGroupsSource": "AIsouler",
@@ -7,7 +7,7 @@
   "sources": [
     {
       "source": "AIsouler",
-      "dist": ".cache\\gkd-repos\\AIsouler-main\\dist\\AIsouler_gkd.json5",
+      "dist": ".cache/gkd-repos/AIsouler-main/dist/AIsouler_gkd.json5",
       "subscription": "AIsouler的GKD订阅-已停止维护",
       "version": 406,
       "apps": 886,
@@ -16,7 +16,7 @@
     },
     {
       "source": "aoguai",
-      "dist": ".cache\\gkd-repos\\aoguai-custom\\dist\\aoguai_gkd.json5",
+      "dist": ".cache/gkd-repos/aoguai-custom/dist/aoguai_gkd.json5",
       "subscription": "奥怪的GKD订阅",
       "version": 85,
       "apps": 72,
@@ -25,7 +25,7 @@
     },
     {
       "source": "ganlinte",
-      "dist": ".cache\\gkd-repos\\ganlinte-main\\dist\\ganlin_gkd.json5",
+      "dist": ".cache/gkd-repos/ganlinte-main/dist/ganlin_gkd.json5",
       "subscription": "甘霖的GKD订阅",
       "version": 70,
       "apps": 609,
@@ -34,7 +34,7 @@
     },
     {
       "source": "MengNianxiaoyao",
-      "dist": ".cache\\gkd-repos\\MengNianxiaoyao-main\\dist\\gkd.json5",
+      "dist": ".cache/gkd-repos/MengNianxiaoyao-main/dist/gkd.json5",
       "subscription": "梦念逍遥のGKD订阅",
       "version": 74,
       "apps": 285,
@@ -43,7 +43,7 @@
     },
     {
       "source": "jiuqianyuan",
-      "dist": ".cache\\gkd-repos\\jiuqianyuan-main\\dist\\gkd.json5",
+      "dist": ".cache/gkd-repos/jiuqianyuan-main/dist/gkd.json5",
       "subscription": "九千院的GKD订阅",
       "version": 9,
       "apps": 776,
@@ -52,7 +52,7 @@
     },
     {
       "source": "mrlctate",
-      "dist": ".cache\\gkd-repos\\mrlctate-main\\dist\\gkd.json5",
+      "dist": ".cache/gkd-repos/mrlctate-main/dist/gkd.json5",
       "subscription": "Mrlc的战神—天下无敌",
       "version": 75,
       "apps": 693,
