@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-30T21:17:04.329Z",
+  "generatedAt": "2026-05-31T21:17:18.311Z",
   "installedPackageCount": 563,
   "selectedAppCount": 32,
   "globalGroupsSource": "AIsouler",
@@ -18,7 +18,7 @@
       "source": "aoguai",
       "dist": ".cache/gkd-repos/aoguai-custom/dist/aoguai_gkd.json5",
       "subscription": "奥怪的GKD订阅",
-      "version": 85,
+      "version": 86,
       "apps": 72,
       "matched": 11,
       "selected": 9
@@ -39,7 +39,7 @@
       "version": 74,
       "apps": 285,
       "matched": 23,
-      "selected": 23
+      "selected": 18
     },
     {
       "source": "jiuqianyuan",
@@ -57,7 +57,7 @@
       "version": 75,
       "apps": 693,
       "matched": 27,
-      "selected": 5
+      "selected": 4
     }
   ],
   "selectedSources": [
@@ -154,14 +154,14 @@
     },
     {
       "id": "com.eg.android.AlipayGphone",
-      "source": "mrlctate",
-      "subscription": "Mrlc的战神—天下无敌",
-      "timestamp": 1778268314,
+      "source": "aoguai",
+      "subscription": "奥怪的GKD订阅",
+      "timestamp": 1780220638,
       "richness": {
-        "groups": 24,
-        "rules": 38,
-        "urls": 91,
-        "score": 25413
+        "groups": 12,
+        "rules": 25,
+        "urls": 68,
+        "score": 12954
       },
       "preferred": false
     },
@@ -245,14 +245,14 @@
     },
     {
       "id": "com.google.android.youtube",
-      "source": "MengNianxiaoyao",
-      "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1778076162,
+      "source": "aoguai",
+      "subscription": "奥怪的GKD订阅",
+      "timestamp": 1780220638,
       "richness": {
         "groups": 7,
-        "rules": 9,
-        "urls": 29,
-        "score": 7357
+        "rules": 10,
+        "urls": 33,
+        "score": 7399
       },
       "preferred": false
     },
@@ -271,9 +271,9 @@
     },
     {
       "id": "com.jingdong.app.mall",
-      "source": "MengNianxiaoyao",
-      "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1778076162,
+      "source": "aoguai",
+      "subscription": "奥怪的GKD订阅",
+      "timestamp": 1780220638,
       "richness": {
         "groups": 8,
         "rules": 21,
@@ -375,14 +375,14 @@
     },
     {
       "id": "com.tencent.mm",
-      "source": "MengNianxiaoyao",
-      "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1776644132,
+      "source": "aoguai",
+      "subscription": "奥怪的GKD订阅",
+      "timestamp": 1780220638,
       "richness": {
         "groups": 14,
         "rules": 43,
-        "urls": 168,
-        "score": 15794
+        "urls": 169,
+        "score": 15797
       },
       "preferred": false
     },
@@ -401,14 +401,14 @@
     },
     {
       "id": "com.twitter.android",
-      "source": "MengNianxiaoyao",
-      "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1776644132,
+      "source": "aoguai",
+      "subscription": "奥怪的GKD订阅",
+      "timestamp": 1780220638,
       "richness": {
         "groups": 4,
-        "rules": 8,
-        "urls": 40,
-        "score": 4360
+        "rules": 7,
+        "urls": 19,
+        "score": 4267
       },
       "preferred": false
     },
