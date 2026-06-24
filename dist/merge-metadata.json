@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-23T21:52:48.455Z",
+  "generatedAt": "2026-06-24T21:49:50.500Z",
   "installedPackageCount": 563,
   "selectedAppCount": 32,
   "globalGroupsSource": "AIsouler",
@@ -27,8 +27,8 @@
       "source": "ganlinte",
       "dist": ".cache/gkd-repos/ganlinte-main/dist/ganlin_gkd.json5",
       "subscription": "甘霖的GKD订阅",
-      "version": 70,
-      "apps": 609,
+      "version": 71,
+      "apps": 610,
       "matched": 22,
       "selected": 13
     },
@@ -286,7 +286,7 @@
       "id": "com.luna.music",
       "source": "ganlinte",
       "subscription": "甘霖的GKD订阅",
-      "timestamp": 1771169744,
+      "timestamp": 1771170442,
       "richness": {
         "groups": 2,
         "rules": 4,
@@ -364,7 +364,7 @@
       "id": "com.sup.android.superb",
       "source": "ganlinte",
       "subscription": "甘霖的GKD订阅",
-      "timestamp": 1771169744,
+      "timestamp": 1771170442,
       "richness": {
         "groups": 4,
         "rules": 4,
