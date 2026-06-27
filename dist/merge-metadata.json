@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-26T21:43:40.242Z",
+  "generatedAt": "2026-06-27T21:32:24.632Z",
   "installedPackageCount": 563,
   "selectedAppCount": 32,
   "globalGroupsSource": "AIsouler",
@@ -91,7 +91,7 @@
       "id": "com.android.providers.downloads.ui",
       "source": "MengNianxiaoyao",
       "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1775884961,
+      "timestamp": 1775885464,
       "richness": {
         "groups": 1,
         "rules": 1,
@@ -117,7 +117,7 @@
       "id": "com.android.vending",
       "source": "MengNianxiaoyao",
       "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1775884961,
+      "timestamp": 1775885464,
       "richness": {
         "groups": 2,
         "rules": 3,
@@ -143,7 +143,7 @@
       "id": "com.dragon.read",
       "source": "MengNianxiaoyao",
       "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1775884961,
+      "timestamp": 1775885464,
       "richness": {
         "groups": 10,
         "rules": 19,
@@ -169,7 +169,7 @@
       "id": "com.google.android.apps.photos",
       "source": "MengNianxiaoyao",
       "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1775884961,
+      "timestamp": 1775885464,
       "richness": {
         "groups": 2,
         "rules": 2,
@@ -182,7 +182,7 @@
       "id": "com.google.android.apps.youtube.music",
       "source": "MengNianxiaoyao",
       "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1775884961,
+      "timestamp": 1775885464,
       "richness": {
         "groups": 3,
         "rules": 3,
@@ -221,7 +221,7 @@
       "id": "com.google.android.gms",
       "source": "MengNianxiaoyao",
       "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1775884961,
+      "timestamp": 1775885464,
       "richness": {
         "groups": 1,
         "rules": 2,
@@ -234,7 +234,7 @@
       "id": "com.google.android.packageinstaller",
       "source": "MengNianxiaoyao",
       "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1775884961,
+      "timestamp": 1775885464,
       "richness": {
         "groups": 2,
         "rules": 5,
@@ -351,7 +351,7 @@
       "id": "com.ss.android.ugc.aweme",
       "source": "MengNianxiaoyao",
       "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1775884961,
+      "timestamp": 1775885464,
       "richness": {
         "groups": 18,
         "rules": 21,
@@ -390,7 +390,7 @@
       "id": "com.tencent.weread",
       "source": "MengNianxiaoyao",
       "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1775884961,
+      "timestamp": 1775885464,
       "richness": {
         "groups": 1,
         "rules": 2,
@@ -416,7 +416,7 @@
       "id": "com.ximalaya.ting.android",
       "source": "MengNianxiaoyao",
       "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1775884961,
+      "timestamp": 1775885464,
       "richness": {
         "groups": 13,
         "rules": 16,
@@ -429,7 +429,7 @@
       "id": "com.xingin.xhs",
       "source": "MengNianxiaoyao",
       "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1775884961,
+      "timestamp": 1775885464,
       "richness": {
         "groups": 6,
         "rules": 10,
@@ -442,7 +442,7 @@
       "id": "com.yuque.mobile.android.app",
       "source": "MengNianxiaoyao",
       "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1775884961,
+      "timestamp": 1775885464,
       "richness": {
         "groups": 2,
         "rules": 2,
