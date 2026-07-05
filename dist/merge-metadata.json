@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-04T21:15:30.173Z",
+  "generatedAt": "2026-07-05T21:29:41.079Z",
   "installedPackageCount": 563,
   "selectedAppCount": 32,
   "globalGroupsSource": "AIsouler",
@@ -18,7 +18,7 @@
       "source": "aoguai",
       "dist": ".cache/gkd-repos/aoguai-custom/dist/aoguai_gkd.json5",
       "subscription": "奥怪的GKD订阅",
-      "version": 86,
+      "version": 87,
       "apps": 72,
       "matched": 11,
       "selected": 9
@@ -39,7 +39,7 @@
       "version": 75,
       "apps": 285,
       "matched": 23,
-      "selected": 23
+      "selected": 19
     },
     {
       "source": "jiuqianyuan",
@@ -245,14 +245,14 @@
     },
     {
       "id": "com.google.android.youtube",
-      "source": "MengNianxiaoyao",
-      "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1780843592,
+      "source": "aoguai",
+      "subscription": "奥怪的GKD订阅",
+      "timestamp": 1783244652,
       "richness": {
         "groups": 7,
         "rules": 10,
-        "urls": 33,
-        "score": 7399
+        "urls": 34,
+        "score": 7402
       },
       "preferred": false
     },
@@ -271,14 +271,14 @@
     },
     {
       "id": "com.jingdong.app.mall",
-      "source": "MengNianxiaoyao",
-      "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1780843592,
+      "source": "aoguai",
+      "subscription": "奥怪的GKD订阅",
+      "timestamp": 1783244652,
       "richness": {
         "groups": 8,
         "rules": 21,
-        "urls": 57,
-        "score": 8801
+        "urls": 58,
+        "score": 8804
       },
       "preferred": false
     },
@@ -375,9 +375,9 @@
     },
     {
       "id": "com.tencent.mm",
-      "source": "MengNianxiaoyao",
-      "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1780843592,
+      "source": "aoguai",
+      "subscription": "奥怪的GKD订阅",
+      "timestamp": 1783244652,
       "richness": {
         "groups": 14,
         "rules": 43,
@@ -401,14 +401,14 @@
     },
     {
       "id": "com.twitter.android",
-      "source": "MengNianxiaoyao",
-      "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1780843592,
+      "source": "aoguai",
+      "subscription": "奥怪的GKD订阅",
+      "timestamp": 1783244652,
       "richness": {
         "groups": 4,
-        "rules": 7,
+        "rules": 8,
         "urls": 19,
-        "score": 4267
+        "score": 4297
       },
       "preferred": false
     },
