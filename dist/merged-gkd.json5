@@ -1,7 +1,7 @@
 {
   "id": 9527,
   "name": "GKD 手机应用精简合并订阅",
-  "version": 20260723,
+  "version": 20260724,
   "author": "local-merge",
   "checkUpdateUrl": "./merged-gkd.version.json5",
   "supportUri": "https://github.com/",
