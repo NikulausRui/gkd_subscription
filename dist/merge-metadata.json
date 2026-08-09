@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T20:51:57.605Z",
+  "generatedAt": "2026-08-09T20:55:08.651Z",
   "installedPackageCount": 563,
   "selectedAppCount": 32,
   "globalGroupsSource": "AIsouler",
@@ -18,7 +18,7 @@
       "source": "aoguai",
       "dist": ".cache/gkd-repos/aoguai-custom/dist/aoguai_gkd.json5",
       "subscription": "奥怪的GKD订阅",
-      "version": 87,
+      "version": 88,
       "apps": 72,
       "matched": 11,
       "selected": 9
@@ -39,7 +39,7 @@
       "version": 76,
       "apps": 285,
       "matched": 23,
-      "selected": 23
+      "selected": 19
     },
     {
       "source": "jiuqianyuan",
@@ -154,14 +154,14 @@
     },
     {
       "id": "com.eg.android.AlipayGphone",
-      "source": "MengNianxiaoyao",
-      "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1780843592,
+      "source": "aoguai",
+      "subscription": "奥怪的GKD订阅",
+      "timestamp": 1786271862,
       "richness": {
         "groups": 12,
         "rules": 25,
-        "urls": 68,
-        "score": 12954
+        "urls": 72,
+        "score": 12966
       },
       "preferred": false
     },
@@ -206,14 +206,14 @@
     },
     {
       "id": "com.google.android.gm",
-      "source": "MengNianxiaoyao",
-      "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1778076162,
+      "source": "aoguai",
+      "subscription": "奥怪的GKD订阅",
+      "timestamp": 1786271862,
       "richness": {
-        "groups": 1,
-        "rules": 4,
-        "urls": 9,
-        "score": 1147
+        "groups": 2,
+        "rules": 5,
+        "urls": 10,
+        "score": 2180
       },
       "preferred": false
     },
@@ -375,9 +375,9 @@
     },
     {
       "id": "com.tencent.mm",
-      "source": "MengNianxiaoyao",
-      "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1783562618,
+      "source": "aoguai",
+      "subscription": "奥怪的GKD订阅",
+      "timestamp": 1786271862,
       "richness": {
         "groups": 14,
         "rules": 43,
@@ -401,14 +401,14 @@
     },
     {
       "id": "com.twitter.android",
-      "source": "MengNianxiaoyao",
-      "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1783562618,
+      "source": "aoguai",
+      "subscription": "奥怪的GKD订阅",
+      "timestamp": 1786271862,
       "richness": {
         "groups": 4,
-        "rules": 8,
-        "urls": 19,
-        "score": 4297
+        "rules": 9,
+        "urls": 21,
+        "score": 4333
       },
       "preferred": false
     },

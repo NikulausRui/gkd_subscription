@@ -1,7 +1,7 @@
 {
   "id": 9527,
   "name": "GKD 手机应用精简合并订阅",
-  "version": 20260808,
+  "version": 20260809,
   "author": "local-merge",
   "checkUpdateUrl": "./merged-gkd.version.json5",
   "supportUri": "https://github.com/",
@@ -1387,7 +1387,7 @@
           "rules": [
             {
               "key": 0,
-              "matches": "@[(name$=\".Image\"&&text.length=0)||((text^=\"暂不升级\"||text^=\"放弃升级\")||text=\"关闭\")][visibleToUser=true][desc.length=null] <<n * <n * > * >n [((text^=\"同意\")&&((text*=\"协议并\"||text*=\"升级并\")))&&(text$=\"确认交易\"||text$=\"升级\"||text$=\"开通\"||text*=\"刷脸\"||text$=\"付款\")||text=\"确认\"||text=\"立即领取\"||text=\"立即开通\"]",
+              "matches": "@[(name$=\".Image\"&&text.length=0)||((text^=\"暂不升级\"||text^=\"放弃升级\"||text^=\"不感兴趣\")||text=\"关闭\")][visibleToUser=true][desc.length=null] <<n * <n * > * >n [((text^=\"同意\")&&((text*=\"协议并\"||text*=\"升级并\")))&&(text$=\"确认交易\"||text$=\"升级\"||text$=\"开通\"||text*=\"刷脸\"||text$=\"付款\")||text=\"确认\"||text=\"立即领取\"||text=\"立即开通\"||text=\"确认开通\"]",
               "snapshotUrls": [
                 "https://i.gkd.li/import/12737055",
                 "https://i.gkd.li/import/13915022",
@@ -1408,7 +1408,8 @@
                 "https://i.gkd.li/i/20684144",
                 "https://i.gkd.li/i/23455533",
                 "https://i.gkd.li/i/25000603",
-                "https://i.gkd.li/i/27007114"
+                "https://i.gkd.li/i/27007114",
+                "https://i.gkd.li/i/30699230"
               ],
               "excludeSnapshotUrls": [
                 "https://i.gkd.li/i/19478718"
@@ -1610,10 +1611,10 @@
           "name": "全屏广告-弹窗广告",
           "desc": "关闭全屏弹窗广告",
           "enable": false,
+          "fastQuery": true,
           "rules": [
             {
               "key": 0,
-              "fastQuery": true,
               "activityIds": "com.eg.android.AlipayGphone.AlipayLogin",
               "matches": "@ImageView[desc=\"关闭\"][clickable=true] < LinearLayout - [id=\"com.alipay.mobile.advertisement:id/standardlayer_contentview\"][desc=\"推荐广告\"]",
               "snapshotUrls": [
@@ -1623,13 +1624,22 @@
             },
             {
               "key": 1,
-              "activityIds": "com.alipay.mobile.nebulax.integration.mpaas.activity.NebulaActivity$Main",
-              "matches": "WebView > View > View > View > View > @TextView[clickable=true][visibleToUser=true][text=\"\"] <<n [id=\"com.alipay.mobile.nebula:id/h5_pc_container\"]",
-              "snapshotUrls": "https://i.gkd.li/i/16812751"
+              "forcedTime": 10000,
+              "activityIds": [
+                "com.alipay.mobile.nebulax.integration.mpaas.activity.NebulaActivity$Main",
+                "com.alipay.mobile.nebulax.xriver.activity.XRiverActivity"
+              ],
+              "matches": "@TextView[id=desc][text=\"\"][visibleToUser=true][width<110][height<110][top>getPrev(1).height.div(2)][left<getPrev(1).width.div(2)][right>getPrev(1).width.div(2)] <(2,3) View[childCount>1] <<n [id=\"com.alipay.mobile.nebula:id/h5_pc_container\"]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/16812751",
+                "https://i.gkd.li/i/29666442",
+                "https://i.gkd.li/i/29814861",
+                "https://i.gkd.li/i/30511870"
+              ],
+              "excludeSnapshotUrls": "https://i.gkd.li/i/29814461"
             },
             {
               "key": 2,
-              "fastQuery": true,
               "activityIds": "com.alipay.mobile.nebulax.xriver.activity.XRiverActivity",
               "matches": "@[text*=\"跳过\"] + [text^=\"账单分期还\"][visibleToUser=true] <<n [id=\"com.alipay.mobile.nebula:id/h5_pc_container\"]",
               "snapshotUrls": "https://i.gkd.li/i/18409779"
@@ -1644,7 +1654,7 @@
             {
               "key": 4,
               "activityIds": "com.alipay.mobile.nebulax.xriver.activity.XRiverActivity",
-              "matches": "Image[text=\"关闭弹屏\"]",
+              "matches": "Image[visibleToUser=true][text=\"关闭弹屏\"]",
               "snapshotUrls": "https://i.gkd.li/i/22531246"
             },
             {
@@ -1668,7 +1678,6 @@
             },
             {
               "key": 6,
-              "fastQuery": true,
               "activityIds": ".AlipayLogin",
               "matches": "@[text=\"我知道了\"][clickable=true] -n [text^=\"用碰一下支付\"]",
               "snapshotUrls": "https://i.gkd.li/i/24563264"
@@ -1931,6 +1940,20 @@
               ]
             }
           ]
+        },
+        {
+          "key": 3,
+          "name": "局部广告-首页卡片",
+          "desc": "邮件页顶部[试用Google Woekspace]",
+          "rules": [
+            {
+              "fastQuery": true,
+              "activityIds": "com.google.android.gm.ui.MailActivityGmail",
+              "matches": "Button - View[desc=\"\"] < @View[childCount=2][clickable=true][width=102 && height=102][visibleToUser=true] - TextView <n View[childCount>5 && childCount<10] <<3 ComposeView - LinearLayout <<2 [vid=\"thread_list_view\"]",
+              "snapshotUrls": "https://i.gkd.li/i/30378474"
+            }
+          ],
+          "enable": false
         }
       ]
     },
@@ -4080,20 +4103,21 @@
               "key": 1,
               "anyMatches": [
                 "@[desc^=\"未选中\" || desc^=\"未選定\" || desc^=\"Unselected\"][visibleToUser=true] + [text=\"原图\" || text=\"原圖\" || text=\"Full Image\"]",
-                "@[desc^=\"未选中\" || desc^=\"未選定\" || desc^=\"Unselected\"][visibleToUser=true]"
+                "[desc^=\"未选中\" || desc^=\"未選定\" || desc^=\"Unselected\"][!(desc*=\"选择\")][text=null][visibleToUser=true]"
               ],
               "snapshotUrls": [
                 "https://i.gkd.li/i/16987145",
                 "https://i.gkd.li/i/16987144",
                 "https://i.gkd.li/i/18413281",
                 "https://i.gkd.li/i/14661734",
-                "https://i.gkd.li/i/19625049",
-                "https://i.gkd.li/i/27852612"
+                "https://i.gkd.li/i/27852612",
+                "https://i.gkd.li/i/19625049"
               ],
               "excludeSnapshotUrls": [
                 "https://i.gkd.li/i/16987141",
                 "https://i.gkd.li/i/16987147",
-                "https://i.gkd.li/i/27852606"
+                "https://i.gkd.li/i/27852606",
+                "https://i.gkd.li/i/29746331"
               ]
             }
           ]
@@ -4598,10 +4622,23 @@
           "name": "功能类-自动点击\"显示更多帖子\"",
           "desc": "点击时间线底部的\"显示更多帖子\"按钮",
           "enable": false,
-          "fastQuery": true,
-          "activityIds": "com.twitter.app.main.MainActivity",
-          "rules": "@FrameLayout[clickable=true] > [text=\"显示更多帖子\"]",
-          "snapshotUrls": "https://i.gkd.li/import/14189847"
+          "rules": [
+            {
+              "key": 0,
+              "fastQuery": true,
+              "activityIds": "com.twitter.app.main.MainActivity",
+              "matches": "@FrameLayout[clickable=true] > [text=\"显示更多帖子\"]",
+              "exampleUrls": "https://m.gkd.li/57941037/7efa8af7-90d3-42b4-bf5d-3d83775f175a",
+              "snapshotUrls": "https://i.gkd.li/i/14189847"
+            },
+            {
+              "key": 1,
+              "activityIds": "com.x.android.main.MainActivity",
+              "matches": "@[clickable=true] > [visibleToUser=true][text=\"显示更多帖子\"][left>300]",
+              "snapshotUrls": "https://i.gkd.li/i/30151597",
+              "excludeSnapshotUrls": "https://i.gkd.li/i/30175825"
+            }
+          ]
         }
       ]
     },
