@@ -1,7 +1,7 @@
 {
   "id": 9527,
   "name": "GKD 手机应用精简合并订阅",
-  "version": 20260923,
+  "version": 20260924,
   "author": "local-merge",
   "checkUpdateUrl": "./merged-gkd.version.json5",
   "supportUri": "https://github.com/",
@@ -757,17 +757,12 @@
         {
           "key": 1,
           "name": "更新提示",
-          "fastQuery": true,
           "matchTime": 10000,
           "actionMaximum": 1,
           "resetMatch": "app",
-          "rules": [
-            {
-              "activityIds": ".DownloadList",
-              "matches": "@[text=\"以后再说\"] + [text=\"立即更新\"]",
-              "snapshotUrls": "https://i.gkd.li/i/13631769"
-            }
-          ],
+          "fastQuery": true,
+          "rules": "@[text=\"以后再说\"] + [text=\"立即更新\"]",
+          "snapshotUrls": "https://i.gkd.li/import/13631769",
           "enable": false
         }
       ]
@@ -937,170 +932,69 @@
       "name": "高德地图",
       "groups": [
         {
-          "key": 4,
-          "name": "功能类-截屏分享",
-          "desc": "关闭截屏时app弹出的分享弹窗",
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": "com.autonavi.map.activity.NewMapActivity",
-              "matches": "[text=\"分享截图至\"] < ViewGroup < ViewGroup + @ViewGroup[clickable=true] > ImageView <<n [id=\"com.autonavi.minimap:id/fragment_container\"]",
-              "snapshotUrls": "https://i.gkd.li/i/13473388"
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 10,
-          "name": "局部广告-首页上方消息提醒",
-          "matchTime": 10000,
+          "key": 1,
+          "name": "更新提示",
           "actionMaximum": 1,
           "resetMatch": "app",
-          "activityIds": "com.autonavi.map.activity.NewMapActivity",
+          "fastQuery": true,
           "rules": [
             {
               "key": 1,
-              "matches": "RelativeLayout[desc=\"弹窗\"] > [id=\"com.autonavi.minimap:id/msgbox_popup_clear\"]",
-              "snapshotUrls": "https://i.gkd.li/i/12642830",
-              "exampleUrls": "https://e.gkd.li/a7f72c58-0b31-4b87-9839-567d4d74350a"
+              "name": "更新弹窗-1",
+              "matches": "@[id=\"com.autonavi.minimap:id/iv_close\"] + * > [text^=\"立即升级\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13379094"
             },
             {
               "key": 2,
-              "fastQuery": true,
-              "matches": "@ImageView[clickable=true] - [text=\"广告\"]",
-              "snapshotUrls": "https://i.gkd.li/i/17426322",
-              "exampleUrls": "https://e.gkd.li/ca2dae5b-10d8-458e-9d83-fe04652ff074"
+              "name": "更新弹窗-2",
+              "matches": "@[text=\"取消\"] + * + [text=\"去下载\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13379426"
             }
           ],
           "enable": false
         },
         {
+          "enable": false,
+          "key": 4,
+          "name": "功能类-截屏分享",
+          "desc": "关闭截屏时app弹出的分享弹窗",
+          "activityIds": "com.autonavi.map.activity.NewMapActivity",
+          "rules": "[text=\"分享截图至\"] < ViewGroup < ViewGroup + @ViewGroup[clickable=true] > ImageView",
+          "snapshotUrls": "https://i.gkd.li/import/13473388"
+        },
+        {
+          "key": 10,
+          "name": "局部广告-首页-地图页面上方消息提醒",
+          "activityIds": "com.autonavi.map.activity.NewMapActivity",
+          "rules": "RelativeLayout[desc=\"弹窗\"] > [id=\"com.autonavi.minimap:id/msgbox_popup_clear\"]",
+          "snapshotUrls": "https://i.gkd.li/import/12642830",
+          "enable": false
+        },
+        {
+          "enable": false,
           "key": 11,
-          "name": "局部广告-首页签到卡片",
-          "desc": "点击\"x\"",
+          "name": "功能类-首页-签到卡片",
+          "desc": "点击【x】",
           "actionMaximum": 1,
           "resetMatch": "app",
           "activityIds": "com.autonavi.map.activity.NewMapActivity",
           "rules": "ImageView[visibleToUser=true][width<90][height<90] < @ViewGroup -(2) ViewGroup > ViewGroup > View[text*=\"签到\"||text*=\"成长值\"]",
           "snapshotUrls": [
-            "https://i.gkd.li/i/12642842",
-            "https://i.gkd.li/i/12642845",
-            "https://i.gkd.li/i/12818770",
-            "https://i.gkd.li/i/13764540"
-          ],
-          "enable": false
+            "https://i.gkd.li/import/12642842",
+            "https://i.gkd.li/import/12642845",
+            "https://i.gkd.li/import/12818770",
+            "https://i.gkd.li/import/13764540"
+          ]
         },
         {
+          "enable": false,
           "key": 12,
-          "name": "全屏广告-加油页面优惠券弹窗",
+          "name": "全屏广告-加油页面-优惠券弹窗",
           "activityIds": "com.autonavi.map.activity.NewMapActivity",
           "rules": "@ImageView < [desc=\"关闭\"][clickable=true] - ViewGroup > ViewGroup > ViewGroup > View[text=\"立即领取\"]",
           "snapshotUrls": [
-            "https://i.gkd.li/i/12642857"
-          ],
-          "enable": false
-        },
-        {
-          "key": 13,
-          "name": "局部广告-卡片广告",
-          "desc": "点击关闭",
-          "rules": [
-            {
-              "key": 0,
-              "action": "clickCenter",
-              "activityIds": "com.autonavi.map.activity.NewMapActivity",
-              "matches": "@ViewGroup[desc=\"关闭\"][clickable=true][visibleToUser=true] - ViewGroup > [desc!=null][visibleToUser=true] + [desc!=null][visibleToUser=true]",
-              "exampleUrls": "https://m.gkd.li/57941037/071a07d2-c760-4f15-9359-f54bf51b6205",
-              "snapshotUrls": "https://i.gkd.li/i/14715295"
-            },
-            {
-              "key": 1,
-              "fastQuery": true,
-              "activityIds": "com.autonavi.map.activity.NewMapActivity",
-              "matches": "ViewGroup[desc=\"图片\"][childCount=2] > ViewGroup[clickable=true] > @ImageView[childCount=0] <<n [vid=\"tab_container_id\"]",
-              "exampleUrls": "https://e.gkd.li/132266f7-b7b8-4cac-9549-bcbe4314c893",
-              "snapshotUrls": "https://i.gkd.li/i/16960367"
-            },
-            {
-              "key": 2,
-              "fastQuery": true,
-              "activityIds": "com.autonavi.map.activity.NewMapActivity",
-              "matches": "@ImageView[childCount=0] < ViewGroup[clickable=true] -2 * > View[text^=\"高德购票\" && text$=\"优惠\"] <<n [vid=\"mapInteractiveRelativeLayout\"]",
-              "exampleUrls": "https://e.gkd.li/59408741-4847-4395-ace5-b1e14ee24cec",
-              "snapshotUrls": "https://i.gkd.li/i/16960157"
-            },
-            {
-              "key": 3,
-              "fastQuery": true,
-              "activityIds": "com.autonavi.map.activity.NewMapActivity",
-              "matches": "@ViewGroup[childCount=2][clickable=true] > [visibleToUser=true][text=\"关闭\"] + View[text!=null] <<n [vid=\"ajx_view_container\"]",
-              "exampleUrls": "https://e.gkd.li/018aa83b-3f0a-46b4-b084-a5e7a397ca68",
-              "snapshotUrls": "https://i.gkd.li/i/18627401"
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 14,
-          "name": "全屏广告-弹窗广告",
-          "desc": "点击关闭",
-          "rules": [
-            {
-              "key": 0,
-              "name": "[欢迎]弹窗",
-              "fastQuery": true,
-              "activityIds": "com.autonavi.map.activity.NewMapActivity",
-              "matches": "ViewGroup[childCount=6] >4 ViewGroup[childCount=5] > @ImageView[clickable=true] + View[text!=null] <<n [vid=\"fragment_container\"]",
-              "exampleUrls": "https://m.gkd.li/57941037/660ef360-eee8-4fb8-9764-7a1822ccb6e9",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/14800704",
-                "https://i.gkd.li/i/17079025"
-              ]
-            },
-            {
-              "key": 1,
-              "name": "签到弹窗",
-              "fastQuery": true,
-              "activityIds": "com.autonavi.map.activity.NewMapActivity",
-              "matches": "[vid=\"main_map_msg_dialog_close\"]",
-              "exampleUrls": "https://m.gkd.li/57941037/e059109b-f4bb-4ed6-81a8-6010b51ebfd5",
-              "snapshotUrls": "https://i.gkd.li/i/14809993"
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 15,
-          "name": "功能类-一键点亮角落",
-          "desc": "点击[一键点亮]",
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": "com.autonavi.map.activity.NewMapActivity",
-              "matches": "[text=\"一键点亮\"] <2 @[clickable=true] <<n [vid=\"mapInteractiveRelativeLayout\"]",
-              "exampleUrls": "https://m.gkd.li/57941037/1fd33208-e81d-4da6-a23c-4d562a8e0ae0",
-              "snapshotUrls": "https://i.gkd.li/i/14881505"
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 16,
-          "name": "权限提示-授权蓝牙",
-          "desc": "点击关闭",
-          "matchTime": 10000,
-          "actionMaximum": 1,
-          "resetMatch": "app",
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": "com.autonavi.map.activity.NewMapActivity",
-              "matches": "@ImageView[clickable=true] -2 [text=\"授权蓝牙\"]",
-              "exampleUrls": "https://e.gkd.li/8aef9184-d2b6-4c49-b729-82e6e76decdc",
-              "snapshotUrls": "https://i.gkd.li/i/17002003"
-            }
-          ],
-          "enable": false
+            "https://i.gkd.li/import/12642857"
+          ]
         }
       ]
     },
@@ -1109,99 +1003,38 @@
       "name": "番茄免费小说",
       "groups": [
         {
-          "key": 0,
-          "name": "局部广告-阅读页面广告",
-          "activityIds": [
-            "com.dragon.read.ad.banner.ui",
-            "com.dragon.read.reader.ReaderActivity",
-            "com.dragon.read.reader.ui.ReaderActivity"
-          ],
-          "rules": [
-            {
-              "key": 1,
-              "fastQuery": true,
-              "matches": "@ImageView[childCount=0][clickable=true][visibleToUser=true] - LinearLayout >(2,3) [text=\"广告\" || text=\"立享优惠\" || text*=\"查看\"][text.length<5]",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/12908734",
-                "https://i.gkd.li/i/14540281",
-                "https://i.gkd.li/i/18138903"
-              ]
-            },
-            {
-              "key": 2,
-              "fastQuery": true,
-              "activityIds": ".reader.ui.ReaderActivity",
-              "matches": "[id=\"com.dragon.read:id/close_button\"][visibleToUser=true]",
-              "exampleUrls": "https://e.gkd.li/3de0d5d9-0c02-4fe7-b5e8-b9fdb6688f8e",
-              "snapshotUrls": "https://i.gkd.li/i/13520314"
-            },
-            {
-              "key": 3,
-              "fastQuery": true,
-              "matches": "[text=\"关闭此条广告\"]",
-              "exampleUrls": "https://m.gkd.li/57941037/cf9d0574-dc89-4f03-ba01-eb9bcc97925f",
-              "snapshotUrls": "https://i.gkd.li/i/14540281"
-            },
-            {
-              "key": 4,
-              "matches": "HorizontalAndVerticalScrollView > FrameLayout[childCount>=13] >(7,8,9) @FrameLayout[index=2][clickable=true] > ImageView",
-              "exampleUrls": "https://m.gkd.li/57941037/0129e5a7-ead1-4b92-a008-708632e5a927",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/14548657",
-                "https://i.gkd.li/i/14622531",
-                "https://i.gkd.li/i/14810480"
-              ]
-            },
-            {
-              "key": 5,
-              "fastQuery": true,
-              "activityIds": ".reader.ui.ReaderActivity",
-              "matches": "@[clickable=true] >(1,2) [text=\"继续阅读下一页\"][visibleToUser=true]",
-              "exampleUrls": "https://e.gkd.li/b571222b-4ac1-4ba8-9a2c-4439c531d6e4",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/13674556",
-                "https://i.gkd.li/i/13843155"
-              ]
-            }
-          ],
-          "enable": false
-        },
-        {
           "key": 1,
           "name": "更新提示",
           "fastQuery": true,
-          "matchTime": 10000,
-          "actionMaximum": 1,
           "resetMatch": "app",
+          "actionMaximum": 1,
+          "activityIds": ".pages.main.MainFragmentActivity",
           "rules": [
             {
-              "activityIds": [
-                ".update",
-                ".pages.main.MainFragmentActivity"
-              ],
-              "matches": "@[text=\"以后再说\"] + [text=\"优先体验\"]",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/12716477",
-                "https://i.gkd.li/i/18175292"
-              ]
+              "matches": "@TextView[text=\"以后再说\"] + TextView[text=\"优先体验\"]",
+              "snapshotUrls": "https://i.gkd.li/i/21290014"
             }
           ],
           "enable": false
         },
         {
           "key": 2,
-          "name": "局部广告-首页右侧悬浮广告",
+          "name": "局部广告-首页-右侧红包浮窗",
+          "fastQuery": true,
+          "matchTime": 20000,
+          "resetMatch": "app",
+          "actionMaximum": 1,
+          "activityIds": "com.dragon.read.pages.main.MainFragmentActivity",
           "rules": [
             {
-              "fastQuery": true,
-              "activityIds": [
-                "com.dragon.read.pages.main.MainFragmentActivity",
-                "com.dragon.read.ad.openingscreenad.OpeningScreenADActivity"
+              "anyMatches": [
+                "@ImageView < * < RelativeLayout < FrameLayout <(1,2) [id=\"android:id/content\"]",
+                "@ImageView + ViewGroup > TextView[text=\"领取\"][index=parent.childCount.minus(1)]"
               ],
-              "matches": "@ImageView[clickable=true][childCount=0][index=0][visibleToUser=true] < [childCount=3] < RelativeLayout < FrameLayout <2 [id=\"android:id/content\"][childCount=3]",
               "snapshotUrls": [
-                "https://i.gkd.li/i/12716506",
-                "https://i.gkd.li/i/13318796"
+                "https://i.gkd.li/import/12716506",
+                "https://i.gkd.li/i/17725414",
+                "https://i.gkd.li/i/21708368"
               ]
             }
           ],
@@ -1209,157 +1042,300 @@
         },
         {
           "key": 3,
-          "name": "全屏广告-弹窗广告",
+          "name": "评价提示",
+          "fastQuery": true,
+          "actionMaximum": 1,
+          "matchTime": 20000,
+          "forcedTime": 20000,
+          "resetMatch": "app",
+          "activityIds": ".pages.main.MainFragmentActivity",
           "rules": [
             {
-              "key": 0,
-              "name": "电商惊喜券",
-              "activityIds": "com.dragon.read.pages.main.MainFragmentActivity",
-              "fastQuery": true,
-              "matches": "@LynxFlattenUI[id=null][text=\"\"][clickable=true] - [text=\"去逛商城\"] -4 [text$=\"电商惊喜券\"]",
-              "snapshotUrls": "https://i.gkd.li/i/12910159"
-            },
-            {
-              "key": 1,
-              "name": "爆款好物一分购",
-              "fastQuery": true,
-              "activityIds": "com.dragon.read.pages.main.MainFragmentActivity",
-              "matches": "@ImageView[clickable=true] <2 LinearLayout[childCount=2] < [id=\"android:id/content\"][childCount=1]",
-              "snapshotUrls": "https://i.gkd.li/i/12878266"
-            },
-            {
-              "key": 2,
-              "name": "抽奖赢好礼",
-              "fastQuery": true,
-              "activityIds": "com.dragon.read.pages.main.MainFragmentActivity",
-              "matches": "@LynxFlattenUI[clickable=true] - [text=\"前往抽奖\"]",
-              "exampleUrls": "https://m.gkd.li/57941037/77c4098a-818f-4d0f-8492-e98818d0da27",
-              "snapshotUrls": "https://i.gkd.li/i/14292475"
-            },
-            {
-              "key": 3,
-              "name": "签到弹窗",
-              "fastQuery": true,
-              "activityIds": "com.dragon.read.pages.main.MainFragmentActivity",
-              "matches": "@LynxFlattenUI[clickable=true][visibleToUser=true][text=\"\"] -27 FlattenUIText[text^=\"立即签到\"]",
-              "exampleUrls": "https://m.gkd.li/57941037/96afbb4f-afd5-4f64-948d-15fc7bb14075",
-              "snapshotUrls": "https://i.gkd.li/i/15223416"
+              "matches": "@ImageView +n LinearLayout > TextView[text=\"我要反馈\"] +2 TextView[text=\"五星好评\"]",
+              "snapshotUrls": "https://i.gkd.li/i/20772203"
             }
           ],
           "enable": false
         },
         {
           "key": 4,
-          "name": "全屏广告-阅读页面关注作者弹窗",
+          "name": "全屏广告-周末开红包",
+          "desc": "点击 X",
           "fastQuery": true,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "activityIds": ".pages.main.MainFragmentActivity",
+          "forcedTime": 20000,
           "rules": [
             {
-              "key": 0,
-              "activityIds": "com.dragon.read.reader.ui.ReaderActivity",
-              "matches": "@ImageView +2 FrameLayout >3 [text=\"关注\"]",
-              "snapshotUrls": "https://i.gkd.li/i/13399505"
+              "matches": "@FlattenUIImage[index=parent.childCount.minus(1) ||index=parent.childCount.minus(2)] <n FrameLayout < * < * < * < * < * < [id=\"android:id/content\"]",
+              "snapshotUrls": [
+                "https://i.gkd.li/import/16347298",
+                "https://i.gkd.li/import/14383684"
+              ]
             }
           ],
           "enable": false
         },
         {
           "key": 5,
-          "name": "分段广告-阅读页面广告",
+          "name": "全屏广告-书城-广告弹窗",
+          "desc": "【X】",
           "fastQuery": true,
-          "activityIds": "com.dragon.read.reader.ui.ReaderActivity",
           "rules": [
             {
-              "key": 0,
-              "name": "点击[反馈]按钮",
-              "matches": "[text=\"反馈\"][visibleToUser=true][name$=\"UIText\"]",
+              "activityIds": ".pages.main.MainFragmentActivity",
+              "matches": "@ImageView <2 LinearLayout < [id=\"android:id/content\"]",
               "snapshotUrls": [
-                "https://i.gkd.li/i/13520160",
-                "https://i.gkd.li/i/13816453"
+                "https://i.gkd.li/i/18124360",
+                "https://i.gkd.li/i/18124367"
               ]
             },
             {
-              "key": 3,
-              "matches": "@ImageView[clickable=true][childCount=0][visibleToUser=true] < FrameLayout - LinearLayout >2 [text=\"广告\"]",
-              "exampleUrls": "https://e.gkd.li/c172db67-a489-488b-a5f5-35aa9657c444",
-              "snapshotUrls": "https://i.gkd.li/i/18724040"
+              "name": "电商惊喜券",
+              "matches": "@LynxFlattenUI[id=null][text=\"\"][clickable=true] - [text=\"去逛商城\"] -4 [text$=\"电商惊喜券\"]",
+              "snapshotUrls": "https://i.gkd.li/import/12910159"
             },
             {
-              "preKeys": [
-                0,
-                3
-              ],
-              "key": 1,
-              "name": "点击[不感兴趣]/[关闭此广告]",
-              "matches": "[text=\"不感兴趣\" || text=\"关闭此广告\"]",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/13520219",
-                "https://i.gkd.li/i/13674550",
-                "https://i.gkd.li/i/13816454",
-                "https://i.gkd.li/i/14913207",
-                "https://i.gkd.li/i/18724041"
-              ]
+              "name": "爆款好物一分购",
+              "matches": "@ImageView[clickable=true] <2 LinearLayout[childCount=2] < [id=\"android:id/content\"][childCount=1]",
+              "snapshotUrls": "https://i.gkd.li/import/12878266"
+            },
+            {
+              "name": "限时会员福利",
+              "matches": "@ImageView[clickable=true] -3 ViewGroup >n TextView[text=\"恭喜获得限时会员福利\"]",
+              "snapshotUrls": "https://i.gkd.li/i/18553545"
             }
           ],
           "enable": false
         },
         {
           "key": 6,
-          "name": "评价提示-请求好评弹窗",
+          "name": "通知提示-开启推送提醒",
+          "desc": "自动点击【取消】",
+          "fastQuery": true,
+          "resetMatch": "app",
+          "actionMaximum": 1,
+          "forcedTime": 10000,
+          "activityIds": [
+            ".pages.main.MainFragmentActivity",
+            ".component.biz.impl.SearchActivity"
+          ],
+          "rules": "@[text=\"取消\"] < * -2 * > [text=\"开启推送提醒\"]",
+          "snapshotUrls": "https://i.gkd.li/i/17661722",
+          "enable": false
+        },
+        {
+          "key": 7,
+          "name": "评价提示-阅读",
           "fastQuery": true,
           "actionMaximum": 1,
-          "resetMatch": "app",
+          "resetMatch": "match",
           "rules": [
             {
-              "activityIds": ".pages.main.MainFragmentActivity",
-              "matches": "@ImageView[clickable=true] +3 * > [text=\"五星好评\"]",
-              "snapshotUrls": "https://i.gkd.li/i/14395093"
+              "matches": "@TextView[text=\"取消\"] -n TextView[text=\"点评此书\"]",
+              "snapshotUrls": "https://i.gkd.li/i/21012283"
             }
           ],
           "enable": false
         },
         {
-          "key": 10,
-          "name": "权限提示-通知权限",
-          "desc": "点击\"取消\"",
-          "matchTime": 10000,
-          "actionMaximum": 1,
-          "resetMatch": "app",
+          "key": 11,
+          "name": "局部广告-阅读-卡片广告",
+          "desc": "点击X",
+          "fastQuery": true,
+          "activityIds": ".reader.ui.ReaderActivity",
           "rules": [
             {
-              "activityIds": ".widget.ConfirmDialogBuilder",
-              "matches": "@[text=\"取消\"] < * -2 * > [text=\"开启推送提醒\"]",
-              "snapshotUrls": "https://i.gkd.li/i/12716592"
+              "name": "卡片广告",
+              "anyMatches": [
+                "@ImageView[visibleToUser=true] < FrameLayout <3 ViewGroup[childCount=4] <n * <n * <n * <n * <n * <n  * <n * <n * <n * <n * <n [id=\"com.dragon.read:id/root_view\"]",
+                "@ImageView[visibleToUser=true] < FrameLayout <3 ViewGroup[childCount=4] <n * <n * <n * <n * <n * <n  * <n * <n * <n * <n * <n * <n [id=\"com.dragon.read:id/root_view\"]"
+              ],
+              "excludeMatches": [
+                "TextView[text=\"目录\"]"
+              ],
+              "snapshotUrls": [
+                "https://i.gkd.li/import/12716444",
+                "https://i.gkd.li/i/17474881"
+              ],
+              "excludeSnapshotUrls": [
+                "https://i.gkd.li/i/20340317"
+              ]
+            },
+            {
+              "key": 1,
+              "name": "底部卡片广告",
+              "anyMatches": [
+                "@ImageView - LinearLayout <n * <n * <n * <n * <n * <n * <n * <n * <n * <n [id=\"com.dragon.read:id/root_view\"]",
+                "@ImageView < FrameLayout - LinearLayout <n * <n * <n * <n * <n * <n * <n * <n * <n * <n [id=\"com.dragon.read:id/root_view\"]",
+                "@UISvg +n FlattenUIText[text=\"广告\"] <n * <n * <n * <n * <n * <n * <n * <n * <n * <n [id=\"com.dragon.read:id/root_view\"]"
+              ],
+              "snapshotUrls": [
+                "https://i.gkd.li/import/12908734",
+                "https://i.gkd.li/import/13520314",
+                "https://i.gkd.li/import/15294350",
+                "https://i.gkd.li/i/17474877",
+                "https://i.gkd.li/i/17565008",
+                "https://i.gkd.li/i/21479922"
+              ]
+            },
+            {
+              "preKeys": 1,
+              "matches": "TextView[text=\"关闭此广告\"||text=\"关闭此条广告\"]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/17928194",
+                "https://i.gkd.li/i/17793195"
+              ]
+            },
+            {
+              "name": "卡片-关注作者",
+              "matches": "@ImageView + TextView[text=\"关注我，掌握书籍最新动态\"]",
+              "snapshotUrls": [
+                "https://i.gkd.li/import/13399505",
+                "https://i.gkd.li/import/14896809"
+              ]
+            },
+            {
+              "name": "领金币",
+              "matches": "@ImageView < [id=\"com.dragon.read:id/parent\"]",
+              "snapshotUrls": "https://i.gkd.li/i/17474890"
+            },
+            {
+              "name": "免广告权益",
+              "matches": "@ImageView - TextView[text=\"免广告权益\"]",
+              "snapshotUrls": "https://i.gkd.li/i/19937082"
+            },
+            {
+              "name": "限时会员福利",
+              "matches": "@ImageView + View + TextView[text=\"恭喜获得限时会员福利\"]",
+              "snapshotUrls": "https://i.gkd.li/i/19937239"
             }
           ],
           "enable": false
         },
         {
           "key": 12,
-          "name": "全屏广告",
-          "desc": "点击\"关闭\"",
+          "name": "全屏广告-阅读-视频广告",
+          "desc": "点击【关闭】/【反馈-不感兴趣】",
+          "fastQuery": true,
+          "activityIds": [
+            ".reader.ui.ReaderActivity",
+            ".ad.openingscreenad.OpeningScreenADActivity"
+          ],
           "rules": [
             {
-              "fastQuery": true,
-              "activityIds": "com.dragon.read.reader.ui.ReaderActivity",
-              "matches": "TextView[text=\"广告\"] +2 Button[id=\"com.dragon.read:id/close\"]",
-              "snapshotUrls": "https://i.gkd.li/i/13191156"
+              "key": 1,
+              "name": "点击【关闭】",
+              "matches": "@[text=\"关闭\"] - [text=\"反馈\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13191156"
+            },
+            {
+              "key": 2,
+              "name": "点击【反馈】",
+              "matchRoot": true,
+              "matches": "[text=\"反馈\"][visibleToUser=true]",
+              "excludeMatches": [
+                "@[text=\"关闭\"] - [text=\"反馈\"]",
+                "[text$=\"秒后，继续阅读下一页\"]",
+                "@[text=\"反馈\"][visibleToUser=true][2=parent.childCount]"
+              ],
+              "snapshotUrls": [
+                "https://i.gkd.li/import/13520160",
+                "https://i.gkd.li/i/17468490",
+                "https://i.gkd.li/i/17474896",
+                "https://i.gkd.li/i/21708291"
+              ],
+              "exampleUrls": [
+                "https://i.gkd.li/i/17564881",
+                "https://i.gkd.li/i/17689909"
+              ]
+            },
+            {
+              "preKeys": 2,
+              "key": 3,
+              "name": "点击【不感兴趣】",
+              "actionDelay": 100,
+              "matches": "@TextView[text=\"不感兴趣\"]",
+              "snapshotUrls": [
+                "https://i.gkd.li/import/13520219",
+                "https://i.gkd.li/import/13674550",
+                "https://i.gkd.li/i/17461153",
+                "https://i.gkd.li/i/17928168"
+              ]
+            },
+            {
+              "name": "关闭",
+              "matches": "FlattenUIText[text=\"关闭\"][visibleToUser=true]",
+              "snapshotUrls": "https://i.gkd.li/i/21272921"
+            }
+          ],
+          "enable": false
+        },
+        {
+          "key": 13,
+          "name": "全屏广告-阅读-翻页广告",
+          "desc": "自动点击右下方空白处翻页，翻页模式【上下】无法使用",
+          "fastQuery": true,
+          "forcedTime": 3600000,
+          "activityIds": [
+            ".reader.ui.ReaderActivity",
+            ".ad.openingscreenad.OpeningScreenADActivity"
+          ],
+          "rules": [
+            {
+              "matches": "[id=\"android:id/content\"]",
+              "anyMatches": [
+                "UISvg +n FlattenUIText[text^=\"¥\"][visibleToUser=true]",
+                "[text=\"点击关闭广告并退出小说\" || text=\"去抢购\" || text=\"去领取\"][visibleToUser=true]",
+                "TextView[text~=\"(?is)全[0-9]+集\"] <2 ViewGroup + TextView[text=\"看全集\"][visibleToUser=true]",
+                "TextView[text=\"观看全集\"][visibleToUser=true] -n TextView[vid=\"title\"][text=\"短剧端内免费看\"]",
+                "TextView[text=\"免费看剧\"][visibleToUser=true] < FrameLayout <(1,2) LinearLayout -n TextView[vid=\"title\"]",
+                "FlattenUIText[text=\"更多精选好物\"||text=\"立即查看\"||text=\"我知道了\"][visibleToUser=true]"
+              ],
+              "excludeMatches": "[text=\"反馈\"]",
+              "position": {
+                "right": 100,
+                "bottom": 300
+              },
+              "snapshotUrls": [
+                "https://i.gkd.li/i/17941812",
+                "https://i.gkd.li/i/17967442",
+                "https://i.gkd.li/i/17474887",
+                "https://i.gkd.li/i/17474889",
+                "https://i.gkd.li/i/17932302",
+                "https://i.gkd.li/i/18124417",
+                "https://i.gkd.li/i/20279981",
+                "https://i.gkd.li/i/20585911",
+                "https://i.gkd.li/i/20586037",
+                "https://i.gkd.li/i/21479966",
+                "https://i.gkd.li/i/21708274",
+                "https://i.gkd.li/i/21308312",
+                "https://i.gkd.li/i/21913845",
+                "https://i.gkd.li/i/21913873"
+              ]
             }
           ],
           "enable": false
         },
         {
           "key": 14,
-          "name": "全屏广告-会员福利弹窗",
-          "desc": "点击关闭",
+          "name": "局部广告-阅读-菜单右侧福利浮窗",
+          "desc": "点击X",
+          "fastQuery": true,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "activityIds": ".reader.ui.ReaderActivity",
           "rules": [
             {
-              "fastQuery": true,
-              "activityIds": "com.dragon.read.reader.ui.ReaderActivity",
-              "matches": "@ImageView[clickable=true][visibleToUser=true] +5 [text=\"领取限时福利\"]",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/14430326",
-                "https://i.gkd.li/i/14969861"
-              ]
+              "name": "图书福利",
+              "matches": "@ImageView - ImageView < * < * < FrameLayout + LinearLayout > LinearLayout > TextView[text=\"目录\"]",
+              "snapshotUrls": "https://i.gkd.li/i/20340317"
+            },
+            {
+              "name": "免费领会员",
+              "matches": "ViewGroup - @ImageView < * < * < FrameLayout + LinearLayout > LinearLayout > TextView[text=\"目录\"]",
+              "snapshotUrls": "https://i.gkd.li/i/21341401"
             }
           ],
           "enable": false
@@ -1756,37 +1732,30 @@
       "groups": [
         {
           "key": 0,
-          "name": "更新提示",
+          "name": "更新提示-取消更新",
           "desc": "点击[以后再说]",
+          "activityIds": [
+            "com.google.android.apps.photos.update.treatment.UpdateAppTreatmentPromoPageActivity"
+          ],
           "fastQuery": true,
-          "matchTime": 10000,
-          "actionMaximum": 1,
           "rules": [
             {
-              "activityIds": [
-                ".update.treatment.UpdateAppTreatmentPromoPageActivity",
-                ".home.HomeActivity"
-              ],
-              "matches": "[text=\"以后再说\" || text=\"Not now\"]",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/13218940",
-                "https://i.gkd.li/i/18522070",
-                "https://i.gkd.li/i/18608917"
-              ]
+              "matches": "[id=`com.google.android.apps.photos:id/negative_button`][text=`以后再说`]",
+              "snapshotUrls": "https://i.gkd.li/import/13218940"
             }
           ],
           "enable": false
         },
         {
           "key": 1,
+          "fastQuery": true,
           "name": "全屏广告-优惠提示",
-          "desc": "点击关闭",
+          "desc": "点击X",
           "rules": [
             {
-              "fastQuery": true,
               "activityIds": "com.google.android.apps.photos.cloudstorage.paidfeatures.PaidFeaturesActivity",
               "matches": "@[desc=\"转到上一层级\"] < ViewGroup[id=\"com.google.android.apps.photos:id/toolbar\"]",
-              "snapshotUrls": "https://i.gkd.li/i/13774247"
+              "snapshotUrls": "https://i.gkd.li/import/13774247"
             }
           ],
           "enable": false
@@ -1800,53 +1769,9 @@
         {
           "key": 1,
           "name": "局部广告-播放界面广告",
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": "com.google.android.apps.youtube.music.activities.MusicActivity",
-              "matches": "[id=\"com.google.android.apps.youtube.music:id/skip_ad_button\"]",
-              "snapshotUrls": "https://i.gkd.li/i/13196056"
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 2,
-          "name": "全屏广告-会员广告",
-          "desc": "点击关闭",
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": ".activities.MusicActivity",
-              "matches": "@[desc=\"Close\" || desc=\"No thanks\"][visibleToUser=true] <<n [vid=\"custom\"]",
-              "exampleUrls": "https://e.gkd.li/42b2cb6d-b1e2-4cb1-84d8-399939263711",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/18542111",
-                "https://i.gkd.li/i/18727504"
-              ]
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 3,
-          "name": "通知提示-隐私提醒",
-          "desc": "点击[OK]",
-          "matchTime": 10000,
-          "actionMaximum": 1,
-          "resetMatch": "app",
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": ".activities.MusicActivity",
-              "matches": [
-                "[text=\"Privacy check-up\"][visibleToUser=true]",
-                "[text=\"Ok\"][visibleToUser=true]"
-              ],
-              "exampleUrls": "https://e.gkd.li/bffc2f66-8538-4970-9b7b-9da2e4a397ab",
-              "snapshotUrls": "https://i.gkd.li/i/18546896"
-            }
-          ],
+          "activityIds": "com.google.android.apps.youtube.music.activities.MusicActivity",
+          "rules": "[id=\"com.google.android.apps.youtube.music:id/skip_ad_text\"]",
+          "snapshotUrls": "https://i.gkd.li/import/13196056",
           "enable": false
         }
       ]
@@ -1856,11 +1781,10 @@
       "name": "Android 系统文件选择器",
       "groups": [
         {
-          "key": 10,
           "enable": false,
+          "key": 10,
           "name": "功能类-授权第三方应用访问文件夹",
-          "desc": "(存在安全风险)自动点击使用此文件夹并允许访问权限",
-          "fastQuery": true,
+          "desc": "自动点击【使用此文件夹】->【允许】",
           "activityIds": "com.android.documentsui.picker.PickActivity",
           "rules": [
             {
@@ -2247,11 +2171,18 @@
       "name": "Keep",
       "groups": [
         {
+          "key": 1,
+          "name": "青少年模式",
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "fastQuery": true,
+          "rules": "[text$=\"未成年人模式\"] +2 @[clickable=true] > [text=\"我知道了\"]",
+          "snapshotUrls": "https://i.gkd.li/import/12706097",
+          "enable": false
+        },
+        {
           "key": 2,
           "name": "全屏广告-首页广告弹窗",
-          "desc": "关闭首页弹出的全屏广告",
-          "enable": false,
-          "fastQuery": true,
           "rules": [
             {
               "key": 0,
@@ -2262,13 +2193,12 @@
                 "https://i.gkd.li/import/13761641"
               ]
             }
-          ]
+          ],
+          "enable": false
         },
         {
           "key": 3,
           "name": "局部广告-首页信息流广告",
-          "desc": "关闭首页信息流中的广告卡片",
-          "fastQuery": true,
           "activityIds": "com.gotokeep.keep.refactor.business.main.activity.MainActivity",
           "rules": "[id=\"com.gotokeep.keep:id/textAdTag\"] + [id=\"com.gotokeep.keep:id/imgClose\"]",
           "snapshotUrls": "https://i.gkd.li/import/12706115",
@@ -2276,10 +2206,7 @@
         },
         {
           "key": 4,
-          "name": "全屏广告-运动购页面广告弹窗",
-          "desc": "关闭运动购物页面的弹窗广告",
-          "enable": false,
-          "fastQuery": true,
+          "name": "全屏广告-运动购页面-广告弹窗",
           "rules": [
             {
               "key": 0,
@@ -2293,7 +2220,18 @@
               "matches": "[id=\"com.gotokeep.keep:id/contentContainer\"] + [id=\"com.gotokeep.keep:id/closeImageView\"]",
               "snapshotUrls": "https://i.gkd.li/import/13766358"
             }
-          ]
+          ],
+          "enable": false
+        },
+        {
+          "key": 5,
+          "name": "全屏广告-请求开启通知权限弹窗",
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "fastQuery": true,
+          "rules": "@[text=\"暂不开启\"] +2 [text=\"开启通知权限\"]",
+          "snapshotUrls": "https://i.gkd.li/import/13761671",
+          "enable": false
         }
       ]
     },
@@ -2681,233 +2619,281 @@
       "name": "网易云音乐",
       "groups": [
         {
+          "enable": false,
           "key": 1,
-          "name": "分段广告-卡片广告",
-          "desc": "点击[关闭]-点击[直接关闭]/[不感兴趣]",
-          "rules": [
-            {
-              "key": 0,
-              "fastQuery": true,
-              "activityIds": [
-                ".activity.MainActivity",
-                ".music.biz.comment.activity.CommentActivity",
-                ".music.biz.voice.player.revisionV1.ProgramPlayerActivityV1"
-              ],
-              "matches": "[vid=\"tag_ad_banner\" || vid=\"adTagView\" || vid=\"closeAction\"][clickable=true]",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/13859634",
-                "https://i.gkd.li/i/13927753",
-                "https://i.gkd.li/i/14549836",
-                "https://i.gkd.li/i/14275955",
-                "https://i.gkd.li/i/16047087"
-              ]
-            },
-            {
-              "key": 1,
-              "fastQuery": true,
-              "activityIds": ".music.biz.comment.activity.CommentActivity",
-              "matches": "@ViewGroup[clickable=true][childCount=2] > ImageView - ViewGroup > TextView[text.length>0] <<n [vid=\"recyclerView\"]",
-              "snapshotUrls": "https://i.gkd.li/i/23771616"
-            },
-            {
-              "key": 2,
-              "fastQuery": true,
-              "activityIds": ".music.biz.comment.activity.CommentActivity",
-              "matches": "@ViewGroup[clickable=true][childCount=1] + ViewGroup[childCount=1] > [text=\"艺人相关\"]",
-              "snapshotUrls": "https://i.gkd.li/i/23771678"
-            },
-            {
-              "key": 90,
-              "fastQuery": true,
-              "activityIds": [
-                ".activity.MainActivity",
-                ".music.biz.comment.activity.CommentActivity",
-                ".music.biz.voice.player.revisionV1.ProgramPlayerActivityV1"
-              ],
-              "anyMatches": [
-                "[text=\"直接关闭\"][clickable=true]",
-                "@[clickable=true] > [text=\"不感兴趣\"]"
-              ],
-              "snapshotUrls": [
-                "https://i.gkd.li/i/13859635",
-                "https://i.gkd.li/i/14932659",
-                "https://i.gkd.li/i/16047089",
-                "https://i.gkd.li/i/23771645"
-              ]
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 2,
-          "name": "局部广告-卡片广告",
-          "desc": "点击关闭",
+          "name": "分段广告",
+          "desc": "有二次确认弹窗",
           "fastQuery": true,
           "rules": [
             {
               "key": 0,
-              "activityIds": ".activity.PlayerActivity",
-              "matches": "[vid=\"iv_ad_close\"]",
-              "snapshotUrls": "https://i.gkd.li/i/15282417"
+              "name": "卡片式广告",
+              "activityIds": [
+                "com.netease.cloudmusic.activity.MainActivity",
+                "com.netease.cloudmusic.music.biz.comment.activity.CommentActivity",
+                "com.netease.cloudmusic.music.biz.comment.activity.ReplyCommentActivity2",
+                "com.netease.cloudmusic.music.biz.search.activity.SearchActivity"
+              ],
+              "matches": [
+                "[id=\"com.netease.cloudmusic:id/adTagView\"]",
+                "[vid=\"adTagClose\"]"
+              ],
+              "snapshotUrls": [
+                "https://i.gkd.li/import/12829944",
+                "https://i.gkd.li/import/12723229",
+                "https://i.gkd.li/import/12829938",
+                "https://i.gkd.li/import/12829964",
+                "https://i.gkd.li/import/12829953",
+                "https://i.gkd.li/import/13859634"
+              ]
             },
             {
               "key": 1,
-              "activityIds": ".music.biz.search.activity.SearchActivity",
-              "matches": "[vid=\"adCloseIV\"][visibleToUser=true]",
-              "snapshotUrls": "https://i.gkd.li/i/16385547"
+              "activityIds": "com.netease.cloudmusic.activity.MainActivity",
+              "matches": "[vid=\"tag_ad_banner\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13927753"
             },
             {
               "key": 2,
-              "activityIds": ".activity.MainActivity",
-              "matches": "[vid=\"v_close\"][visibleToUser=true]",
-              "snapshotUrls": "https://i.gkd.li/i/23982125"
+              "name": "信息流广告-评论区内容推荐",
+              "activityIds": "com.netease.cloudmusic.music.biz.comment.activity.CommentActivity",
+              "matches": "@ViewGroup[clickable=true][childCount=2] > ImageView - ViewGroup > TextView[text.length>0]",
+              "snapshotUrls": [
+                "https://i.gkd.li/import/13526986",
+                "https://i.gkd.li/import/13526711"
+              ]
+            },
+            {
+              "preKeys": [
+                0,
+                1
+              ],
+              "key": 90,
+              "activityIds": [
+                "com.netease.cloudmusic.module.ad.feedback.AdFeedbackBottomSheet",
+                "com.netease.cloudmusic.music.biz.search.activity.SearchActivity",
+                "com.netease.cloudmusic.activity.MainActivity"
+              ],
+              "matches": "[text=\"直接关闭\"]",
+              "snapshotUrls": [
+                "https://i.gkd.li/import/12829967",
+                "https://i.gkd.li/import/13627047",
+                "https://i.gkd.li/import/13859635"
+              ]
+            },
+            {
+              "preKeys": 2,
+              "key": 91,
+              "activityIds": "com.netease.cloudmusic.music.biz.comment.activity.CommentActivity",
+              "matches": "@[id=\"com.netease.cloudmusic:id/artist_container\"] > [text=\"不感兴趣\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13526712"
             }
+          ]
+        },
+        {
+          "key": 2,
+          "name": "局部广告-我的页面-中间滚动广告",
+          "fastQuery": true,
+          "activityIds": [
+            "com.netease.cloudmusic.activity.MainActivity"
+          ],
+          "rules": "[id=\"com.netease.cloudmusic:id/auto_scroll_switcher\"] + [id=\"com.netease.cloudmusic:id/close_btn\"]",
+          "snapshotUrls": [
+            "https://i.gkd.li/import/12745666"
+          ],
+          "enable": false
+        },
+        {
+          "key": 3,
+          "name": "功能类-主页-免费听歌",
+          "fastQuery": true,
+          "activityIds": [
+            "com.netease.cloudmusic.activity.MainActivity"
+          ],
+          "rules": [
+            "@ImageView + ViewGroup > TextView[text=\"VIP歌曲免费听30分钟\"]"
+          ],
+          "snapshotUrls": [
+            "https://i.gkd.li/import/12843383"
           ],
           "enable": false
         },
         {
           "key": 4,
           "name": "全屏广告-弹窗广告",
-          "fastQuery": true,
-          "rules": [
-            {
-              "key": 1,
-              "action": "back",
-              "activityIds": [
-                ".activity.MainActivity",
-                ".activity.PlayerActivity",
-                ".music.biz.rn.activity.LayerReactNativeActivity",
-                ".music.biz.comment.activity.CommentActivity"
-              ],
-              "excludeMatches": "[text=\"当前场景\"][visibleToUser=true]",
-              "matches": "[vid=\"dsl_dialog_root\" || text^=\"邀您开通VIP\" || text^=\"本周已免费试听\" || text^=\"免费听模式体验中\" || text$=\"立即续费\" || text*=\"小组件到桌面\"][visibleToUser=true]",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/13804534",
-                "https://i.gkd.li/i/13848913",
-                "https://i.gkd.li/i/13962214",
-                "https://i.gkd.li/i/14036940",
-                "https://i.gkd.li/i/15047126",
-                "https://i.gkd.li/i/15125892",
-                "https://i.gkd.li/i/15244091",
-                "https://i.gkd.li/i/20097535",
-                "https://i.gkd.li/i/20097609",
-                "https://i.gkd.li/i/20115012",
-                "https://i.gkd.li/i/22451511",
-                "https://i.gkd.li/i/23770986",
-                "https://i.gkd.li/i/23770978"
-              ],
-              "excludeSnapshotUrls": [
-                "https://i.gkd.li/i/15404777",
-                "https://i.gkd.li/i/20115204",
-                "https://i.gkd.li/i/20159204"
-              ]
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 5,
-          "name": "全屏广告-VIP弹窗",
-          "fastQuery": true,
+          "activityIds": "com.netease.cloudmusic.activity.MainActivity",
           "rules": [
             {
               "key": 0,
-              "action": "back",
-              "activityIds": [
-                ".music.biz.rn.activity.MainProcessLayerReactNativeActivity",
-                ".activity.MainActivity",
-                ".activity.PlayListActivity",
-                ".music.biz.rn.activity.LayerReactNativeActivity"
-              ],
-              "matches": [
-                "[text=\"支付宝\"][visibleToUser=true]",
-                "[text^=\"确认协议并\" || text=\"立即开通\"][visibleToUser=true]"
-              ],
-              "snapshotUrls": [
-                "https://i.gkd.li/i/13189055",
-                "https://i.gkd.li/i/13260416",
-                "https://i.gkd.li/i/13996787",
-                "https://i.gkd.li/i/13230605",
-                "https://i.gkd.li/i/14268181",
-                "https://i.gkd.li/i/13391498",
-                "https://i.gkd.li/i/14045917",
-                "https://i.gkd.li/i/14926722",
-                "https://i.gkd.li/i/16242200",
-                "https://i.gkd.li/i/20097276",
-                "https://i.gkd.li/i/20218350"
-              ],
-              "excludeSnapshotUrls": "https://i.gkd.li/i/20097306"
+              "name": "音乐专辑售卖广告弹窗",
+              "matches": "WebView >n View > TextView + TextView + TextView",
+              "snapshotUrls": "https://i.gkd.li/import/13188737"
+            },
+            {
+              "key": 1,
+              "name": "京东双十一广告弹窗",
+              "matches": "[text=\"广告\"] < ViewGroup + ImageView",
+              "snapshotUrls": "https://i.gkd.li/import/13229016"
+            },
+            {
+              "key": 2,
+              "matches": "[id=\"com.netease.cloudmusic:id/dsl_dialog_root\"] >n ViewGroup[childCount=2] > ImageView + ImageView[clickable=true]",
+              "snapshotUrls": "https://i.gkd.li/import/13684724"
             }
           ],
           "enable": false
         },
         {
-          "key": 6,
-          "name": "更新提示",
+          "enable": false,
+          "key": 5,
+          "name": "全屏广告-VIP 弹窗",
           "fastQuery": true,
+          "matchTime": 10000,
           "actionMaximum": 1,
           "resetMatch": "app",
           "rules": [
             {
               "key": 0,
-              "activityIds": ".activity.MainActivity",
-              "matches": [
-                "[text*=\"新版本\"]",
-                "[text=\"近期不再提示\"]"
-              ],
-              "snapshotUrls": "https://i.gkd.li/i/13233790",
-              "excludeSnapshotUrls": "https://i.gkd.li/i/15092457"
-            },
-            {
-              "key": 1,
-              "activityIds": ".activity.MainActivity",
-              "matches": [
-                "[vid=\"updateVersionTitle\"][visibleToUser=true]",
-                "[vid=\"md_dialog_cm_close_btn\"][visibleToUser=true]"
-              ],
-              "exampleUrls": "https://e.gkd.li/8827aa5a-a105-4910-981c-d9ecc036a87d",
-              "snapshotUrls": "https://i.gkd.li/i/18492805"
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 14,
-          "name": "功能类-扫码后自动点击[授权登录]",
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": ".module.login.LoginPermissionActivity",
-              "matches": "[text=\"授权登录\"][clickable=true]",
-              "snapshotUrls": "https://i.gkd.li/i/14830218"
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 16,
-          "name": "分段广告-搜索页广告",
-          "desc": "该规则触发时会导致输入法收起",
-          "fastQuery": true,
-          "activityIds": ".music.biz.search.activity.SearchActivity",
-          "rules": [
-            {
-              "key": 0,
-              "matches": "[vid=\"adTagView\" || vid=\"adTagViewNew\"][clickable=true]",
-              "exampleUrls": "https://e.gkd.li/afb3fc72-7a69-489a-ac5a-7a70f5685667",
+              "activityIds": "com.netease.cloudmusic.music.biz.rn.activity.MainProcessLayerReactNativeActivity",
+              "matches": "ImageView < @ViewGroup[clickable=true] <2 ViewGroup < ViewGroup + ScrollView [text=\"会员套餐\"]",
               "snapshotUrls": [
-                "https://i.gkd.li/i/16357208",
-                "https://i.gkd.li/i/16357111"
+                "https://i.gkd.li/import/13189055",
+                "https://i.gkd.li/import/13260416"
               ]
             },
             {
-              "preKeys": [
-                0
+              "key": 1,
+              "name": "专属优惠-VIP续费弹窗",
+              "activityIds": "com.netease.cloudmusic.activity.MainActivity",
+              "matches": "@ImageView - ViewGroup > [text=\"解锁千万级会员曲库\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13228955"
+            },
+            {
+              "key": 2,
+              "name": "解锁更高音质",
+              "activityIds": "com.netease.cloudmusic.activity.PlayerActivity",
+              "matches": "@ImageView -2 ViewGroup [text=\"解锁更高音质\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13230603"
+            },
+            {
+              "key": 3,
+              "name": "黑胶过期-VIP续费弹窗",
+              "activityIds": "com.netease.cloudmusic.music.biz.rn.activity.MainProcessLayerReactNativeActivity",
+              "matches": "ImageView < @ViewGroup -3 ViewGroup [text=\"您的黑胶VIP已过期\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13230605"
+            },
+            {
+              "key": 4,
+              "name": "搭配会员音效-VIP支付弹窗",
+              "activityIds": "com.netease.cloudmusic.activity.MainActivity",
+              "matches": "[text*=\"搭配会员音效\"] + @ViewGroup[childCount=1] > ImageView",
+              "snapshotUrls": "https://i.gkd.li/import/13391498"
+            }
+          ]
+        },
+        {
+          "key": 6,
+          "name": "更新提示",
+          "fastQuery": true,
+          "rules": [
+            {
+              "key": 0,
+              "activityIds": [
+                "com.netease.cloudmusic.activity.MainActivity",
+                "com.netease.cloudmusic.music.biz.rn.activity.MainProcessLayerReactNativeActivity"
               ],
-              "key": 90,
-              "matches": "[text=\"直接关闭\"]",
-              "exampleUrls": "https://e.gkd.li/1e2b2822-01dd-455f-8991-1b746c61c07c",
-              "snapshotUrls": "https://i.gkd.li/i/16357210"
+              "matches": "[id=\"com.netease.cloudmusic:id/md_dialog_cm_close_btn\"]",
+              "snapshotUrls": [
+                "https://i.gkd.li/import/13233790",
+                "https://i.gkd.li/import/13197457",
+                "https://i.gkd.li/import/13228878"
+              ]
+            }
+          ],
+          "enable": false
+        },
+        {
+          "enable": false,
+          "key": 7,
+          "name": "局部广告-播放界面广告",
+          "desc": "右上角VIP小悬浮、巨幅卡片式广告",
+          "fastQuery": true,
+          "activityIds": "com.netease.cloudmusic.activity.PlayerActivity",
+          "rules": [
+            {
+              "key": 0,
+              "name": "右上角VIP小悬浮",
+              "matches": "TextView[text!=null] + ImageView[id=\"com.netease.cloudmusic:id/close\"]",
+              "snapshotUrls": [
+                "https://i.gkd.li/import/13402634",
+                "https://i.gkd.li/import/13402635",
+                "https://i.gkd.li/import/13402636"
+              ]
+            },
+            {
+              "key": 1,
+              "name": "巨幅卡片式广告",
+              "matches": "[text^=\"跳过广告\"][text.length<=10]",
+              "snapshotUrls": "https://i.gkd.li/import/13527105"
+            }
+          ]
+        },
+        {
+          "key": 8,
+          "name": "局部广告-发现-顶部视频广告",
+          "desc": "自动点击跳过。",
+          "fastQuery": true,
+          "rules": [
+            {
+              "activityIds": "com.netease.cloudmusic.activity.MainActivity",
+              "matches": "[id=\"com.netease.cloudmusic:id/skipBannerAd\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13768367"
+            }
+          ],
+          "enable": false
+        },
+        {
+          "key": 9,
+          "name": "功能类-免费听弹窗",
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "activityIds": "com.netease.cloudmusic.activity.MainActivity",
+          "matchTime": 10000,
+          "rules": "@ImageView + ViewGroup > [text=\"VIP歌曲免费听30分钟\"]",
+          "snapshotUrls": "https://i.gkd.li/import/13804534",
+          "enable": false
+        },
+        {
+          "key": 10,
+          "name": "全屏广告-功能升级弹窗",
+          "rules": [
+            {
+              "key": 0,
+              "name": "【我的】升级-下次再说",
+              "activityIds": "com.netease.cloudmusic.activity.MainActivity",
+              "matches": "[text=\"下次再说\"] < ViewGroup",
+              "snapshotUrls": "https://i.gkd.li/import/13804541"
+            },
+            {
+              "key": 1,
+              "name": "全屏广告-【社区广场】升级-点击右上角x",
+              "activityIds": "com.netease.cloudmusic.music.biz.rn.activity.LayerReactNativeActivity",
+              "matches": "[text=\"社区广场全新升级\"] + ViewGroup > ImageView",
+              "snapshotUrls": "https://i.gkd.li/import/13804544"
+            }
+          ],
+          "enable": false
+        },
+        {
+          "key": 11,
+          "fastQuery": true,
+          "name": "全屏广告-播放页赞赏好音乐弹窗",
+          "desc": "点击X",
+          "rules": [
+            {
+              "activityIds": "com.netease.cloudmusic.activity.PlayerActivity",
+              "matches": "@ImageView[clickable=true] +3 * > [text=\"立即支持\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13848913"
             }
           ],
           "enable": false
@@ -3014,241 +3000,213 @@
         {
           "key": 1,
           "name": "更新提示",
-          "desc": "关闭应用更新提示弹窗",
-          "enable": false,
-          "fastQuery": true,
-          "matchTime": 10000,
           "actionMaximum": 1,
           "resetMatch": "app",
-          "actionMaximumKey": 0,
-          "rules": [
-            {
-              "key": 0,
-              "activityIds": [
-                "com.bytedance.ies.outertest.cn.OuterTestGuideDialogActivity",
-                "com.ss.android.article.base.feature.ugc.story.StoryVideoActivity"
-              ],
-              "matches": "@[desc=\"关闭\"] -(2,3) [text*=\"版本更新\" || text*=\"升级版本\"]",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/13316081",
-                "https://i.gkd.li/i/17681710"
-              ]
-            },
-            {
-              "key": 1,
-              "activityIds": ".activity.MainActivity",
-              "matches": "[text=\"以后再说\"][visibleToUser=true]",
-              "snapshotUrls": "https://i.gkd.li/i/18194356"
-            }
-          ]
+          "rules": "[text=\"升级版本\"] +n [desc=\"关闭\"][clickable=true]",
+          "snapshotUrls": [
+            "https://i.gkd.li/import/12685000",
+            "https://i.gkd.li/import/12840104",
+            "https://i.gkd.li/import/13316081"
+          ],
+          "enable": false
         },
         {
           "key": 2,
           "name": "局部广告-浮窗广告",
-          "desc": "关闭各页的浮窗广告",
           "rules": [
             {
               "key": 0,
-              "fastQuery": true,
               "name": "首页-浮窗广告",
               "activityIds": "com.ss.android.article.news.activity.MainActivity",
-              "matches": "FrameLayout > FrameLayout > FrameLayout[childCount=2] > ImageView[id=\"com.ss.android.article.news:id/cnd\"]",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/13762123",
-                "https://i.gkd.li/i/27056157"
-              ]
+              "matches": "FrameLayout > FrameLayout > FrameLayout[childCount=2] > @ImageView + ImageView[clickable=true][visibleToUser=true]",
+              "snapshotUrls": "https://i.gkd.li/import/13762123"
             },
             {
               "key": 1,
               "name": "视频页-浮窗广告",
               "activityIds": "com.ss.android.ugc.detail.activity.TikTokActivity",
-              "position": {
-                "left": "width * 0.104",
-                "top": "height * 0.108"
-              },
-              "matches": "FrameLayout > MeasureOnceRelativeLayout2 > [id=\"com.ss.android.article.news:id/m4g\"]",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/13761236",
-                "https://i.gkd.li/i/27056687"
-              ]
+              "matches": "FrameLayout > FrameLayout > FrameLayout[childCount=2] > ImageView + ImageView[clickable=true][visibleToUser=true]",
+              "snapshotUrls": "https://i.gkd.li/import/13761236"
             }
           ],
           "enable": false
         },
         {
-          "key": 11,
-          "name": "全屏广告-竖屏视频广告",
-          "desc": "关闭竖屏视频广告",
           "enable": false,
-          "activityIds": "com.ss.android.ugc.detail.activity.TikTokActivity",
+          "key": 10,
+          "name": "全屏广告-请求通知权限弹窗",
+          "activityIds": [
+            "com.ss.android.article.news.activity.MainActivity"
+          ],
           "rules": [
             {
-              "key": 0,
-              "name": "点击右上角[更多]图标按钮",
-              "matches": "ImageView[clickable=true][desc=\"更多\"]",
+              "matches": "[text^=\"开启通知\"] + LinearLayout > [text=\"暂不开启\"]",
               "snapshotUrls": [
-                "https://i.gkd.li/i/12679280",
-                "https://i.gkd.li/i/12733282",
-                "https://i.gkd.li/i/12763251",
-                "https://i.gkd.li/i/12763252",
-                "https://i.gkd.li/i/12733281",
-                "https://i.gkd.li/i/13185633",
-                "https://i.gkd.li/i/13186082",
-                "https://i.gkd.li/i/13930050"
+                "https://i.gkd.li/import/12706699"
               ]
             },
             {
+              "matches": "[text^=\"开启通知\"] < LinearLayout +2 ImageView[desc=\"关闭\"]",
+              "snapshotUrls": [
+                "https://i.gkd.li/import/12840217"
+              ]
+            }
+          ]
+        },
+        {
+          "enable": false,
+          "key": 11,
+          "name": "全屏广告-竖屏视频广告",
+          "desc": "检测到广告时,点击右上角[更多]图标按钮,出现菜单,点击不感兴趣",
+          "activityIds": "com.ss.android.ugc.detail.activity.TikTokActivity",
+          "rules": [
+            {
               "key": -1,
               "preKeys": [
-                0
+                0,
+                1,
+                2,
+                3
               ],
               "actionCd": 35000,
               "name": "点击不感兴趣",
               "matches": "@LinearLayout[clickable=true] > RelativeLayout + TextView[text=\"不感兴趣\"]",
-              "snapshotUrls": "https://i.gkd.li/i/12679277"
-            }
-          ]
-        },
-        {
-          "key": 12,
-          "name": "分段广告-信息流广告",
-          "desc": "关闭信息流广告",
-          "enable": false,
-          "fastQuery": true,
-          "activityIds": [
-            "com.ss.android.article.news.activity.MainActivity",
-            "com.bytedance.ugc.innerfeed.impl.PostInnerFeedActivity"
-          ],
-          "rules": [
+              "snapshotUrls": "https://i.gkd.li/import/12679277"
+            },
             {
               "key": 0,
-              "name": "点击右上角x按钮",
-              "matches": "UIView[text^=\"不感兴趣\"][visibleToUser=true]",
+              "name": "点击右上角[更多]图标按钮",
+              "matches": "@ImageView[clickable=true][desc=\"更多\"] <n RelativeLayout -2 RelativeLayout >4 LynxFlattenUI[text=\"头条优惠券无门槛全平台通用\"]",
               "snapshotUrls": [
-                "https://i.gkd.li/i/12836272",
-                "https://i.gkd.li/i/13093576",
-                "https://i.gkd.li/i/16624480"
+                "https://i.gkd.li/import/12679280",
+                "https://i.gkd.li/import/12733282",
+                "https://i.gkd.li/import/12763251",
+                "https://i.gkd.li/import/12763252"
               ]
             },
             {
-              "preKeys": [
-                0
-              ],
               "key": 1,
-              "name": "点击不感兴趣",
-              "matches": "@[clickable=true] >(1,2) [text=\"不感兴趣\"]",
+              "name": "点击右上角[更多]图标按钮-抖音直播",
+              "matches": "@ImageView[clickable=true][desc=\"更多\"] <4 RelativeLayout -2 RelativeLayout >4 LinearLayout[childCount=3] > ScrollView[childCount=1] > TextView[text$=\"广告\"][clickable=true]",
               "snapshotUrls": [
-                "https://i.gkd.li/i/12733152",
-                "https://i.gkd.li/i/12755265",
-                "https://i.gkd.li/i/16624474",
-                "https://i.gkd.li/i/16624395",
-                "https://i.gkd.li/i/17893117"
+                "https://i.gkd.li/import/12733281"
+              ]
+            },
+            {
+              "key": 2,
+              "name": "第二种广告界面；点击右上角[更多]图标按钮",
+              "matches": "@ImageView[clickable=true][desc=\"更多\"] <n RelativeLayout -2 RelativeLayout >n TextView[text$=\"广告\"]",
+              "snapshotUrls": [
+                "https://i.gkd.li/import/13185633"
+              ]
+            },
+            {
+              "key": 3,
+              "name": "第三种广告界面；点击右上角[更多]图标按钮",
+              "matches": "@ImageView[clickable=true][desc=\"更多\"] <n RelativeLayout +2 LinearLayout > TextView[text$=\"广告\"]",
+              "snapshotUrls": [
+                "https://i.gkd.li/import/13186082"
               ]
             }
           ]
         },
         {
+          "enable": false,
+          "key": 12,
+          "name": "局部广告-信息流广告",
+          "desc": "点击右上角x按钮,点击不感兴趣",
+          "rules": [
+            {
+              "name": "点击右上角x按钮",
+              "key": 0,
+              "activityIds": [
+                "com.ss.android.article.news.activity.MainActivity",
+                "com.bytedance.ugc.innerfeed.impl.PostInnerFeedActivity"
+              ],
+              "matches": "UIView[text^=\"不感兴趣\"][visibleToUser=true]",
+              "action": "clickCenter",
+              "snapshotUrls": [
+                "https://i.gkd.li/import/12733098",
+                "https://i.gkd.li/import/12755264",
+                "https://i.gkd.li/import/12836272",
+                "https://i.gkd.li/import/12840162",
+                "https://i.gkd.li/import/13093576",
+                "https://i.gkd.li/import/12733098"
+              ],
+              "exampleUrls": [
+                "https://user-images.githubusercontent.com/44717382/273436460-cf007525-81ce-418b-ac05-3bfd75a627fe.gif"
+              ]
+            },
+            {
+              "name": "点击不感兴趣",
+              "preKeys": 0,
+              "key": 1,
+              "activityIds": [
+                "com.ss.android.article.news.activity.MainActivity",
+                "com.bytedance.ugc.innerfeed.impl.PostInnerFeedActivity"
+              ],
+              "matches": "@ViewGroup[clickable=true] > ImageView + TextView[text=\"不感兴趣\"]",
+              "action": "clickCenter",
+              "snapshotUrls": [
+                "https://i.gkd.li/import/12733152",
+                "https://i.gkd.li/import/12755265"
+              ]
+            }
+          ]
+        },
+        {
+          "enable": false,
           "key": 13,
           "name": "局部广告-底部话题推荐弹窗",
-          "desc": "关闭底部话题推荐弹窗",
+          "activityIds": [
+            "com.ss.android.article.news.activity.MainActivity"
+          ],
           "rules": [
             {
-              "activityIds": "com.ss.android.article.news.activity.MainActivity",
               "name": "话题谈论",
               "matches": "FlattenUIText[text=\"参与讨论\"] + FlattenUIImage[clickable=true]",
-              "snapshotUrls": "https://i.gkd.li/i/12706699"
+              "snapshotUrls": [
+                "https://i.gkd.li/import/12706699"
+              ]
             }
-          ],
-          "enable": false
+          ]
         },
         {
-          "key": 14,
-          "name": "功能类-自动观看广告视频",
-          "desc": "自动观看广告并等待30s后关闭",
           "enable": false,
+          "key": 14,
+          "name": "全屏广告-自动观看广告视频",
+          "desc": "自动观看广告并等待30s后关闭",
           "fastQuery": true,
           "rules": [
             {
               "key": 0,
-              "name": "点击\"看视频\"",
+              "name": "点击【看视频】",
               "activityIds": "com.ss.android.article.news.activity.MainActivity",
               "matches": "[id=\"com.bytedance.novel.api:id/component_ad_dialog_button_video\"]",
-              "snapshotUrls": "https://i.gkd.li/i/13402468"
+              "snapshotUrls": "https://i.gkd.li/import/13402468"
             },
             {
-              "preKeys": [
-                0
-              ],
-              "name": "等待30s点击\"关闭\"",
+              "name": "等待30s点击【关闭】",
               "actionDelay": 30000,
               "activityIds": "com.ss.android.excitingvideo.ExcitingVideoActivity",
               "matches": "UIText[text=\"广告\"] +n UIText[text=\"关闭\"]",
-              "snapshotUrls": "https://i.gkd.li/i/13402480"
+              "snapshotUrls": "https://i.gkd.li/import/13402480"
             }
           ]
         },
         {
           "key": 15,
-          "name": "局部广告-底部热榜弹窗",
-          "desc": "关闭底部热榜弹窗",
+          "fastQuery": true,
+          "name": "局部广告-局部广告-底部热榜弹窗",
+          "desc": "点击X",
           "rules": [
             {
               "activityIds": "com.ss.android.article.news.activity.MainActivity",
-              "matches": "FrameLayout[childCount=8] > FlattenUIImage[index=7]",
-              "snapshotUrls": "https://i.gkd.li/i/13828331"
+              "matches": "@FlattenUIImage[clickable=true] <n FrameLayout <<2 FrameLayout - LinearLayout [text=\"首页\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13828331"
             }
           ],
           "enable": false
-        },
-        {
-          "key": 16,
-          "name": "全屏广告-广告弹窗",
-          "desc": "关闭各种广告弹窗，包括关联抖音账号、默认进入发现频道、全屏广告弹窗等",
-          "enable": false,
-          "rules": [
-            {
-              "key": 0,
-              "name": "关联抖音账号弹窗",
-              "actionMaximum": 1,
-              "resetMatch": "app",
-              "fastQuery": true,
-              "activityIds": "com.ss.android.article.news.activity.MainActivity",
-              "matches": "@[desc=\"关闭\"] + [text^=\"关联\"]",
-              "snapshotUrls": "https://i.gkd.li/i/14717889"
-            },
-            {
-              "key": 1,
-              "name": "默认进入发现频道弹窗",
-              "actionMaximum": 1,
-              "resetMatch": "app",
-              "fastQuery": true,
-              "activityIds": "com.ss.android.article.news.activity.MainActivity",
-              "action": "back",
-              "matches": "[text^=\"下次打开APP默认进入\"]",
-              "snapshotUrls": "https://i.gkd.li/i/15102876"
-            },
-            {
-              "key": 2,
-              "name": "全屏广告弹窗-类型1",
-              "matchTime": 10000,
-              "actionMaximum": 1,
-              "resetMatch": "app",
-              "activityIds": ".activity.MainActivity",
-              "matches": "[id=\"android:id/content\"] > FrameLayout[childCount=3] > ImageView[clickable=true][visibleToUser=true][index=2]",
-              "snapshotUrls": "https://i.gkd.li/i/15314921"
-            },
-            {
-              "key": 3,
-              "name": "全屏广告弹窗-类型2",
-              "fastQuery": true,
-              "matchTime": 10000,
-              "actionMaximum": 1,
-              "resetMatch": "app",
-              "activityIds": ".activity.MainActivity",
-              "matches": "@FlattenUIImage[text=\"\"] -10 FlattenUIText[text=\"恭喜获得惊喜奖励\"]",
-              "snapshotUrls": "https://i.gkd.li/i/17681713"
-            }
-          ]
         }
       ]
     },
@@ -3257,170 +3215,189 @@
       "name": "抖音",
       "groups": [
         {
-          "key": -1,
-          "name": "开屏广告",
+          "key": 0,
+          "name": "青少年模式",
           "matchTime": 10000,
           "actionMaximum": 1,
           "resetMatch": "app",
-          "priorityTime": 10000,
-          "rules": [
-            {
-              "fastQuery": true,
-              "excludeActivityIds": ".search.activity.SearchResultActivity",
-              "matches": "[text*=\"跳过\"][text.length<10][visibleToUser=true]",
-              "exampleUrls": "https://e.gkd.li/202942ce-259c-4b9d-b3b3-06afbac8145f",
-              "snapshotUrls": "https://i.gkd.li/i/13216121",
-              "excludeSnapshotUrls": "https://i.gkd.li/i/17811608"
-            }
-          ],
-          "order": -10
+          "rules": "Button[text=`开启青少年模式`] + * > Button[text!=null]",
+          "enable": false
         },
         {
           "key": 1,
-          "name": "局部广告-关闭用户推荐",
+          "name": "分段广告-关闭用户推荐",
           "rules": [
             {
-              "key": 6,
-              "fastQuery": true,
               "activityIds": "com.ss.android.ugc.aweme.main.MainActivity",
-              "matches": "@[text=\"不感兴趣\"] - * [text*=\"也关注了\"]",
-              "snapshotUrls": "https://i.gkd.li/i/14661956"
+              "matches": "[id=\"com.ss.android.ugc.aweme:id/desc\"][text=\"减少此类推荐\"]",
+              "snapshotUrls": "https://i.gkd.li/import/12520962"
+            },
+            {
+              "activityIds": "com.ss.android.ugc.aweme.main.MainActivity",
+              "matches": "[text=\"换一个\"] - FrameLayout[clickable=true] > ImageView[clickable=true]",
+              "snapshotUrls": [
+                "https://i.gkd.li/import/12520943"
+              ]
+            },
+            {
+              "activityIds": "com.ss.android.ugc.aweme.main.MainActivity",
+              "matches": "[text=\"你可能感兴趣\"] < LinearLayout + [text=\"隐藏\"][clickable=true]",
+              "snapshotUrls": [
+                "https://i.gkd.li/import/12675396"
+              ]
+            },
+            {
+              "activityIds": "com.ss.android.ugc.aweme.main.MainActivity",
+              "matches": "[text=\"朋友推荐\"] +(2) @FrameLayout > [desc=\"不感兴趣\"]",
+              "snapshotUrls": "https://i.gkd.li/import/12675129"
+            },
+            {
+              "activityIds": "com.ss.android.ugc.aweme.friends.ui.RawAddFriendsActivity",
+              "matches": "[text=\"朋友推荐\"] < LinearLayout + FrameLayout > [desc=\"关闭\"][clickable=true]",
+              "snapshotUrls": "https://i.gkd.li/import/12675245"
             }
+          ],
+          "enable": false
+        },
+        {
+          "key": 2,
+          "name": "全屏广告-关闭朋友推荐弹窗",
+          "fastQuery": true,
+          "activityIds": [
+            "com.ss.android.ugc.aweme.main.MainActivity"
+          ],
+          "rules": "[text=\"朋友推荐\"] +2 [id=\"com.ss.android.ugc.aweme:id/close\"]",
+          "snapshotUrls": [
+            "https://i.gkd.li/import/12525387",
+            "https://i.gkd.li/import/12525389"
           ],
           "enable": false
         },
         {
           "key": 3,
-          "name": "更新提示-关闭更新弹窗",
+          "name": "更新提示",
           "fastQuery": true,
           "actionMaximum": 1,
           "resetMatch": "app",
-          "rules": [
-            {
-              "activityIds": ".main.MainActivity",
-              "matches": [
-                "[text=\"立即升级\"]",
-                "[text=\"以后再说\"]"
-              ],
-              "snapshotUrls": [
-                "https://i.gkd.li/i/12534016",
-                "https://i.gkd.li/i/13328599",
-                "https://i.gkd.li/i/15359995"
-              ]
-            }
+          "activityIds": "com.ss.android.ugc.aweme.main.MainActivity",
+          "rules": "@[text=\"以后再说\"] +2 [text=\"立即升级\"]",
+          "snapshotUrls": [
+            "https://i.gkd.li/import/12534016",
+            "https://i.gkd.li/import/13328599"
           ],
+          "enable": false
+        },
+        {
+          "key": 4,
+          "name": "局部广告-首页左上角广告",
+          "activityIds": "com.ss.android.ugc.aweme.main.MainActivity",
+          "rules": "ViewGroup + FrameLayout[id=null] > FrameLayout[childCount=2][id!=null] > ImageView[desc=\"关闭\"][clickable=true][id!=null]",
+          "snapshotUrls": "https://i.gkd.li/import/12749276",
+          "enable": false
+        },
+        {
+          "key": 5,
+          "name": "全屏广告-广告弹窗",
+          "fastQuery": true,
+          "rules": "[id=\"android:id/content\"] >2 RelativeLayout[childCount<=5] > @ImageView[clickable=true][id!=null] - TextView[text=\"广告\"][id!=null]",
+          "snapshotUrls": "https://i.gkd.li/import/12769137",
+          "enable": false
+        },
+        {
+          "key": 6,
+          "fastQuery": true,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "name": "全屏广告-去商店评分",
+          "desc": "点击[取消]",
+          "activityIds": "com.ss.android.ugc.aweme.main.MainActivity",
+          "rules": "@[text=\"取消\"] +2 [text=\"五星好评\"]",
+          "snapshotUrls": "https://i.gkd.li/import/13053628",
+          "exampleUrls": "https://github.com/gkd-kit/inspect/assets/38517192/4554c785-39e0-4eac-9cfb-f1b1c2976008",
           "enable": false
         },
         {
           "key": 7,
-          "name": "功能类-设置无声进入抖音弹窗",
+          "enable": false,
+          "fastQuery": true,
+          "name": "全屏广告-设置无声进入抖音",
           "desc": "点击[拒绝]",
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": "com.ss.android.ugc.aweme.main.MainActivity",
-              "matches": "@[text=\"拒绝\"] + [text=\"去设置\"]",
-              "snapshotUrls": "https://i.gkd.li/i/13256087"
-            }
-          ],
-          "enable": false
+          "activityIds": "com.ss.android.ugc.aweme.main.MainActivity",
+          "rules": "@[text=\"拒绝\"] + [text=\"去设置\"]",
+          "snapshotUrls": "https://i.gkd.li/import/13256087"
         },
         {
+          "enable": false,
           "key": 10,
-          "name": "权限提示-通知权限",
-          "desc": "点击[暂不]/[以后再说]",
-          "fastQuery": true,
+          "name": "权限提示-请求开启通知提示信息",
+          "desc": "自动点击“暂不”",
           "actionMaximum": 1,
           "resetMatch": "app",
-          "activityIds": ".main.MainActivity",
+          "fastQuery": true,
+          "activityIds": "com.ss.android.ugc.aweme.main.MainActivity",
           "rules": [
             {
-              "key": 1,
-              "matches": [
-                "[text^=\"打开私信通知\" || text=\"开启朋友的消息通知\" || text=\"及时获得消息提醒\"][visibleToUser=true]",
-                "[text=\"以后再说\" || text=\"暂不开启\"][visibleToUser=true]"
-              ],
-              "snapshotUrls": [
-                "https://i.gkd.li/i/13669790",
-                "https://i.gkd.li/i/18417891",
-                "https://i.gkd.li/i/18419574"
-              ]
+              "name": "顶部卡片",
+              "matches": "@[text=\"暂不\"][focusable=true] < LinearLayout - LinearLayout >(2) [text=\"开启朋友通知\"]",
+              "snapshotUrls": "https://i.gkd.li/import/12675129"
+            },
+            {
+              "name": "半幅弹窗",
+              "matches": "[text=\"及时获得消息提醒\"] +2 [text=\"暂不开启\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13669790"
             }
-          ],
-          "enable": false
+          ]
         },
         {
+          "enable": false,
           "key": 11,
           "name": "功能类-自动勾选原图",
           "desc": "聊天发送图片时自动勾选原图",
-          "actionMaximum": 1,
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": ".ecommerce.im.choosemedia.ECommerceIMMediaChooseActivity",
-              "matches": "@ImageView[clickable=true][visibleToUser=true] + [text=\"原图\"]",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/18637952",
-                "https://i.gkd.li/i/18637948"
-              ]
-            }
-          ],
-          "enable": false
+          "fastQuery": true,
+          "activityIds": "com.ss.android.ugc.aweme.im.sdk.media.choose.MediaChooseActivity",
+          "rules": "[text=\"原图\"][desc=\"未选中/复选框 原图\"]",
+          "snapshotUrls": [
+            "https://i.gkd.li/import/12846036",
+            "https://i.gkd.li/import/12846040"
+          ]
         },
         {
+          "enable": false,
           "key": 12,
-          "name": "其他-休息提醒",
+          "name": "全屏广告-休息提醒",
           "fastQuery": true,
           "rules": [
             {
-              "key": 1,
-              "matches": "@[text=\"取消\"] + [text*=\"提醒我\"]",
+              "matches": "[text=\"可进入使用管理助手更改设置\"] -2 Button[text=\"取消\"]",
               "snapshotUrls": [
-                "https://i.gkd.li/i/13241564",
-                "https://i.gkd.li/i/14160675"
+                "https://i.gkd.li/import/13241564",
+                "https://i.gkd.li/import/13372604"
               ]
+            },
+            {
+              "matches": "[text=\"管理使用时间\"] + Button[text=\"忽略提醒\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13372725"
             }
-          ],
-          "enable": false
+          ]
         },
         {
           "key": 13,
-          "name": "功能类-[添加快捷方式到桌面]弹窗",
-          "desc": "关闭弹窗",
+          "name": "功能类-添加快捷方式到桌面",
           "actionMaximum": 1,
           "resetMatch": "app",
           "rules": [
             {
-              "key": 1,
-              "name": "商城快捷方式",
-              "fastQuery": true,
-              "activityIds": [
-                "com.ss.android.ugc.aweme.main.MainActivity",
-                "com.ss.android.ugc.aweme.live.LiveDummyActivity"
-              ],
-              "matches": "[text=\"添加抖音商城到桌面\"] +2 LinearLayout > [text=\"不感兴趣\"]",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/13669682",
-                "https://i.gkd.li/i/14740312"
-              ]
-            },
-            {
-              "key": 2,
-              "name": "搜索组件",
-              "fastQuery": true,
+              "name": "搜索快捷方式",
               "activityIds": "com.ss.android.ugc.aweme.search.activity.SearchResultActivity",
-              "matches": "[text=\"暂不开启\"][clickable=true]",
-              "snapshotUrls": "https://i.gkd.li/i/14325749"
+              "action": "back",
+              "matches": "ViewGroup[desc=\"添加搜索到桌面\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13338556"
             },
             {
-              "key": 3,
-              "name": "火花桌面小组件",
-              "fastQuery": true,
-              "activityIds": ".main.MainActivity",
-              "action": "back",
-              "matches": "[text=\"添加火花桌面小组件\"]",
-              "exampleUrls": "https://e.gkd.li/c3980f6b-5459-45fe-b317-5bdc561319dc",
-              "snapshotUrls": "https://i.gkd.li/i/18009276"
+              "name": "商城快捷方式",
+              "activityIds": "com.ss.android.ugc.aweme.main.MainActivity",
+              "matches": "[text=\"添加抖音商城到桌面\"] +2 LinearLayout > [text=\"不感兴趣\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13669682"
             }
           ],
           "enable": false
@@ -3428,206 +3405,17 @@
         {
           "key": 14,
           "name": "全屏广告-视频播放中途插入的打招呼界面",
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": "com.ss.android.ugc.aweme.main.MainActivity",
-              "matches": "@[desc=\"关闭\"] + ViewGroup > [text$=\"打个招呼\"][visibleToUser=true]",
-              "snapshotUrls": "https://i.gkd.li/i/13379307"
-            }
-          ],
+          "activityIds": "com.ss.android.ugc.aweme.main.MainActivity",
+          "rules": "FrameLayout > @[desc=\"关闭\"] + ViewGroup > [text$=\"打个招呼\"]",
+          "snapshotUrls": "https://i.gkd.li/import/13379307",
           "enable": false
         },
         {
           "key": 15,
           "name": "全屏广告-关闭商城推荐",
-          "desc": "点击\"不感兴趣\"",
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": "com.ss.android.ugc.aweme.main.MainActivity",
-              "matches": "@[text=\"不感兴趣\"][clickable=true] + [text=\"去商城搜索更多\"]",
-              "snapshotUrls": "https://i.gkd.li/i/13800207"
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 16,
-          "name": "局部广告-拍同款弹窗",
-          "desc": "点击不感兴趣",
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": "com.ss.android.ugc.aweme.main.MainActivity",
-              "matches": "@LynxFlattenUI[text=\"不感兴趣\"] +4 [text=\"拍同款\"]",
-              "snapshotUrls": "https://i.gkd.li/i/13996724"
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 17,
-          "name": "全屏广告-[去首页商城]弹窗",
-          "desc": "点击[知道了]",
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": [
-                "com.ss.android.ugc.aweme.live.LiveDummyActivity",
-                "com.ss.android.ugc.aweme.commerce.sdk.MallContainerActivity",
-                "com.bytedance.android.shopping.store.tabkit.container.TabKitActivity"
-              ],
-              "matches": [
-                "FlattenUIText[text*=\"首页商城\"]",
-                "FlattenUIText[text=\"去看看\"]",
-                "FlattenUIText[text=\"知道了\"]"
-              ],
-              "snapshotUrls": [
-                "https://i.gkd.li/i/14533732",
-                "https://i.gkd.li/i/14969825",
-                "https://i.gkd.li/i/14969835"
-              ]
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 18,
-          "name": "全屏广告-低价秒杀券弹窗",
-          "desc": "点击关闭",
-          "rules": [
-            {
-              "fastQuery": true,
-              "position": {
-                "left": "width * 0.5051",
-                "top": "width * 2.0649"
-              },
-              "activityIds": "com.ss.android.ugc.aweme.live.LiveDummyActivity",
-              "matches": "[text=\"恭喜获得低价秒杀券\"]",
-              "exampleUrls": "https://m.gkd.li/57941037/ef703cd7-99af-4e10-8345-9860ed160b8b",
-              "snapshotUrls": "https://i.gkd.li/i/14585377"
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 19,
-          "name": "权限提示-请求访问通讯录弹窗",
-          "desc": "点击[拒绝]",
-          "actionMaximum": 1,
-          "resetMatch": "app",
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": ".main.MainActivity",
-              "matches": [
-                "[text*=\"通讯录\"]",
-                "[text=\"拒绝\"]"
-              ],
-              "exampleUrls": "https://m.gkd.li/57941037/8f70418d-92f0-4264-83fd-a680350c478e",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/14735280",
-                "https://i.gkd.li/i/16171391"
-              ]
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 20,
-          "name": "青少年模式",
-          "fastQuery": true,
-          "actionMaximum": 1,
-          "resetMatch": "app",
-          "rules": [
-            {
-              "key": 0,
-              "excludeActivityIds": ".setting.ui.SettingCommonProtocolActivity",
-              "matches": [
-                "[text*=\"青少年\" || text*=\"未成年\"][text*=\"模式\"]",
-                "[text=\"关闭\" || text=\"不再提醒\"]"
-              ],
-              "snapshotUrls": [
-                "https://i.gkd.li/i/14321107",
-                "https://i.gkd.li/i/14473006",
-                "https://i.gkd.li/i/17726070",
-                "https://i.gkd.li/i/18638030"
-              ],
-              "excludeSnapshotUrls": [
-                "https://i.gkd.li/i/14917848",
-                "https://i.gkd.li/i/17610958"
-              ]
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 21,
-          "name": "权限提示-定位权限",
-          "desc": "直接关闭所有类似形状窗口",
-          "fastQuery": true,
-          "matchTime": 10000,
-          "actionMaximum": 1,
-          "resetMatch": "app",
-          "activityIds": ".search.activity.SearchResultActivity",
-          "rules": [
-            {
-              "key": 0,
-              "name": "弹窗",
-              "action": "back",
-              "matches": "[id=\"com.ss.android.ugc.aweme:id/rootview\"]",
-              "snapshotUrls": "https://i.gkd.li/i/13755373"
-            },
-            {
-              "key": 1,
-              "name": "顶部横条",
-              "activityIds": "com.ss.android.ugc.aweme.search.activity.SearchResultActivity",
-              "matches": "@ImageView[clickable=true] - [text^=\"开启定位\"]",
-              "snapshotUrls": "https://i.gkd.li/i/13755718"
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 22,
-          "name": "全屏广告-汽水音乐VIP",
-          "desc": "点击关闭",
-          "activityIds": [
-            ".dsp.MusicLunaActivity",
-            ".dsp.playpage.singlepage.subpage.MusicDspSubPlayerActivity"
-          ],
-          "rules": [
-            {
-              "key": 0,
-              "fastQuery": true,
-              "matches": "ScrollView - @ImageView[index=1][childCount=0][visibleToUser=true][width<100][height<100] <2 View < View < ViewGroup < ViewGroup < [id=\"android:id/content\"]",
-              "exampleUrls": "https://e.gkd.li/4c57ee77-2189-4b3b-be0b-430fac8853c2",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/18100285",
-                "https://i.gkd.li/i/18100454",
-                "https://i.gkd.li/i/18100477"
-              ]
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 23,
-          "name": "其他-个性化推荐弹窗",
-          "desc": "点击[稍后再说]",
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": ".main.MainActivity",
-              "matches": [
-                "[text*=\"个性化推荐\"][visibleToUser=true]",
-                "[text=\"稍后再说\"][visibleToUser=true]"
-              ],
-              "exampleUrls": "https://e.gkd.li/987234ad-de0f-40d8-b7dd-d3c600609949",
-              "snapshotUrls": "https://i.gkd.li/i/18633134"
-            }
-          ],
+          "desc": "点击【不感兴趣】",
+          "rules": "@[text=\"不感兴趣\"][clickable=true] + [text=\"去商城搜索更多\"]",
+          "snapshotUrls": "https://i.gkd.li/import/13800207",
           "enable": false
         }
       ]
@@ -4486,31 +4274,37 @@
       "groups": [
         {
           "key": 1,
-          "name": "权限提示-通知权限",
+          "name": "全屏广告-系统推送弹窗",
+          "desc": "系统推送弹窗-点击取消",
           "fastQuery": true,
           "actionMaximum": 1,
+          "matchTime": 30000,
           "resetMatch": "app",
+          "activityIds": [
+            "com.tencent.weread.module.bottomSheet.BottomSheetForFragment",
+            "com.tencent.weread.WeReadFragmentActivity"
+          ],
           "rules": [
             {
-              "key": 0,
-              "matchTime": 30000,
-              "activityIds": [
-                ".module.bottomSheet.BottomSheetForFragment",
-                ".WeReadFragmentActivity"
-              ],
               "matches": "[id=\"com.tencent.weread:id/open_notification_close\"]",
               "snapshotUrls": [
-                "https://i.gkd.li/i/12642247",
-                "https://i.gkd.li/i/13233735"
+                "https://i.gkd.li/import/12642247",
+                "https://i.gkd.li/import/13233735"
               ]
-            },
-            {
-              "key": 1,
-              "activityIds": ".WeReadFragmentActivity",
-              "matches": "[text=\"开启推送通知\"] +3 [clickable=true][visibleToUser=true]",
-              "snapshotUrls": "https://i.gkd.li/i/14190089"
             }
           ],
+          "enable": false
+        },
+        {
+          "key": 2,
+          "name": "青少年模式",
+          "fastQuery": true,
+          "actionMaximum": 1,
+          "matchTime": 30000,
+          "resetMatch": "app",
+          "activityIds": "com.tencent.weread.WeReadFragmentActivity",
+          "rules": "[text=\"设置青少年模式\"] - LinearLayout >2 [text=\"我知道了\"]",
+          "snapshotUrls": "https://i.gkd.li/import/13233668",
           "enable": false
         }
       ]
@@ -4647,85 +4441,68 @@
       "name": "喜马拉雅",
       "groups": [
         {
-          "key": -1,
-          "name": "开屏广告",
-          "fastQuery": true,
-          "matchTime": 10000,
-          "actionMaximum": 1,
-          "resetMatch": "app",
-          "priorityTime": 10000,
-          "rules": [
-            {
-              "matches": "[text*=\"跳过\"][text.length<10][visibleToUser=true]",
-              "exampleUrls": "https://e.gkd.li/7ef0b1fb-aaa0-475d-b6b4-e927776adb27",
-              "snapshotUrls": "https://i.gkd.li/i/17068586"
-            }
-          ],
-          "order": -10
-        },
-        {
           "key": 0,
           "name": "局部广告-首页右侧浮动广告",
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": "com.ximalaya.ting.android.host.activity.MainActivity",
-              "matches": "[id=\"com.ximalaya.ting.android:id/main_ad_broadside_close_real\"]",
-              "snapshotUrls": "https://i.gkd.li/i/12472620"
-            }
+          "fastQuery": true,
+          "activityIds": "com.ximalaya.ting.android.host.activity.MainActivity",
+          "rules": "[id=\"com.ximalaya.ting.android:id/main_ad_broadside_close_real\"]",
+          "snapshotUrls": [
+            "https://i.gkd.li/import/12472620"
           ],
           "enable": false
         },
         {
           "key": 1,
-          "name": "局部广告-播放页广告",
+          "name": "局部广告-播放页面-播放控制区域的广告",
           "fastQuery": true,
-          "activityIds": ".host.activity.MainActivity",
+          "activityIds": "com.ximalaya.ting.android.host.activity.MainActivity",
           "rules": [
             {
-              "key": 3,
-              "matches": "@[visibleToUser=true] < ViewGroup[childCount=1] - ViewGroup[childCount=6] > [text=\"广告\"] ",
-              "exampleUrls": "https://e.gkd.li/bbf93e2c-08b8-4155-b82c-89a629a62737",
-              "snapshotUrls": "https://i.gkd.li/i/18500523"
+              "key": 0,
+              "name": "暂停按钮下方的广告",
+              "matches": "[id=\"com.ximalaya.ting.android:id/x_play_ad_banner_close_real\"]",
+              "snapshotUrls": "https://i.gkd.li/import/12506218"
             },
             {
-              "key": 4,
-              "matches": "[vid=\"main_buy_view_yellow_zone_btn_close\"][visibleToUser=true]",
-              "exampleUrls": "https://e.gkd.li/bf820eed-00ad-47a0-9581-8cdb3d76bde5",
-              "snapshotUrls": "https://i.gkd.li/i/18683999"
+              "key": 1,
+              "name": "喜马小游戏广告",
+              "matches": "[id=\"com.ximalaya.ting.android:id/host_game_close_tv\"]",
+              "snapshotUrls": "https://i.gkd.li/import/12927110"
+            },
+            {
+              "key": 2,
+              "name": "体验会员广告",
+              "matches": "[id=\"com.ximalaya.ting.android:id/main_iv_close\"]",
+              "exampleUrls": "https://m.gkd.li/6328439/ea870e6f-07c9-4167-ab62-03e52838110b",
+              "snapshotUrls": "https://i.gkd.li/import/13546642"
             }
           ],
           "enable": false
         },
         {
           "key": 2,
-          "name": "分段广告-播放页面-底部推荐列表-夹杂广告",
+          "name": "局部广告-播放页面-底部推荐列表-夹杂广告",
           "desc": "点击关闭-点击屏蔽",
           "fastQuery": true,
           "rules": [
             {
-              "key": 1,
-              "activityIds": "com.ximalaya.ting.android.host.activity.MainActivity",
-              "matches": "@[id=\"com.ximalaya.ting.android:id/main_close_layout\"][visibleToUser=true] > [id=\"com.ximalaya.ting.android:id/main_mark_text\"][text=\"广告\"]",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/12506225",
-                "https://i.gkd.li/i/12701414",
-                "https://i.gkd.li/i/13314183"
-              ]
-            },
-            {
-              "preKeys": [
-                1
-              ],
-              "key": 2,
               "activityIds": [
                 "com.ximalaya.ting.android.main.dialog",
                 "com.ximalaya.ting.android.host.activity.MainActivity"
               ],
               "matches": "@[clickable=true] > [text=\"屏蔽\"] + [text=\"关闭当前广告\"]",
               "snapshotUrls": [
-                "https://i.gkd.li/i/12506269",
-                "https://i.gkd.li/i/13296565"
+                "https://i.gkd.li/import/12506269",
+                "https://i.gkd.li/import/13296565"
+              ]
+            },
+            {
+              "activityIds": "com.ximalaya.ting.android.host.activity.MainActivity",
+              "matches": "@[id=\"com.ximalaya.ting.android:id/main_close_layout\"][visibleToUser=true] > [id=\"com.ximalaya.ting.android:id/main_mark_text\"][text=\"广告\"]",
+              "snapshotUrls": [
+                "https://i.gkd.li/import/12506225",
+                "https://i.gkd.li/import/12701414",
+                "https://i.gkd.li/import/13314183"
               ]
             }
           ],
@@ -4733,28 +4510,23 @@
         },
         {
           "key": 3,
-          "name": "局部广告-播放页面-播放前广告",
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": [
-                "com.ximalaya.ting.android.host.activity.MainActivity",
-                "com.ximalaya.ting.android.framework.view.dialog"
-              ],
-              "matches": "[id=\"com.ximalaya.ting.android:id/main_play_ad_close_real\"]",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/12506250",
-                "https://i.gkd.li/i/12520626"
-              ]
-            }
+          "name": "全屏广告-播放页面-播放前广告",
+          "fastQuery": true,
+          "activityIds": [
+            "com.ximalaya.ting.android.host.activity.MainActivity",
+            "com.ximalaya.ting.android.framework.view.dialog"
+          ],
+          "rules": "[id=\"com.ximalaya.ting.android:id/main_play_ad_close_real\"]",
+          "snapshotUrls": [
+            "https://i.gkd.li/import/12506250",
+            "https://i.gkd.li/import/12520626"
           ],
           "enable": false
         },
         {
           "key": 4,
-          "name": "分段广告-信息流广告",
+          "name": "局部广告-首页-推荐列表广告",
           "desc": "点击关闭-点击屏蔽",
-          "fastQuery": true,
           "activityIds": [
             "com.ximalaya.ting.android.host.activity.MainActivity",
             "com.ximalaya.ting.android.adsdk.view.DislikeDialog.DislikeBottomDialog"
@@ -4762,22 +4534,27 @@
           "rules": [
             {
               "key": 0,
-              "matches": "[vid=\"xm_ad_close_real\" || vid=\"main_close_layout\"][visibleToUser=true]",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/17112326",
-                "https://i.gkd.li/i/17112313"
-              ]
+              "fastQuery": true,
+              "matches": "[id=\"com.ximalaya.ting.android:id/xm_ad_close_real\"]",
+              "snapshotUrls": "https://i.gkd.li/import/12506253"
+            },
+            {
+              "key": 1,
+              "matches": "[id=\"com.ximalaya.ting.android:id/main_ad_dynamic_lay\"] >(4) ImageView + ImageView",
+              "snapshotUrls": "https://i.gkd.li/import/12701374"
             },
             {
               "preKeys": [
-                0
+                0,
+                1
               ],
-              "matches": "@[clickable=true] > [text=\"屏蔽\" || text=\"直接关闭\"]",
+              "name": "点击关闭原因【屏蔽】",
+              "fastQuery": true,
+              "matches": "@[name=\"android.widget.RelativeLayout\" || name=\"android.widget.LinearLayout\"] > [text=\"屏蔽\"]",
               "snapshotUrls": [
-                "https://i.gkd.li/i/13260487",
-                "https://i.gkd.li/i/13275928",
-                "https://i.gkd.li/i/17111444",
-                "https://i.gkd.li/i/17111452"
+                "https://i.gkd.li/import/12506258",
+                "https://i.gkd.li/import/13260487",
+                "https://i.gkd.li/import/13275928"
               ]
             }
           ],
@@ -4785,111 +4562,113 @@
         },
         {
           "key": 5,
-          "name": "局部广告-热播推荐广告",
+          "name": "局部广告-关闭热播推荐广告",
+          "activityIds": "com.ximalaya.ting.android.host.activity.MainActivity",
           "rules": [
             {
-              "activityIds": "com.ximalaya.ting.android.host.activity.MainActivity",
               "matches": "[text=\"热播推荐\"] + ImageView + ImageView",
-              "snapshotUrls": "https://i.gkd.li/i/12506270"
+              "snapshotUrls": "https://i.gkd.li/import/12506270"
             }
           ],
+          "enable": false
+        },
+        {
+          "key": 6,
+          "name": "全屏广告-关闭更新弹窗",
+          "fastQuery": true,
+          "rules": "[id=\"com.ximalaya.ting.android:id/host_tv_update_later\"]",
+          "snapshotUrls": "https://i.gkd.li/import/12506287",
           "enable": false
         },
         {
           "key": 7,
           "name": "青少年模式",
           "fastQuery": true,
-          "matchTime": 10000,
-          "actionMaximum": 1,
-          "resetMatch": "app",
-          "rules": [
-            {
-              "activityIds": ".host.activity.MainActivity",
-              "matches": [
-                "[text*=\"青少年模式\"][id=\"com.ximalaya.ting.android:id/host_btn_set\"]",
-                "[id=\"com.ximalaya.ting.android:id/host_dialog_close\"]"
-              ],
-              "snapshotUrls": "https://i.gkd.li/i/12506209"
-            }
-          ],
+          "activityIds": "com.ximalaya.ting.android.host.activity.MainActivity",
+          "snapshotUrls": "https://i.gkd.li/import/12506209",
+          "rules": {
+            "matches": [
+              "[text*=\"青少年模式\"][id=\"com.ximalaya.ting.android:id/host_btn_set\"]",
+              "[id=\"com.ximalaya.ting.android:id/host_dialog_close\"]"
+            ]
+          },
           "enable": false
         },
         {
           "key": 8,
           "name": "局部广告-评论区广告",
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": "com.ximalaya.ting.android.host.activity.MainActivity",
-              "matches": "[id=\"com.ximalaya.ting.android:id/main_ad_close_real\"][visibleToUser=true]",
-              "snapshotUrls": "https://i.gkd.li/i/12869426"
-            }
-          ],
+          "activityIds": "com.ximalaya.ting.android.host.activity.MainActivity",
+          "fastQuery": true,
+          "rules": "[id=\"com.ximalaya.ting.android:id/main_ad_close_real\"][visibleToUser=true]",
+          "snapshotUrls": "https://i.gkd.li/import/12869426",
           "enable": false
         },
         {
+          "key": 9,
+          "enable": false,
+          "name": "局部广告-卡片式广告",
+          "fastQuery": true,
+          "rules": [
+            {
+              "key": 0,
+              "name": "我的页面-点击卡片右上角关闭按钮",
+              "activityIds": "com.ximalaya.ting.android.host.activity.MainActivity",
+              "matches": "[id=\"com.ximalaya.ting.android:id/main_close_layout\"][visibleToUser=true]",
+              "snapshotUrls": [
+                "https://i.gkd.li/import/13194838",
+                "https://i.gkd.li/import/13296565"
+              ]
+            },
+            {
+              "preKeys": 0,
+              "key": 1,
+              "name": "我的页面-点击不感兴趣",
+              "activityIds": "com.ximalaya.ting.android.adsdk.view.DislikeDialog.DislikeBottomDialog",
+              "matches": "[id=\"com.ximalaya.ting.android:id/xm_ad_main_ad_dislike_un_interest\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13194839"
+            },
+            {
+              "key": 2,
+              "name": "有声书分类页面-点击卡片右上角关闭按钮",
+              "activityIds": "com.ximalaya.ting.android.host.activity.SplashAdActivity",
+              "matches": "[id=\"com.ximalaya.ting.android:id/main_iv_dislike\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13334685"
+            }
+          ]
+        },
+        {
+          "enable": false,
           "key": 10,
           "name": "全屏广告-首页-专辑订阅推荐弹窗",
           "fastQuery": true,
           "matchTime": 10000,
           "actionMaximum": 1,
           "resetMatch": "app",
-          "rules": [
-            {
-              "activityIds": "com.ximalaya.ting.android.host.activity.MainActivity",
-              "matches": "[text=\"你可能感兴趣的专辑\"] + [id=\"com.ximalaya.ting.android:id/main_iv_close\"]",
-              "snapshotUrls": "https://i.gkd.li/i/13251713"
-            }
-          ],
-          "enable": false
+          "activityIds": "com.ximalaya.ting.android.host.activity.MainActivity",
+          "rules": "[text=\"你可能感兴趣的专辑\"] + [id=\"com.ximalaya.ting.android:id/main_iv_close\"]",
+          "snapshotUrls": "https://i.gkd.li/import/13251713"
         },
         {
           "key": 11,
           "name": "全屏广告-弹窗广告",
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": "com.ximalaya.ting.android.host.activity.MainActivity",
-              "matches": "@[id=\"com.ximalaya.ting.android:id/host_close_firework\"] +2 [id=\"com.ximalaya.ting.android:id/host_firework_ad_tag\"]",
-              "snapshotUrls": "https://i.gkd.li/i/13263421"
-            }
-          ],
+          "fastQuery": true,
+          "activityIds": "com.ximalaya.ting.android.host.activity.MainActivity",
+          "rules": "@[id=\"com.ximalaya.ting.android:id/host_close_firework\"] +2 [id=\"com.ximalaya.ting.android:id/host_firework_ad_tag\"]",
+          "snapshotUrls": "https://i.gkd.li/import/13263421",
           "enable": false
         },
         {
           "key": 12,
-          "name": "权限提示-通知权限",
+          "name": "全屏广告-推送通知",
           "desc": "取消推送通知",
-          "fastQuery": true,
-          "actionMaximum": 1,
-          "resetMatch": "app",
           "rules": [
             {
-              "activityIds": ".host.activity.MainActivity",
-              "matches": [
-                "[text*=\"通知权限\"][visibleToUser=true]",
-                "[text=\"取消\"][visibleToUser=true]"
-              ],
-              "exampleUrls": "https://e.gkd.li/ab40c096-d024-4b7c-9c6f-245beafd373a",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/13389145",
-                "https://i.gkd.li/i/18391977"
-              ]
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 13,
-          "name": "全屏广告-免流提示",
-          "desc": "关闭[开免流送会员]弹窗",
-          "rules": [
-            {
+              "actionMaximum": 1,
               "fastQuery": true,
-              "activityIds": ".host.activity.MainActivity",
-              "matches": "[vid=\"host_iv_close\"][visibleToUser=true]",
-              "exampleUrls": "https://e.gkd.li/2a7e189b-b935-4bbd-9672-c18f2bf454e9",
-              "snapshotUrls": "https://i.gkd.li/i/18326083"
+              "activityIds": "com.ximalaya.ting.android.host.activity.MainActivity",
+              "matches": "[id=`com.ximalaya.ting.android:id/cancel_btn`]",
+              "exampleUrls": "https://m.gkd.li/33366298/f6ac028a-509b-49d8-959a-7da90fb4d9df",
+              "snapshotUrls": "https://i.gkd.li/import/13389145"
             }
           ],
           "enable": false
@@ -4901,65 +4680,30 @@
       "name": "小红书",
       "groups": [
         {
-          "key": 0,
-          "name": "开屏广告",
-          "fastQuery": true,
-          "matchTime": 10000,
-          "actionMaximum": 1,
-          "resetMatch": "app",
-          "actionMaximumKey": 0,
-          "priorityTime": 10000,
-          "rules": [
-            {
-              "key": 0,
-              "excludeActivityIds": "com.xingin.alioth.search.GlobalSearchActivity",
-              "excludeMatches": "[text=\"首页\"][visibleToUser=true]",
-              "matches": "[text*=\"跳过\"][text.length<10][visibleToUser=true]",
-              "exampleUrls": "https://e.gkd.li/9733ada7-4961-4a9f-b48d-3398ecd05508",
-              "snapshotUrls": "https://i.gkd.li/i/17452158",
-              "excludeSnapshotUrls": "https://i.gkd.li/i/19035037"
-            },
-            {
-              "key": 1,
-              "matches": "[vid=\"splash_count_down_view\"]",
-              "exampleUrls": "https://e.gkd.li/6ed22307-ce1d-479e-8a8d-a6fe4ffa614c",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/17109105",
-                "https://i.gkd.li/i/17108010"
-              ]
-            }
-          ],
-          "order": -10
-        },
-        {
           "key": 1,
-          "name": "权限提示-通知权限",
+          "name": "全屏广告-通知权限弹窗",
           "fastQuery": true,
           "actionMaximum": 1,
+          "matchTime": 30000,
           "resetMatch": "app",
+          "activityIds": [
+            "com.xingin.xhs.index.v2.IndexActivityV2",
+            "com.xingin.xhs.notification.NotificationAuthorizationTranslucentActivity",
+            "com.xingin.matrix.notedetail.r10.comment.r10.NoteCommentActivity"
+          ],
           "rules": [
             {
-              "key": 0,
-              "activityIds": [
-                ".index.v2.IndexActivityV2",
-                ".notification.NotificationAuthorizationTranslucentActivity",
-                "com.xingin.matrix.notedetail.r10.comment.r10.NoteCommentActivity",
-                "com.xingin.authorization.NotificationAuthorizationTranslucentActivity"
-              ],
-              "matches": "@ImageView[clickable=true][visibleToUser=true] - LinearLayout > [text^=\"打开通知\" || text^=\"Enable notifications\"]",
+              "matches": "@ImageView <2 FrameLayout >2 [text^=\"打开通知\"]",
               "snapshotUrls": [
-                "https://i.gkd.li/i/13195753",
-                "https://i.gkd.li/i/13222356",
-                "https://i.gkd.li/i/13255627",
-                "https://i.gkd.li/i/16918033",
-                "https://i.gkd.li/i/18417785"
+                "https://i.gkd.li/import/13195753",
+                "https://i.gkd.li/import/13222356",
+                "https://i.gkd.li/import/13256145",
+                "https://i.gkd.li/import/13255627"
               ]
             },
             {
-              "key": 1,
-              "activityIds": ".index.v2.IndexActivityV2",
               "matches": "@ImageView <2 FrameLayout - [text^=\"打开通知\"]",
-              "snapshotUrls": "https://i.gkd.li/i/13250418"
+              "snapshotUrls": "https://i.gkd.li/import/13250418"
             }
           ],
           "enable": false
@@ -4968,100 +4712,48 @@
           "key": 2,
           "name": "更新提示",
           "fastQuery": true,
-          "matchTime": 10000,
           "actionMaximum": 1,
+          "matchTime": 30000,
           "resetMatch": "app",
-          "actionMaximumKey": 0,
-          "activityIds": [
-            ".index.v2.IndexActivityV2",
-            "com.xingin.update.UpdateDialogActivity"
-          ],
           "rules": [
             {
               "key": 0,
-              "matches": "@ImageView <2 * + * > [text=\"NEW\"]",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/13246890",
-                "https://i.gkd.li/i/13741680",
-                "https://i.gkd.li/i/14445193"
-              ]
+              "matches": "@ImageView[clickable=true] <2 FrameLayout +3 FrameLayout > Button[text=\"立即安装\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13246890"
             },
             {
-              "key": 1,
-              "matches": "Button[text=\"立即安装\"] + Button[text=\"稍后再说\"]",
-              "exampleUrls": "https://e.gkd.li/7064a569-fcdd-44e2-b4d1-c55e093f4a02",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/15283162",
-                "https://i.gkd.li/i/18289347"
-              ]
+              "actionMaximumKey": 0,
+              "matches": "@ImageView[clickable=true] <2 FrameLayout +3 FrameLayout > Button[text=\"立即参与内测\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13741680"
             }
           ],
           "enable": false
         },
         {
+          "enable": false,
           "key": 3,
-          "name": "分段广告-信息流广告",
-          "desc": "长按\"赞助\"/\"广告\"标识的卡片-点\"不感兴趣\"",
+          "name": "局部广告-信息流广告",
+          "desc": "长按【赞助】/【广告】标识的卡片-点【不感兴趣】",
           "fastQuery": true,
           "activityIds": "com.xingin.xhs.index.v2.IndexActivityV2",
           "rules": [
             {
               "key": 0,
               "action": "longClick",
-              "name": "长按\"赞助\"/\"广告\"卡片",
-              "excludeMatches": "RecyclerView > LinearLayout > [text^=\"不喜欢\"]",
-              "matches": "@FrameLayout[clickable=true] > LinearLayout TextView[text=\"赞助\"||text=\"广告\"][visibleToUser=true]",
+              "name": "长按【赞助】/【广告】卡片",
+              "matches": "@FrameLayout[clickable=true] > LinearLayout TextView[text=\"赞助\"||text=\"广告\"]",
               "snapshotUrls": [
-                "https://i.gkd.li/i/13455503",
-                "https://i.gkd.li/i/13470690",
-                "https://i.gkd.li/i/14392171"
+                "https://i.gkd.li/import/13455503",
+                "https://i.gkd.li/import/13470690"
               ]
             },
             {
-              "preKeys": [
-                0
-              ],
-              "name": "点\"不感兴趣\"",
-              "matches": "RecyclerView > @LinearLayout[index=0] > TextView[text^=\"不喜欢\"]",
-              "snapshotUrls": [
-                "https://i.gkd.li/i/13455500",
-                "https://i.gkd.li/i/14392187"
-              ]
+              "preKeys": 0,
+              "name": "点【不感兴趣】",
+              "matches": "RecyclerView > @LinearLayout > TextView[text=\"不喜欢该内容\"]",
+              "snapshotUrls": "https://i.gkd.li/import/13455500"
             }
-          ],
-          "enable": false
-        },
-        {
-          "key": 4,
-          "name": "全屏广告-优惠券弹窗",
-          "rules": [
-            {
-              "key": 0,
-              "fastQuery": true,
-              "activityIds": "com.xingin.reactnative.ui.XhsReactTranslucentActivity",
-              "matches": "@ImageView[visibleToUser=true] < * -2 * > [text=\"你有新人券待领取\"]",
-              "snapshotUrls": "https://i.gkd.li/i/14391484"
-            }
-          ],
-          "enable": false
-        },
-        {
-          "key": 5,
-          "name": "评价提示-评分弹窗",
-          "desc": "返回关闭弹窗",
-          "fastQuery": true,
-          "actionMaximum": 1,
-          "resetMatch": "app",
-          "rules": [
-            {
-              "action": "back",
-              "activityIds": "com.xingin.lurker.appscore.ui.AppScoreDialogActivity",
-              "matches": "[text=\"您对小红书的评分如何?\"]",
-              "exampleUrls": "https://m.gkd.li/57941037/9727815d-b881-4904-bbdc-19ade426977e",
-              "snapshotUrls": "https://i.gkd.li/i/15281458"
-            }
-          ],
-          "enable": false
+          ]
         }
       ]
     },
@@ -5071,29 +4763,29 @@
       "groups": [
         {
           "key": 0,
-          "name": "局部广告-\"用语雀公众号\"横幅提示",
+          "name": "全屏广告-横幅提示",
           "desc": "点x取消提示",
+          "activityIds": "com.yuque.mobile.android.app.rn.activity.ReactNativeMainActivity",
           "rules": [
             {
-              "activityIds": "com.yuque.mobile.android.app.rn.activity.ReactNativeMainActivity",
               "matches": "TextView[text=\"了解更多\"] + ViewGroup[clickable=true]",
-              "snapshotUrls": "https://i.gkd.li/i/12911014"
+              "snapshotUrls": "https://i.gkd.li/import/12911014"
             }
           ],
           "enable": false
         },
         {
+          "enable": false,
           "key": 1,
           "name": "功能类-自动原图",
           "desc": "如果没有勾选原图, 则勾选",
+          "activityIds": "com.yuque.mobile.android.app.rn.activity.ReactNativeMainActivity",
           "rules": [
             {
-              "activityIds": "com.yuque.mobile.android.app.rn.activity.ReactNativeMainActivity",
               "matches": "ViewGroup[desc=\"原图未勾选\"][clickable=true][childCount=2]",
-              "snapshotUrls": "https://i.gkd.li/i/12911013"
+              "snapshotUrls": "https://i.gkd.li/import/12911013"
             }
-          ],
-          "enable": false
+          ]
         }
       ]
     },
