@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-25T23:20:12.569Z",
+  "generatedAt": "2026-09-26T22:57:30.663Z",
   "installedPackageCount": 563,
   "selectedAppCount": 32,
   "globalGroupsSource": "AIsouler",
@@ -18,10 +18,10 @@
       "source": "aoguai",
       "dist": ".cache/gkd-repos/aoguai-custom/dist/aoguai_gkd.json5",
       "subscription": "奥怪的GKD订阅",
-      "version": 88,
+      "version": 89,
       "apps": 72,
       "matched": 11,
-      "selected": 9
+      "selected": 10
     },
     {
       "source": "ganlinte",
@@ -30,7 +30,7 @@
       "version": 72,
       "apps": 610,
       "matched": 22,
-      "selected": 16
+      "selected": 15
     },
     {
       "source": "MengNianxiaoyao",
@@ -39,7 +39,7 @@
       "version": 77,
       "apps": 285,
       "matched": 23,
-      "selected": 9
+      "selected": 6
     },
     {
       "source": "jiuqianyuan",
@@ -154,14 +154,14 @@
     },
     {
       "id": "com.eg.android.AlipayGphone",
-      "source": "MengNianxiaoyao",
-      "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1786349196,
+      "source": "aoguai",
+      "subscription": "奥怪的GKD订阅",
+      "timestamp": 1790404447,
       "richness": {
         "groups": 12,
         "rules": 25,
-        "urls": 72,
-        "score": 12966
+        "urls": 73,
+        "score": 12969
       },
       "preferred": false
     },
@@ -297,14 +297,14 @@
     },
     {
       "id": "com.netease.cloudmusic",
-      "source": "ganlinte",
-      "subscription": "甘霖的GKD订阅",
-      "timestamp": 1779169897,
+      "source": "aoguai",
+      "subscription": "奥怪的GKD订阅",
+      "timestamp": 1790412896,
       "richness": {
-        "groups": 11,
-        "rules": 23,
-        "urls": 36,
-        "score": 11798
+        "groups": 5,
+        "rules": 12,
+        "urls": 44,
+        "score": 5492
       },
       "preferred": false
     },
@@ -375,14 +375,14 @@
     },
     {
       "id": "com.tencent.mm",
-      "source": "MengNianxiaoyao",
-      "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1786349196,
+      "source": "aoguai",
+      "subscription": "奥怪的GKD订阅",
+      "timestamp": 1790404507,
       "richness": {
         "groups": 14,
         "rules": 43,
-        "urls": 169,
-        "score": 15797
+        "urls": 170,
+        "score": 15800
       },
       "preferred": false
     },
@@ -401,14 +401,14 @@
     },
     {
       "id": "com.twitter.android",
-      "source": "MengNianxiaoyao",
-      "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1786349196,
+      "source": "aoguai",
+      "subscription": "奥怪的GKD订阅",
+      "timestamp": 1790404579,
       "richness": {
         "groups": 4,
         "rules": 9,
-        "urls": 21,
-        "score": 4333
+        "urls": 22,
+        "score": 4336
       },
       "preferred": false
     },
