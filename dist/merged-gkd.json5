@@ -1,7 +1,7 @@
 {
   "id": 9527,
   "name": "GKD 手机应用精简合并订阅",
-  "version": 20260926,
+  "version": 20260927,
   "author": "local-merge",
   "checkUpdateUrl": "./merged-gkd.version.json5",
   "supportUri": "https://github.com/",
@@ -170,6 +170,10 @@
           "enable": false
         },
         {
+          "id": "com.openai.chatgpt",
+          "enable": false
+        },
+        {
           "id": "com.android.chrome",
           "enable": false
         },
@@ -183,10 +187,6 @@
         },
         {
           "id": "com.microsoft.office.outlook",
-          "enable": false
-        },
-        {
-          "id": "deltazero.amarok",
           "enable": false
         },
         {
@@ -365,6 +365,10 @@
           "enable": false
         },
         {
+          "id": "com.openai.chatgpt",
+          "enable": false
+        },
+        {
           "id": "com.android.chrome",
           "enable": false
         },
@@ -378,10 +382,6 @@
         },
         {
           "id": "com.microsoft.office.outlook",
-          "enable": false
-        },
-        {
-          "id": "deltazero.amarok",
           "enable": false
         },
         {
@@ -555,6 +555,10 @@
           "enable": false
         },
         {
+          "id": "com.openai.chatgpt",
+          "enable": false
+        },
+        {
           "id": "com.android.chrome",
           "enable": false
         },
@@ -568,10 +572,6 @@
         },
         {
           "id": "com.microsoft.office.outlook",
-          "enable": false
-        },
-        {
-          "id": "deltazero.amarok",
           "enable": false
         },
         {
@@ -1764,20 +1764,6 @@
       ]
     },
     {
-      "id": "com.google.android.apps.youtube.music",
-      "name": "YouTube Music",
-      "groups": [
-        {
-          "key": 1,
-          "name": "局部广告-播放界面广告",
-          "activityIds": "com.google.android.apps.youtube.music.activities.MusicActivity",
-          "rules": "[id=\"com.google.android.apps.youtube.music:id/skip_ad_text\"]",
-          "snapshotUrls": "https://i.gkd.li/import/13196056",
-          "enable": false
-        }
-      ]
-    },
-    {
       "id": "com.google.android.documentsui",
       "name": "Android 系统文件选择器",
       "groups": [
@@ -2822,39 +2808,18 @@
       ]
     },
     {
-      "id": "com.qihoo.smart",
-      "name": "360智慧生活",
+      "id": "com.openai.chatgpt",
+      "name": "ChatGPT",
       "groups": [
         {
           "key": 1,
-          "name": "局部广告-云录像会员广告",
-          "desc": "点击关闭",
+          "name": "通知提示-套餐限额提示",
           "rules": [
             {
-              "position": {
-                "left": "width * 0.9402",
-                "top": "width * 0.0590"
-              },
-              "activityIds": "com.qihoo.main.flutter.SmartHomeFlutterActivity",
-              "matches": "@View[id=\"root\"][visibleToUser=true] > View > [text^=\"服务时间\"] +6 [desc=\"支付宝\"]",
-              "exampleUrls": "https://e.gkd.li/1106858a-bb22-4583-b238-fe270733b5fe",
-              "snapshotUrls": "https://i.gkd.li/i/18354637"
-            }
-          ]
-        },
-        {
-          "key": 2,
-          "name": "更新提示",
-          "matchTime": 10000,
-          "actionMaximum": 1,
-          "resetMatch": "app",
-          "rules": [
-            {
-              "fastQuery": true,
-              "activityIds": "com.qihoo.main.flutter.SmartHomeFlutterActivity",
-              "matches": "[vid=\"sh_app_upgrade_dialog_close\"][visibleToUser=true]",
-              "exampleUrls": "https://e.gkd.li/19a460f5-5fe0-41b1-8def-65e23804a8fd",
-              "snapshotUrls": "https://i.gkd.li/i/19499314"
+              "key": 0,
+              "activityIds": ".MainActivity",
+              "matches": "[text*=\"套餐限额\"] + @View[clickable=true] > [desc=\"关闭\"][visibleToUser=true]",
+              "snapshotUrls": "https://i.gkd.li/i/24996012"
             }
           ]
         }
