@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T23:46:01.450Z",
+  "generatedAt": "2026-09-30T23:56:17.530Z",
   "installedPackageCount": 557,
   "selectedAppCount": 31,
   "globalGroupsSource": "AIsouler",
@@ -117,7 +117,7 @@
       "id": "com.android.vending",
       "source": "MengNianxiaoyao",
       "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1776476209,
+      "timestamp": 1776523896,
       "richness": {
         "groups": 2,
         "rules": 3,
@@ -208,7 +208,7 @@
       "id": "com.google.android.gms",
       "source": "MengNianxiaoyao",
       "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1776476209,
+      "timestamp": 1776523896,
       "richness": {
         "groups": 1,
         "rules": 2,
@@ -221,7 +221,7 @@
       "id": "com.google.android.packageinstaller",
       "source": "MengNianxiaoyao",
       "subscription": "梦念逍遥のGKD订阅",
-      "timestamp": 1776476209,
+      "timestamp": 1776523896,
       "richness": {
         "groups": 2,
         "rules": 5,
